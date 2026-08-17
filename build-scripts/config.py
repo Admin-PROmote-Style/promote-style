@@ -114,7 +114,7 @@ HERO_BADGE = "FREE SEO RESOURCES, NO STRINGS"
 # SEO resource on the internet -- built by people who actually build
 # SEO-ready sites," which read as too much text / too promotional for an
 # education-first site.
-HERO_H1    = 'FREE <span class="grad">SEO resources</span><br>built by people who build SEO-ready sites.'
+HERO_H1    = 'FREE <span class="grad">SEO resources</span><br>built by people who build<br><span class="grad">SEO-ready sites</span>.'
 HERO_SUB   = ("Real tips, real keyword research, real setup guides — free. No email wall, no drip "
               "campaign. If you like what you learn here, ask us about a site built this way from day one.")
 
