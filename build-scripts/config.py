@@ -82,11 +82,16 @@ COLORS = {
     "ink":            "#050810",
 }
 
-FONT_HEADING      = "Space Grotesk"
-FONT_BODY         = "Inter"
+# 2026-08-17: corrected to match what's actually live on maintain.style and
+# client.style -- both were switched to Poppins (single family, not a
+# heading/body pairing) in a prior session; the local mounted copy of
+# SITE/build-scripts/config.py and the Promote_Style_Brand_Basics.docx were
+# both stale/out of date on this point. Verified directly against the live
+# sites' computed styles and network requests, not the local files.
+FONT_HEADING      = "Poppins"
+FONT_BODY         = "Poppins"
 GOOGLE_FONTS_HREF = ("https://fonts.googleapis.com/css2?"
-                     "family=Space+Grotesk:wght@500;600;700"
-                     "&family=Inter:wght@400;500;600;700&display=swap")
+                     "family=Poppins:wght@400;500;600;700;800&display=swap")
 
 # ----------------------------------------------------------------------------
 # Nav
