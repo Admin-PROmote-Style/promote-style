@@ -37,16 +37,6 @@ BASICS_JUMP_ITEMS = [
     ("mistakes", "Common Mistakes", "Errores Comunes"),
 ]
 
-import re as _re
-
-def _reading_minutes(*html_blocks):
-    """Rough estimate: strip tags, count words, ~200 wpm, minimum 1 minute."""
-    words = 0
-    for block in html_blocks:
-        text = _re.sub(r"<[^>]+>", " ", block)
-        words += len(text.split())
-    return max(1, round(words / 200))
-
 def basics_do_first():
     steps = CC.steps_list([
         ("Confirm the site is indexed", "Search <code>site:yourdomain.com</code> on Google — nothing showing up "
@@ -312,15 +302,8 @@ def panel_basics():
     tools = basics_tools()
     mistakes = basics_mistakes()
     checklist = basics_do_first()
-    mins = _reading_minutes(foundations, keywords, backlinks, tools, mistakes, checklist)
-    reading_time = (
-        f'<div class="wrap" style="text-align:center;margin:-6px 0 18px">'
-        f'<span style="color:var(--cream-muted);font-size:13px" data-es="Lectura de ~{mins} min">'
-        f'~{mins} min read</span></div>'
-    )
     body = (
         CC.jump_nav(BASICS_JUMP_ITEMS)
-        + reading_time
         + checklist
         + foundations
         + keywords
