@@ -171,9 +171,10 @@ COMPARISON_ITEMS = [
 # 2026-08-17: SEO Basics / Built SEO-Ready / Business Listings are now three
 # tabs on one page (seo-101.html) instead of three separate pages -- hrefs
 # below deep-link straight to the right tab via hash.
+# 2026-08-17: dropped PILLARS_SUB per George's request -- the h2 alone
+# carries the section, matching the earlier COMPARISON_SUB removal.
 PILLARS_TAG = "START HERE"
-PILLARS_H2  = "One page, three tabs — pick your starting point"
-PILLARS_SUB = "New to SEO, evaluating a site build, or just need your business to show up on Google — jump straight to the right tab."
+PILLARS_H2  = "One page, three tabs<br>— pick your starting point"
 
 PILLARS = [
     dict(href="seo-101.html#basics", label="SEO BASICS", title="Never done SEO before?",

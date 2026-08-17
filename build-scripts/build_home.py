@@ -31,8 +31,7 @@ def pillars():
         f'<h3>{p["title"]}</h3><p>{p["desc"]}</p></a>'
         for p in C.PILLARS)
     return f"""<section class="sec" id="pillars"><div class="wrap">
-  <div class="sec-head"><span class="sec-tag">{C.PILLARS_TAG}</span><h2>{C.PILLARS_H2}</h2>
-  <p class="lead">{C.PILLARS_SUB}</p></div>
+  <div class="sec-head"><span class="sec-tag">{C.PILLARS_TAG}</span><h2>{C.PILLARS_H2}</h2></div>
   <div class="cards">{cards}</div>
 </div></section>"""
 
