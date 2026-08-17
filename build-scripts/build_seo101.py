@@ -34,6 +34,7 @@ BASICS_JUMP_ITEMS = [
     ("keywords", "Keywords"),
     ("backlinks", "Backlinks & Authority"),
     ("tools", "Free Tools"),
+    ("mistakes", "Common Mistakes", "Errores Comunes"),
 ]
 
 def basics_foundations():
@@ -56,7 +57,35 @@ def basics_foundations():
             "below — it's still one of the strongest ranking signals there is."),
         CC.topic("Is SEO still worth it with AI search?", "Yes — the fundamentals didn't change",
             "AI Overviews and chat-based search change how results get presented, not whether search engines "
-            "need to figure out what a page is about and whether to trust it. The mechanics underneath are the same."),
+            "need to figure out what a page is about and whether to trust it. The mechanics underneath are the "
+            "same — write answer-first content, use clear headings, and spell out the actual answer in plain "
+            "sentences instead of burying it. That's what gets pulled into an AI summary or answer box.",
+            q_es="¿El SEO todavía vale la pena con la búsqueda por IA?",
+            h3_es="Sí — lo esencial no cambió",
+            body_es="Los resúmenes de IA y la búsqueda conversacional cambian cómo se presentan los resultados, "
+            "no si los motores de búsqueda necesitan entender de qué trata una página y si pueden confiar en "
+            "ella. La mecánica de fondo es la misma: escribe contenido que responda directo, usa encabezados "
+            "claros y da la respuesta real en oraciones simples en vez de esconderla. Eso es lo que termina "
+            "apareciendo en un resumen o cuadro de respuesta de IA."),
+        CC.topic("Is my site even indexed?", "A ten-second gut check",
+            "Search <code>site:yourdomain.com</code> on Google. If nothing shows up, Google hasn't indexed your "
+            "site yet — meaning it can't rank for anything, no matter how good the content is. Worth checking "
+            "before troubleshooting anything else.",
+            q_es="¿Mi sitio siquiera está indexado?",
+            h3_es="Una revisión de diez segundos",
+            body_es="Busca <code>site:tudominio.com</code> en Google. Si no aparece nada, Google todavía no "
+            "indexó tu sitio — lo que significa que no puede posicionarse para nada, sin importar qué tan bueno "
+            "sea el contenido. Vale la pena revisarlo antes de solucionar cualquier otra cosa."),
+        CC.topic("What do I actually fix first?", "Work in this order",
+            "Roughly: can Google reach and read the page at all, does the content actually answer something "
+            "real, does it use words people search for, is it fast and usable on mobile — then worry about "
+            "backlinks and structured data. Most beginners jump straight to the last two first.",
+            q_es="¿Qué debo arreglar primero?",
+            h3_es="Trabaja en este orden",
+            body_es="En términos generales: si Google puede llegar a la página y leerla, si el contenido "
+            "realmente responde algo real, si usa las palabras que la gente busca, si es rápida y funciona "
+            "bien en el celular — y después preocúpate por los backlinks y los datos estructurados. La mayoría "
+            "de los principiantes saltan directo a estos dos últimos."),
     ])
     return CC.cluster("foundations", "START HERE", "Foundations",
         "The handful of concepts everything else in SEO builds on top of.", topics)
@@ -86,6 +115,18 @@ def basics_keywords():
             "List every word or phrase a real customer might type — as broad as you want at first. Then run "
             "that list through a free tool (see below) to see actual volume and difficulty before you write "
             "a single word of content."),
+        CC.topic("Not every keyword wants the same thing", "Match the keyword to the right page",
+            "A search that sounds ready to buy or book should land on a page that lets them actually do that — "
+            "not a blog post. A search that sounds like someone learning wants an explanation, not a sales "
+            "pitch. Sending the wrong intent to the wrong page is a quiet, common way to lose a visitor who "
+            "was already interested.",
+            q_es="No toda palabra clave busca lo mismo",
+            h3_es="Empareja la palabra clave con la página correcta",
+            body_es="Una búsqueda que suena lista para comprar o reservar debería llevar a una página donde la "
+            "persona pueda hacerlo de verdad — no a un artículo de blog. Una búsqueda que suena a alguien "
+            "aprendiendo quiere una explicación, no un discurso de venta. Mandar la intención equivocada a la "
+            "página equivocada es una forma silenciosa y común de perder a un visitante que ya estaba "
+            "interesado."),
     ])
     return CC.cluster("keywords", "THE CORE SKILL", "Keywords: finding what people actually search",
         "This is the part most beginners skip past — and the part that matters most.", topics)
@@ -124,9 +165,70 @@ def basics_tools():
         CC.topic("Google Trends", "Is interest in a topic rising or falling?",
             "Free, and useful for timing content — spotting seasonal patterns or a topic on its way up before "
             "it peaks."),
+        CC.topic("How do I check if my site is fast enough?", "PageSpeed Insights (free, from Google)",
+            "Tests your site against Google's three Core Web Vitals: LCP (loading — under 2.5 seconds is good), "
+            "INP (responsiveness — under 200 milliseconds), and CLS (visual stability — under 0.1). These are "
+            "the actual thresholds Google measures, not vague \"make it faster\" advice.",
+            q_es="¿Cómo sé si mi sitio es lo bastante rápido?",
+            h3_es="PageSpeed Insights (gratis, de Google)",
+            body_es="Evalúa tu sitio con las tres Core Web Vitals de Google: LCP (carga — menos de 2.5 segundos "
+            "es bueno), INP (capacidad de respuesta — menos de 200 milisegundos) y CLS (estabilidad visual — "
+            "menos de 0.1). Estos son los umbrales reales que mide Google, no un consejo vago de \"hazlo más "
+            "rápido\"."),
     ])
     return CC.cluster("tools", "GET SET UP", "Free tools worth using today",
         "No budget required to start doing this properly.", topics)
+
+def basics_mistakes():
+    topics = "".join([
+        CC.topic("TOO COMPETITIVE", "Targeting keywords you can't realistically win yet",
+            "Going straight for the highest-volume term in your industry means competing with sites that have "
+            "a decade of authority. Long-tail terms win faster, and add up.",
+            q_es="DEMASIADO COMPETIDO", h3_es="Apuntar a palabras clave que todavía no puedes ganar",
+            body_es="Ir directo por el término de mayor volumen de tu industria significa competir con sitios "
+            "que llevan una década construyendo autoridad. Los términos de cola larga ganan más rápido, y se "
+            "acumulan."),
+        CC.topic("TOO THIN", "Service pages with no real detail",
+            "A page that just names a service without explaining it, who it's for, or what it costs gives "
+            "search engines (and visitors) nothing to work with.",
+            q_es="DEMASIADO SUPERFICIAL", h3_es="Páginas de servicio sin detalle real",
+            body_es="Una página que solo nombra un servicio sin explicarlo, para quién es o cuánto cuesta no "
+            "le da nada con qué trabajar a los motores de búsqueda (ni a los visitantes)."),
+        CC.topic("NO NEXT STEP", "No clear call-to-action on the homepage",
+            "If a visitor has to hunt for how to contact or buy from you, most of them won't bother — and "
+            "that's true whether they found you through search or anywhere else.",
+            q_es="SIN SIGUIENTE PASO", h3_es="Sin un llamado a la acción claro en la página de inicio",
+            body_es="Si un visitante tiene que buscar cómo contactarte o comprarte, la mayoría no se va a "
+            "molestar — y eso es cierto sin importar cómo te encontraron."),
+        CC.topic("FLYING BLIND", "No analytics or way to see what's working",
+            "Without Search Console and GA4 (both free, both covered above) there's no way to tell which pages "
+            "are working and which are quietly failing.",
+            q_es="VOLANDO A CIEGAS", h3_es="Sin analítica ni forma de ver qué está funcionando",
+            body_es="Sin Search Console y GA4 (ambos gratis, ambos cubiertos arriba) no hay forma de saber "
+            "qué páginas están funcionando y cuáles están fallando en silencio."),
+        CC.topic("LEFT BEHIND", "A slow, outdated site",
+            "Speed and mobile usability are ranking factors, not just nice-to-haves — see the Core Web Vitals "
+            "tool above.",
+            q_es="QUEDÁNDOSE ATRÁS", h3_es="Un sitio lento y desactualizado",
+            body_es="La velocidad y la usabilidad en celular son factores de posicionamiento, no solo un "
+            "plus — mira la herramienta de Core Web Vitals arriba."),
+        CC.topic("INVISIBLE", "Ignoring free business listings",
+            "Skipping Google Business Profile and the other free listings covered in the Business Listings "
+            "tab is one of the most common, most avoidable gaps.",
+            q_es="INVISIBLE", h3_es="Ignorar los listados de negocio gratuitos",
+            body_es="Saltarse Google Business Profile y los demás listados gratuitos cubiertos en la pestaña "
+            "de Listados de Negocio es uno de los vacíos más comunes y más fáciles de evitar."),
+        CC.topic("ONE CHANNEL", "Relying on social media alone",
+            "Social posts stop reaching people the moment you stop posting. A page that ranks organically "
+            "keeps working in the background, indefinitely.",
+            q_es="UN SOLO CANAL", h3_es="Depender solo de redes sociales",
+            body_es="Las publicaciones en redes dejan de llegarle a la gente en cuanto dejas de publicar. Una "
+            "página que se posiciona de forma orgánica sigue trabajando en segundo plano, indefinidamente."),
+    ])
+    return CC.cluster("mistakes", "AVOID THESE", "Common mistakes that quietly cost the most",
+        "None of these are complicated to fix — they're just easy to overlook.", topics,
+        tag_es="EVITA ESTO", h2_es="Los errores comunes que más cuestan, sin que se note",
+        lead_es="Ninguno de estos es complicado de arreglar — solo son fáciles de pasar por alto.")
 
 def panel_basics():
     body = (
@@ -135,6 +237,7 @@ def panel_basics():
         + basics_keywords()
         + basics_backlinks()
         + basics_tools()
+        + basics_mistakes()
     )
     return f'<div class="tab-panel" id="tab-basics" data-panel="basics">{body}</div>'
 
@@ -194,10 +297,52 @@ def built_comparison():
   <div class="topic-grid">{cards}</div>
 </div></section>"""
 
+UPGRADE_SIGNS = [
+    ("Loads slowly",
+     "Every extra second before a page is usable costs visitors, and Google measures it directly (see Core Web Vitals in the SEO Basics tab).",
+     "Carga lento",
+     "Cada segundo extra antes de que una página sea usable cuesta visitantes, y Google lo mide directamente (ver Core Web Vitals en la pestaña de SEO Basics)."),
+    ("Hard to update yourself",
+     "If changing a price or a photo means calling someone and waiting days, the site is working against you, not for you.",
+     "Difícil de actualizar tú mismo",
+     "Si cambiar un precio o una foto significa llamar a alguien y esperar días, el sitio está trabajando en tu contra, no a tu favor."),
+    ("Doesn't convert visitors",
+     "Traffic that never turns into a call, booking, or sale is a leak, not a win.",
+     "No convierte visitantes",
+     "El tráfico que nunca se convierte en una llamada, una reserva o una venta es una fuga, no una ganancia."),
+    ("Isn't mobile-friendly",
+     "Google ranks the mobile version of a site first -- if that experience is broken, everything else on this list matters less.",
+     "No es amigable con el celular",
+     "Google posiciona primero la versión para celular de un sitio -- si esa experiencia está rota, todo lo demás en esta lista importa menos."),
+    ("Missing basic pages",
+     "No clear services page, no easy way to contact you, or pages built for a business that no longer exists.",
+     "Faltan páginas básicas",
+     "Sin una página clara de servicios, sin una forma fácil de contactarte, o páginas hechas para un negocio que ya no existe."),
+    ("Feels outdated or confusing",
+     "Visitors judge trustworthiness fast. A site that looks abandoned reads as a business that might be too.",
+     "Se siente desactualizado o confuso",
+     "Los visitantes juzgan la confiabilidad rápido. Un sitio que se ve abandonado se lee como un negocio que también podría estarlo."),
+]
+
+def built_upgrade_signs():
+    cards = "".join(
+        f'<div class="topic"><h3{CC._es_attr(t_es)}>{t}</h3><p{CC._es_html_attr(d_es)}>{d}</p></div>'
+        for t, d, t_es, d_es in UPGRADE_SIGNS)
+    tag_attr = CC._es_attr("VALE LA PENA PREGUNTAR")
+    h2_attr = CC._es_html_attr("Señales de que podría ser hora de actualizar")
+    lead_attr = CC._es_attr("Ninguna de estas significa empezar de cero -- solo vale la pena mirarlas con honestidad.")
+    return f"""<section class="sec cluster"><div class="wrap">
+  <div class="cluster-head"><span class="sec-tag"{tag_attr}>WORTH ASKING</span>
+  <h2{h2_attr}>Signs it might be time to upgrade</h2>
+  <p class="lead"{lead_attr}>None of these mean start over from scratch -- they're just worth an honest look.</p></div>
+  <div class="topic-grid">{cards}</div>
+</div></section>"""
+
 def panel_built():
     body = (
         built_tech_grid()
         + built_comparison()
+        + built_upgrade_signs()
         + f'<section class="sec"><div class="wrap"><div class="prose">'
           + CC.tip_box("WORTH KNOWING",
                 "None of this replaces content and keyword work covered in the "
@@ -224,10 +369,19 @@ def listings_google():
         ("Complete the profile after verifying", "Add photos, a description, services/products, and keep "
          "hours current -- an unverified or empty profile ranks worse than a complete one."),
     ])
+    tip = CC.tip_box("AFTER YOU'RE SET UP",
+        "Reviews matter more when they arrive steadily over time than in one sudden burst -- a pile of reviews "
+        "all posted the same week can actually look suspicious to both customers and Google. Asking happy "
+        "customers as you go beats a one-time push.",
+        label_es="DESPUÉS DE CONFIGURARLO",
+        es=["Las reseñas importan más cuando llegan de forma constante a lo largo del tiempo que en una sola "
+            "ráfaga -- un montón de reseñas publicadas la misma semana puede parecer sospechoso tanto para "
+            "los clientes como para Google. Pedirlas sobre la marcha a clientes contentos funciona mejor que "
+            "un solo empujón puntual."])
     return f"""<section class="sec cluster" id="google"><div class="wrap">
   <div class="cluster-head"><span class="sec-tag">MOST IMPORTANT</span><h2>Google Business Profile</h2>
   <p class="lead">The single highest-impact listing for local search and Google Maps -- do this one first if you do nothing else.</p></div>
-  <div class="prose">{steps}</div>
+  <div class="prose">{steps}{tip}</div>
 </div></section>"""
 
 def listings_bing():
@@ -300,7 +454,7 @@ def tabs_nav():
 
 def tabs_script():
     return """<script>(function(){
-  var MAP = {basics:['foundations','keywords','backlinks','tools'],
+  var MAP = {basics:['foundations','keywords','backlinks','tools','mistakes'],
              built:['whats-included'],
              listings:['google','bing','apple','nap']};
   var tabs = Array.prototype.slice.call(document.querySelectorAll('.tab-btn'));

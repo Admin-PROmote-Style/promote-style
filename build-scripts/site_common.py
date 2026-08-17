@@ -306,6 +306,8 @@ NAV_LABELS_ES = {
     "Home": "Inicio",
     "Portfolio": "Portafolio",
     "Plans": "Planes",
+    "SEO 101": "Fundamentos SEO",
+    # "mAIntAIn Style" intentionally omitted -- it's a brand name, not translated.
 }
 
 def _es_attr(label):

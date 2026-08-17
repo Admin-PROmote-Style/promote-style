@@ -10,6 +10,20 @@ fixed scaffolding doesn't need to cover (client sites are short marketing
 pages, not long-form guides).
 """
 
+import html as _html
+
+def _esc(s):
+    return _html.escape(s, quote=True) if s else ""
+
+def _es_attr(text):
+    """textContent-swap attribute for plain-text fields."""
+    return f' data-es="{_esc(text)}"' if text else ""
+
+def _es_html_attr(text):
+    """innerHTML-swap attribute for fields that may contain inline markup
+    (e.g. <code>, <strong>). Safe for plain text too."""
+    return f' data-es-html="{_esc(text)}"' if text else ""
+
 def content_css():
     return """
 .article-hero{padding:64px 0 48px;text-align:center}
@@ -57,33 +71,50 @@ def content_css():
 @media(max-width:600px){.tabs-nav{gap:8px}.tab-btn{padding:10px 18px;font-size:13px}}
 """
 
-def article_hero(tag, h1, lead):
+def article_hero(tag, h1, lead, tag_es=None, h1_es=None, lead_es=None):
     return f"""<section class="article-hero"><div class="wrap">
-  <span class="badge-pill">{tag}</span><h1>{h1}</h1><p class="lead">{lead}</p>
+  <span class="badge-pill"{_es_attr(tag_es)}>{tag}</span><h1{_es_html_attr(h1_es)}>{h1}</h1><p class="lead"{_es_attr(lead_es)}>{lead}</p>
 </div></section>"""
 
 def jump_nav(items):
-    links = "".join(f'<a href="#{anchor}">{label}</a>' for anchor, label in items)
+    """items: list of (anchor, label) or (anchor, label, label_es).
+    Spanish translation is opt-in per item -- untranslated items are simply
+    left in English when the ESP toggle is on, until they're backfilled."""
+    def _link(item):
+        anchor, label = item[0], item[1]
+        label_es = item[2] if len(item) > 2 else None
+        return f'<a href="#{anchor}"{_es_attr(label_es)}>{label}</a>'
+    links = "".join(_link(i) for i in items)
     return f'<div class="wrap"><nav class="jump-nav">{links}</nav></div>'
 
-def cluster(anchor, tag, h2, lead, topics_html):
+def cluster(anchor, tag, h2, lead, topics_html, tag_es=None, h2_es=None, lead_es=None):
     return f"""<section class="sec cluster" id="{anchor}"><div class="wrap">
-  <div class="cluster-head"><span class="sec-tag">{tag}</span><h2>{h2}</h2><p class="lead">{lead}</p></div>
+  <div class="cluster-head"><span class="sec-tag"{_es_attr(tag_es)}>{tag}</span><h2{_es_html_attr(h2_es)}>{h2}</h2><p class="lead"{_es_attr(lead_es)}>{lead}</p></div>
   <div class="topic-grid">{topics_html}</div>
 </div></section>"""
 
-def topic(q, h3, body):
-    return f'<div class="topic"><span class="q">{q}</span><h3>{h3}</h3><p>{body}</p></div>'
+def topic(q, h3, body, q_es=None, h3_es=None, body_es=None):
+    return f'<div class="topic"><span class="q"{_es_attr(q_es)}>{q}</span><h3{_es_attr(h3_es)}>{h3}</h3><p{_es_html_attr(body_es)}>{body}</p></div>'
 
-def tip_box(label, *paragraphs):
-    body = "".join(f"<p>{p}</p>" for p in paragraphs)
-    return f'<div class="tip-box"><span class="lbl">{label}</span>{body}</div>'
+def tip_box(label, *paragraphs, label_es=None, es=None):
+    """es: optional list of Spanish paragraph strings, same order as paragraphs.
+    Missing/short entries just stay English until translated."""
+    parts = []
+    for i, p in enumerate(paragraphs):
+        p_es = es[i] if es and i < len(es) else None
+        parts.append(f'<p{_es_html_attr(p_es)}>{p}</p>')
+    return f'<div class="tip-box"><span class="lbl"{_es_attr(label_es)}>{label}</span>{"".join(parts)}</div>'
 
-def steps_list(steps):
-    items = "".join(
-        f'<div class="step"><div class="n"></div><div class="body"><h4>{t}</h4><p>{d}</p></div></div>'
-        for t, d in steps)
-    return f'<div class="steps-list">{items}</div>'
+def steps_list(steps, steps_es=None):
+    """steps_es: optional list of (title_es, desc_es) tuples parallel to steps."""
+    items = []
+    for i, (t, d) in enumerate(steps):
+        t_es, d_es = (steps_es[i] if steps_es and i < len(steps_es) else (None, None))
+        items.append(
+            f'<div class="step"><div class="n"></div><div class="body">'
+            f'<h4{_es_attr(t_es)}>{t}</h4><p{_es_html_attr(d_es)}>{d}</p></div></div>')
+    return f'<div class="steps-list">{"".join(items)}</div>'
 
-def inline_cta(text, href, label):
-    return f'<div class="inline-cta"><p>{text}</p><a class="btn btn-primary" href="{href}">{label}</a></div>'
+def inline_cta(text, href, label, text_es=None, label_es=None):
+    return (f'<div class="inline-cta"><p{_es_html_attr(text_es)}>{text}</p>'
+            f'<a class="btn btn-primary" href="{href}"{_es_attr(label_es)}>{label}</a></div>')
