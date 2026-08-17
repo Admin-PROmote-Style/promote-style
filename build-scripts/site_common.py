@@ -42,6 +42,7 @@ def css_root():
   --bg-deep:{k['bg_deep']}; --panel:{k['panel']}; --panel2:{k['panel2']}; --ink:{k['ink']};
   --primary-deep:{k.get('primary_deep', k['bg_deep'])};
   --primary-rgb:{_hex_to_rgb(k['primary'])};
+  --gold-rgb:{_hex_to_rgb(k['gold'])};
   --font-head:'{C.FONT_HEADING}',system-ui,sans-serif;
   --font-body:'{C.FONT_BODY}',system-ui,Arial,sans-serif;
 }}"""
@@ -165,7 +166,7 @@ a.port-card{cursor:pointer}
 .plan-features li::before{content:"\\2713";color:var(--gold);font-weight:700}
 .plans-intro{max-width:760px;margin:0 auto 50px;text-align:center;color:var(--cream-muted);font-size:16px}
 /* comparison (home) */
-.card.us{border-color:var(--gold);background:linear-gradient(180deg,var(--panel2),var(--panel));box-shadow:0 0 0 1px rgba(255,209,93,.30),0 20px 50px rgba(255,209,93,.10)}
+.card.us{border-color:var(--gold);background:linear-gradient(180deg,var(--panel2),var(--panel));box-shadow:0 0 0 1px rgba(var(--gold-rgb),.35),0 20px 50px rgba(var(--gold-rgb),.12),0 0 46px rgba(var(--gold-rgb),.38)}
 /* hosting include/limits (pricing) */
 .split-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;max-width:900px;margin:0 auto}
 .split-col{background:var(--panel);border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:26px 28px}
