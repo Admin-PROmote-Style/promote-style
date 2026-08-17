@@ -37,6 +37,50 @@ BASICS_JUMP_ITEMS = [
     ("mistakes", "Common Mistakes", "Errores Comunes"),
 ]
 
+import re as _re
+
+def _reading_minutes(*html_blocks):
+    """Rough estimate: strip tags, count words, ~200 wpm, minimum 1 minute."""
+    words = 0
+    for block in html_blocks:
+        text = _re.sub(r"<[^>]+>", " ", block)
+        words += len(text.split())
+    return max(1, round(words / 200))
+
+def basics_do_first():
+    steps = CC.steps_list([
+        ("Confirm the site is indexed", "Search <code>site:yourdomain.com</code> on Google — nothing showing up "
+         "means nothing else on this list matters yet."),
+        ("Set up Google Search Console + GA4", "Both free, both covered in Free Tools below — step one after any "
+         "launch, not a someday task."),
+        ("Pick 3-5 realistic long-tail keywords", "Specific phrases with real intent behind them, not the single "
+         "broadest term in your industry."),
+        ("Make sure your main pages actually answer the search", "Homepage and service pages should say the "
+         "real thing plainly, not hint at it."),
+        ("Check Core Web Vitals and mobile usability", "PageSpeed Insights, free from Google — covered below."),
+        ("Claim your business listings", "Google Business Profile first — see the "
+         '<a href="#google" style="color:var(--gold);font-weight:700">Business Listings tab</a>.'),
+    ], steps_es=[
+        ("Confirma que el sitio esté indexado", "Busca <code>site:tudominio.com</code> en Google — si no aparece "
+         "nada, nada más en esta lista importa todavía."),
+        ("Configura Google Search Console + GA4", "Ambos gratis, ambos cubiertos en Herramientas Gratuitas más "
+         "abajo — el primer paso después de cualquier lanzamiento, no un \"algún día\"."),
+        ("Elige 3-5 palabras clave de cola larga realistas", "Frases específicas con intención real detrás, no "
+         "el término más amplio de tu industria."),
+        ("Asegúrate de que tus páginas principales respondan la búsqueda", "La página de inicio y las de "
+         "servicios deben decir la respuesta real, sin dar rodeos."),
+        ("Revisa Core Web Vitals y la usabilidad en celular", "PageSpeed Insights, gratis de Google — cubierto "
+         "más abajo."),
+        ("Reclama tus listados de negocio", "Google Business Profile primero — ver la "
+         '<a href="#google" style="color:var(--gold);font-weight:700">pestaña de Listados de Negocio</a>.'),
+    ])
+    tip = CC.tip_box("START WITH THIS",
+        "A six-step first pass — work through it once, then use the rest of this tab to go deeper on any step.",
+        label_es="EMPIEZA POR AQUÍ",
+        es=["Un primer repaso de seis pasos — hazlo una vez, y usa el resto de esta pestaña para profundizar en "
+            "cualquier paso."])
+    return f'<div class="wrap"><div class="prose">{tip}{steps}</div></div>'
+
 def basics_foundations():
     topics = "".join([
         CC.topic("What is SEO, really?", "Search engine optimization, in one sentence",
@@ -115,6 +159,16 @@ def basics_keywords():
             "List every word or phrase a real customer might type — as broad as you want at first. Then run "
             "that list through a free tool (see below) to see actual volume and difficulty before you write "
             "a single word of content."),
+        CC.topic("Where do keywords actually go?", "The five places that matter most",
+            "Title tag, H1, and the first 100-150 words carry the most weight — that's where to use your "
+            "primary keyword naturally. After that: the meta description (doesn't affect ranking directly, but "
+            "affects whether people click) and image alt text. Everywhere else, write for the reader first.",
+            q_es="¿Dónde van realmente las palabras clave?",
+            h3_es="Los cinco lugares que más importan",
+            body_es="La etiqueta de título, el H1 y las primeras 100-150 palabras son los que más pesan — ahí "
+            "es donde va tu palabra clave principal, de forma natural. Después: la meta descripción (no afecta "
+            "el posicionamiento directamente, pero sí si la gente hace clic) y el texto alternativo de las "
+            "imágenes. En todo lo demás, escribe primero para la persona que lee."),
         CC.topic("Not every keyword wants the same thing", "Match the keyword to the right page",
             "A search that sounds ready to buy or book should land on a page that lets them actually do that — "
             "not a blog post. A search that sounds like someone learning wants an explanation, not a sales "
@@ -147,6 +201,16 @@ def basics_backlinks():
         CC.topic("What makes a backlink valuable?", "Relevance and trust over raw count",
             "One link from a site closely related to your industry is worth more than ten from random, "
             "unrelated directories. Quality and relevance beat quantity every time."),
+        CC.topic("Is trust about more than just backlinks?", "Yes — real signals of who's behind the page",
+            "Search engines also look for signs that a real, credible source is behind the content: a visible "
+            "author or business name, genuine examples instead of generic claims, and a clear, honest \"about\" "
+            "or contact page. None of this replaces backlinks — it works alongside them.",
+            q_es="¿La confianza depende de algo más que los backlinks?",
+            h3_es="Sí — señales reales de quién está detrás de la página",
+            body_es="Los motores de búsqueda también buscan señales de que hay una fuente real y creíble "
+            "detrás del contenido: un autor o nombre de negocio visible, ejemplos genuinos en vez de "
+            "afirmaciones genéricas, y una página de \"quiénes somos\" o contacto clara y honesta. Nada de "
+            "esto reemplaza los backlinks — funciona junto con ellos."),
     ])
     return CC.cluster("backlinks", "TRUST SIGNALS", "Backlinks & authority",
         "Why other sites linking to you still matters as much as it ever did.", topics)
@@ -230,16 +294,43 @@ def basics_mistakes():
         tag_es="EVITA ESTO", h2_es="Los errores comunes que más cuestan, sin que se note",
         lead_es="Ninguno de estos es complicado de arreglar — solo son fáciles de pasar por alto.")
 
+NEXT_STEP_AFTER_KEYWORDS = (
+    '<div class="wrap">'
+    + CC.inline_cta(
+        "Got your keywords sorted? See what a technically SEO-ready site actually does with them.",
+        "#built", "See Built SEO-Ready",
+        text_es="¿Ya tienes tus palabras clave? Mira lo que un sitio técnicamente listo para SEO hace con "
+                 "ellas de verdad.",
+        label_es="Ver Built SEO-Ready")
+    + '</div>'
+)
+
 def panel_basics():
+    foundations = basics_foundations()
+    keywords = basics_keywords()
+    backlinks = basics_backlinks()
+    tools = basics_tools()
+    mistakes = basics_mistakes()
+    checklist = basics_do_first()
+    mins = _reading_minutes(foundations, keywords, backlinks, tools, mistakes, checklist)
+    reading_time = (
+        f'<div class="wrap" style="text-align:center;margin:-6px 0 18px">'
+        f'<span style="color:var(--cream-muted);font-size:13px" data-es="Lectura de ~{mins} min">'
+        f'~{mins} min read</span></div>'
+    )
     body = (
         CC.jump_nav(BASICS_JUMP_ITEMS)
-        + basics_foundations()
-        + basics_keywords()
-        + basics_backlinks()
-        + basics_tools()
-        + basics_mistakes()
+        + reading_time
+        + checklist
+        + foundations
+        + keywords
+        + f'<section class="sec" style="padding:0 0 8px">{NEXT_STEP_AFTER_KEYWORDS}</section>'
+        + backlinks
+        + tools
+        + mistakes
     )
     return f'<div class="tab-panel" id="tab-basics" data-panel="basics">{body}</div>'
+
 
 # ----------------------------------------------------------------------------
 # TAB 2 -- Built SEO-Ready (verbatim from the former build_built_seo_ready.py;
