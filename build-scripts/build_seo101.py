@@ -422,7 +422,7 @@ def built_upgrade_signs():
     tag_attr = CC._es_attr("VALE LA PENA PREGUNTAR")
     h2_attr = CC._es_html_attr("Señales de que podría ser hora de actualizar")
     lead_attr = CC._es_attr("Ninguna de estas significa empezar de cero -- solo vale la pena mirarlas con honestidad.")
-    return f"""<section class="sec cluster"><div class="wrap">
+    return f"""<section class="sec cluster" style="padding-top:64px"><div class="wrap">
   <div class="cluster-head"><span class="sec-tag"{tag_attr}>WORTH ASKING</span>
   <h2{h2_attr}>Signs it might be time to upgrade</h2>
   <p class="lead"{lead_attr}>None of these mean start over from scratch -- they're just worth an honest look.</p></div>
