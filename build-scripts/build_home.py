@@ -53,8 +53,7 @@ def comparison():
         for p in C.COMPARISON_ITEMS)
     return f"""<section class="sec" id="difference"><div class="wrap">
   <div class="sec-head"><span class="sec-tag">{C.COMPARISON_TAG}</span>
-  <h2>{C.COMPARISON_H2}</h2>
-  <p class="lead">{C.COMPARISON_SUB}</p></div>
+  <h2>{C.COMPARISON_H2}</h2></div>
   <div class="cards">{cards}</div>
 </div></section>"""
 
@@ -68,12 +67,13 @@ def features():
 </div></section>"""
 
 def cta_band():
-    # 2026-08-17: routes straight to maintain.style instead of this site's
-    # own contact.html -- George's call: let maintain.style finish selling
-    # the site itself rather than funneling through a second form here.
+    # 2026-08-17: routes straight to maintain.style's portfolio page instead
+    # of this site's own contact.html -- George's call: let people actually
+    # see the SEO-ready sites mS has built (proof) rather than a generic
+    # "talk to us" ask. Was "Talk to mAIntAIn Style" -> maintain.style.
     return f"""<section class="cta-band"><div class="wrap">
   <h2>{C.CTA_TITLE}</h2><p>{C.CTA_SUB}</p>
-  <a class="btn btn-primary" href="https://maintain.style">Talk to mAIntAIn Style</a>
+  <a class="btn btn-primary" href="https://maintain.style/portfolio.html">View SEO-Ready Sites</a>
 </div></section>"""
 
 def build():

@@ -148,9 +148,10 @@ CTA_SUB   = "mAIntAIn Style builds sites with the fundamentals from these guides
 # Comparison section (homepage) -- sells against the two real alternatives a
 # small business owner weighs when it comes to marketing/promotion.
 # ----------------------------------------------------------------------------
+# 2026-08-17: dropped COMPARISON_SUB ("What matters isn't how much content
+# exists...") per George's request -- the h2 alone carries the section.
 COMPARISON_TAG = "THE DIFFERENCE"
 COMPARISON_H2  = "Three ways to learn SEO. Only one doesn't waste your time."
-COMPARISON_SUB = "What matters isn't how much content exists — it's whether you can actually act on it."
 
 COMPARISON_ITEMS = [
     dict(label="RANDOM BLOG POSTS", title="Outdated, contradictory, vague",

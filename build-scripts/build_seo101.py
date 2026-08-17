@@ -358,7 +358,7 @@ def build():
         + panel_listings()
         + f'<section class="sec" style="padding-top:0"><div class="wrap">'
           + CC.inline_cta("Want a site built with all of this already done for you?",
-                           "https://maintain.style", "Talk to mAIntAIn Style")
+                           "https://maintain.style/portfolio.html", "View SEO-Ready Sites")
           + "</div></section>"
         + S.footer()
         + S.back_to_top()

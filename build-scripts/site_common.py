@@ -56,7 +56,7 @@ body{font-family:var(--font-body);color:var(--cream);background:var(--bg-deep);l
   background-repeat:no-repeat}
 a{color:inherit;text-decoration:none}
 img{max-width:100%;display:block}
-h1,h2,h3{font-family:var(--font-head);line-height:1.15;font-weight:600;letter-spacing:-.01em}
+h1,h2,h3{font-family:var(--font-head);line-height:1.15;font-weight:700;letter-spacing:-.01em}
 .wrap{max-width:1180px;margin:0 auto;padding:0 32px}
 .grad{background:linear-gradient(100deg,var(--primary-bright) 10%,var(--gold) 90%);-webkit-background-clip:text;background-clip:text;color:transparent}
 .btn{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:8px;font-weight:700;font-family:var(--font-body);cursor:pointer;border:0;transition:all .25s ease;font-size:15px}
