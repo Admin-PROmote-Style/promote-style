@@ -110,39 +110,57 @@ NAV_LINKS = [
 # Homepage copy
 # ----------------------------------------------------------------------------
 HERO_BADGE = "FREE SEO RESOURCES, NO STRINGS"
+HERO_BADGE_ES = "RECURSOS SEO GRATIS, SIN LETRA PEQUEÑA"
 # 2026-08-17: shortened per George's exact wording -- was "The most useful
 # SEO resource on the internet -- built by people who actually build
 # SEO-ready sites," which read as too much text / too promotional for an
 # education-first site.
 HERO_H1    = 'FREE <span class="grad">SEO resources</span><br>built by people who build<br><span class="grad">SEO-ready sites</span>.'
+HERO_H1_ES = 'Recursos <span class="grad">SEO gratis</span><br>hechos por gente que construye<br><span class="grad">sitios listos para SEO</span>.'
 HERO_SUB   = ("Real tips, real keyword research, real setup guides — free. No email wall, no drip "
               "campaign. If you like what you learn here, ask us about a site built this way from day one.")
+HERO_SUB_ES = ("Consejos reales, investigación de palabras clave real, guías de configuración reales — gratis. "
+               "Sin muro de correo, sin campaña de goteo. Si te sirve lo que aprendes aquí, pregúntanos por un "
+               "sitio construido así desde el primer día.")
 
 TRUST_ITEMS = [
-    ("100% free", "No paywall on any guide"),
-    ("Practical, not theoretical", "Steps you can do today"),
-    ("Built by site builders", "Not just marketers"),
-    (CITY_STATE, "Local & remote"),
+    ("100% free", "No paywall on any guide", "100% gratis", "Ninguna guía tiene muro de pago"),
+    ("Practical, not theoretical", "Steps you can do today", "Práctico, no teórico", "Pasos que puedes hacer hoy"),
+    ("Built by site builders", "Not just marketers", "Hecho por quienes construyen sitios", "No solo mercadólogos"),
+    (CITY_STATE, "Local & remote", CITY_STATE, "Local y remoto"),
 ]
 
 PROCESS_STEPS = [
-    ("01", "Learn the basics", "Start with SEO Basics — keywords, search intent, and the fundamentals in plain English."),
-    ("02", "See it done right", "Built SEO-Ready shows exactly what a properly-built site includes, with real examples."),
-    ("03", "Claim your listings", "Set up Google Business Profile, Bing Places, and the rest so you show up where people search."),
-    ("04", "Get help if you want it", "Keep learning free, or let us build the SEO-ready site (or run the marketing) for you."),
+    ("01", "Learn the basics", "Start with SEO Basics — keywords, search intent, and the fundamentals in plain English.",
+     "Aprende lo básico", "Empieza con SEO Basics — palabras clave, intención de búsqueda y lo esencial en español claro."),
+    ("02", "See it done right", "Built SEO-Ready shows exactly what a properly-built site includes, with real examples.",
+     "Mira cómo se hace bien", "Built SEO-Ready muestra exactamente qué incluye un sitio bien construido, con ejemplos reales."),
+    ("03", "Claim your listings", "Set up Google Business Profile, Bing Places, and the rest so you show up where people search.",
+     "Reclama tus listados", "Configura Google Business Profile, Bing Places y el resto para que aparezcas donde la gente busca."),
+    ("04", "Get help if you want it", "Keep learning free, or let us build the SEO-ready site (or run the marketing) for you.",
+     "Pide ayuda si la quieres", "Sigue aprendiendo gratis, o deja que construyamos el sitio listo para SEO (o llevemos tu marketing) por ti."),
 ]
 
 FEATURES = [
     ("Free", "Every guide, no catch",
-     "No gated content, no \"unlock with your email\" tricks. If it helps you rank, it's here."),
+     "No gated content, no \"unlock with your email\" tricks. If it helps you rank, it's here.",
+     "Gratis", "Cada guía, sin trampa",
+     "Sin contenido cerrado, sin trucos de \"desbloquea con tu correo\". Si te ayuda a posicionarte, está aquí."),
     ("Practical", "Written to be used today",
-     "Checklists and step-by-step setup guides, not vague theory — built for people with a business to run, not a marketing degree."),
+     "Checklists and step-by-step setup guides, not vague theory — built for people with a business to run, not a marketing degree.",
+     "Práctico", "Escrito para usarse hoy",
+     "Listas de verificación y guías paso a paso, no teoría vaga — hecho para gente que tiene un negocio que atender, no un título en marketing."),
     ("Proven", "We build this way ourselves",
-     "Every mAIntAIn Style site ships with the fundamentals covered in these guides already built in. Not just advice — a live example."),
+     "Every mAIntAIn Style site ships with the fundamentals covered in these guides already built in. Not just advice — a live example.",
+     "Probado", "Nosotros mismos lo construimos así",
+     "Cada sitio de mAIntAIn Style sale con lo esencial de estas guías ya integrado. No es solo un consejo — es un ejemplo real y en vivo."),
 ]
 
 CTA_TITLE = "Want a site that's SEO-ready before it even launches?"
+CTA_TITLE_ES = "¿Quieres un sitio listo para SEO antes de que siquiera se lance?"
 CTA_SUB   = "mAIntAIn Style builds sites with the fundamentals from these guides baked in from day one — schema, sitemap, speed, structure, all of it. See what that actually looks like."
+CTA_SUB_ES = ("mAIntAIn Style construye sitios con lo esencial de estas guías integrado desde el primer día — "
+              "schema, sitemap, velocidad, estructura, todo. Mira cómo se ve eso en la práctica.")
 
 # ----------------------------------------------------------------------------
 # Comparison section (homepage) -- sells against the two real alternatives a
@@ -151,18 +169,26 @@ CTA_SUB   = "mAIntAIn Style builds sites with the fundamentals from these guides
 # 2026-08-17: dropped COMPARISON_SUB ("What matters isn't how much content
 # exists...") per George's request -- the h2 alone carries the section.
 COMPARISON_TAG = "THE DIFFERENCE"
+COMPARISON_TAG_ES = "LA DIFERENCIA"
 COMPARISON_H2  = "Three ways to learn SEO. Only one doesn't waste your time."
+COMPARISON_H2_ES = "Tres formas de aprender SEO. Solo una no te hace perder el tiempo."
 
 COMPARISON_ITEMS = [
     dict(label="RANDOM BLOG POSTS", title="Outdated, contradictory, vague",
          desc="Search \"how to do SEO\" and get a thousand takes, half from 2019, most written to rank for the term rather than actually explain it.",
-         featured=False),
+         featured=False,
+         label_es="ARTÍCULOS DE BLOG AL AZAR", title_es="Desactualizados, contradictorios, vagos",
+         desc_es="Busca \"cómo hacer SEO\" y encuentra mil opiniones distintas, la mitad de 2019, la mayoría escritas para posicionarse por el término en vez de explicarlo de verdad."),
     dict(label="PAID SEO COURSES", title="Locked behind a price tag",
          desc="The good information exists — behind a $200 course or a \"book a call\" wall before you've learned anything at all.",
-         featured=False),
+         featured=False,
+         label_es="CURSOS DE SEO DE PAGO", title_es="Encerrados detrás de un precio",
+         desc_es="La buena información existe — detrás de un curso de $200 o un muro de \"agenda una llamada\" antes de que hayas aprendido algo siquiera."),
     dict(label=BUSINESS_NAME.upper(), title="Free, current, and provable",
          desc="Every guide here is free and written by people who build SEO-ready sites for a living — and who'll show you exactly what that looks like, not just tell you.",
-         featured=True),
+         featured=True,
+         label_es=BUSINESS_NAME.upper(), title_es="Gratis, actual y demostrable",
+         desc_es="Cada guía aquí es gratis y está escrita por gente que construye sitios listos para SEO para vivir — y que te va a mostrar exactamente cómo se ve eso, no solo contártelo."),
 ]
 
 # ----------------------------------------------------------------------------
@@ -174,23 +200,34 @@ COMPARISON_ITEMS = [
 # 2026-08-17: dropped PILLARS_SUB per George's request -- the h2 alone
 # carries the section, matching the earlier COMPARISON_SUB removal.
 PILLARS_TAG = "START HERE"
+PILLARS_TAG_ES = "EMPIEZA AQUÍ"
 PILLARS_H2  = "One page, three tabs<br>Pick your starting point"
+PILLARS_H2_ES = "Una página, tres pestañas<br>Elige tu punto de partida"
 
 PILLARS = [
     dict(href="seo-101.html#basics", label="SEO BASICS", title="Never done SEO before?",
-         desc="Start here. What SEO actually is, how keywords work, and how to find the ones people are really searching for."),
+         desc="Start here. What SEO actually is, how keywords work, and how to find the ones people are really searching for.",
+         label_es="SEO BASICS", title_es="¿Nunca has hecho SEO?",
+         desc_es="Empieza aquí. Qué es realmente el SEO, cómo funcionan las palabras clave y cómo encontrar las que la gente realmente busca."),
     dict(href="seo-101.html#built", label="BUILT SEO-READY", title="Evaluating a site build?",
-         desc="See exactly what \"SEO-ready\" should mean technically — and how mAIntAIn Style sites ship with it already done."),
+         desc="See exactly what \"SEO-ready\" should mean technically — and how mAIntAIn Style sites ship with it already done.",
+         label_es="BUILT SEO-READY", title_es="¿Evaluando la construcción de un sitio?",
+         desc_es="Mira exactamente qué debería significar \"listo para SEO\" técnicamente — y cómo los sitios de mAIntAIn Style salen con eso ya hecho."),
     dict(href="seo-101.html#listings", label="BUSINESS LISTINGS", title="Not showing up on Google Maps?",
-         desc="Set up and verify your Google Business Profile, Bing Places, and Apple Business Connect listings, step by step."),
+         desc="Set up and verify your Google Business Profile, Bing Places, and Apple Business Connect listings, step by step.",
+         label_es="LISTADOS DE NEGOCIO", title_es="¿No apareces en Google Maps?",
+         desc_es="Configura y verifica tus listados de Google Business Profile, Bing Places y Apple Business Connect, paso a paso."),
 ]
 
 # ----------------------------------------------------------------------------
 # Contact page copy
 # ----------------------------------------------------------------------------
 CONTACT_H1  = "Questions, or ready for the SEO-ready site?"
+CONTACT_H1_ES = "¿Tienes preguntas, o ya quieres el sitio listo para SEO?"
 CONTACT_SUB = ("Whether you want a site built SEO-ready from day one, want us to run your marketing, or just have a "
                "question about one of the guides — tell us a bit about what you need.")
+CONTACT_SUB_ES = ("Ya sea que quieras un sitio construido listo para SEO desde el primer día, que llevemos tu "
+                   "marketing, o solo tengas una pregunta sobre una de las guías — cuéntanos un poco qué necesitas.")
 
 # ----------------------------------------------------------------------------
 # Back-to-top icon -- reuse mS's blue arrow until a coral-family icon exists.
