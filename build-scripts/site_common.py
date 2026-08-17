@@ -80,7 +80,7 @@ h1,h2,h3{font-family:var(--font-head);line-height:1.15;font-weight:700;letter-sp
 .mobile-menu.open{display:flex}
 .mobile-menu a{color:var(--cream-muted);font-weight:600}
 /* sections */
-.sec{padding:88px 0}
+.sec{padding:88px 0;scroll-margin-top:116px}
 .sec-tag{color:var(--gold);font-weight:700;letter-spacing:.14em;font-size:12.5px;text-transform:uppercase}
 .sec h2{font-size:clamp(26px,3.6vw,38px);margin:10px 0 16px}
 .sec-head{text-align:center;max-width:680px;margin:0 auto 40px}
