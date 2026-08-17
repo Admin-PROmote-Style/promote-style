@@ -184,8 +184,9 @@ a.port-card{cursor:pointer}
 .contact-side p{color:var(--cream-muted);font-size:14.5px;margin-bottom:22px}
 .contact-side a.email{color:var(--gold);font-weight:700}
 .form-note{font-size:12.5px;color:var(--cream-muted);margin-top:10px}
-/* cta band */
-.cta-band{background:linear-gradient(135deg,var(--primary),#1c2438);text-align:center;padding:64px 32px;border-radius:0;border-top:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.08)}
+/* cta band -- 2026-08-17: matches hero's radial glow instead of the diagonal
+   linear-gradient (which produced a hard dark-navy corner on the right) */
+.cta-band{background:radial-gradient(ellipse 1100px 380px at 50% -40px,rgba(var(--primary-rgb),.38) 0%,rgba(var(--primary-rgb),0) 75%) var(--bg-deep);text-align:center;padding:64px 32px;border-radius:0;border-top:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.08)}
 .cta-band h2{font-size:clamp(24px,3.6vw,36px);color:var(--cream);margin-bottom:12px;max-width:760px;margin-left:auto;margin-right:auto}
 .cta-band p{color:var(--cream-muted);margin-bottom:26px;max-width:560px;margin-left:auto;margin-right:auto}
 /* footer */
