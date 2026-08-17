@@ -211,15 +211,18 @@ a.port-card{cursor:pointer}
  .sec{padding:60px 0}
 }
 @media(max-width:560px){.process{grid-template-columns:1fr}}
-/* lang toggle -- 2026-08-17 fix: was position:fixed with a hardcoded
-   top:100px guessing the header's height, which drifts out of sync any
-   time the header's real height changes (font swap, logo size, padding --
-   this has broken repeatedly across the mS-family sites). Now a child of
-   <nav> itself, vertically centered against the header's actual box via
-   top:50%/translateY -- tracks the real header height automatically,
-   permanently, with no magic number to go stale. nav's position:sticky
-   already establishes the positioning context needed for this. */
-.lang-toggle{position:absolute;top:50%;right:20px;transform:translateY(-50%);background:rgba(9,12,20,.75);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.18);color:var(--cream);font-size:11px;font-weight:700;letter-spacing:.06em;padding:5px 12px;border-radius:999px;cursor:pointer;font-family:var(--font-body);z-index:60;box-shadow:0 4px 12px rgba(0,0,0,.35);transition:background .2s ease}
+/* lang toggle -- 2026-08-17: corrected against the real reference,
+   fattonysbend.com -- the pill sits just BELOW the header, floating in
+   the hero's top-right corner, not inline inside the nav row (my first
+   pass here nested it centered inside the header itself, which visually
+   broke the family look). Still a child of <nav>, but anchored to the
+   header's bottom edge (top:100%) instead of its vertical middle -- so
+   it tracks the header's real height automatically (no hardcoded pixel
+   guess to go stale when a font/logo change alters header height) while
+   preserving the "small tag hanging just under the header" placement
+   every other mS-family site uses. nav's position:sticky is the
+   positioning context this resolves against. */
+.lang-toggle{position:absolute;top:calc(100% + 8px);right:20px;background:rgba(9,12,20,.75);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.18);color:var(--cream);font-size:11px;font-weight:700;letter-spacing:.06em;padding:5px 12px;border-radius:999px;cursor:pointer;font-family:var(--font-body);z-index:60;box-shadow:0 4px 12px rgba(0,0,0,.35);transition:background .2s ease}
 .lang-toggle:hover{background:rgba(9,12,20,.95)}
 @media(max-width:900px){.lang-toggle{right:16px}}
 """
