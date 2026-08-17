@@ -37,7 +37,7 @@ VERIFIED FACTS ONLY (per project rule -- no invented claims/numbers):
 BUSINESS_NAME = "PROmote Style"
 TAGLINE       = "Built for you, run for you."
 CITY_STATE    = "Bend, OR"
-EMAIL         = "contact@promote.style"
+EMAIL         = "contact@maintain.style"
 
 # Real logo artwork (transparent PNGs, landed 2026-08-17).
 LOGO_IMAGE     = "assets/promote-style-logo-mark.png"       # stacked -- footer divider + favicon
