@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 120" width="300" height="120">
+  <text x="150" y="52" text-anchor="middle" font-family="Arial, 'Segoe UI', sans-serif" font-weight="700" font-size="36" letter-spacing="-0.5">
+    <tspan fill="#ff5a3c">PRO</tspan><tspan fill="#fbeee8">mote</tspan>
+  </text>
+  <text x="150" y="90" text-anchor="middle" font-family="Arial, 'Segoe UI', sans-serif" font-weight="700" font-size="36" fill="#fbeee8" letter-spacing="1">
+    Style
+  </text>
+</svg>
