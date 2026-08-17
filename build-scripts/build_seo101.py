@@ -284,17 +284,6 @@ def basics_mistakes():
         tag_es="EVITA ESTO", h2_es="Los errores comunes que más cuestan, sin que se note",
         lead_es="Ninguno de estos es complicado de arreglar — solo son fáciles de pasar por alto.")
 
-NEXT_STEP_AFTER_KEYWORDS = (
-    '<div class="wrap">'
-    + CC.inline_cta(
-        "Got your keywords sorted? See what a technically SEO-ready site actually does with them.",
-        "#built", "See Built SEO-Ready",
-        text_es="¿Ya tienes tus palabras clave? Mira lo que un sitio técnicamente listo para SEO hace con "
-                 "ellas de verdad.",
-        label_es="Ver Built SEO-Ready")
-    + '</div>'
-)
-
 def panel_basics():
     foundations = basics_foundations()
     keywords = basics_keywords()
@@ -307,7 +296,6 @@ def panel_basics():
         + checklist
         + foundations
         + keywords
-        + f'<section class="sec" style="padding:0 0 8px">{NEXT_STEP_AFTER_KEYWORDS}</section>'
         + backlinks
         + tools
         + mistakes
