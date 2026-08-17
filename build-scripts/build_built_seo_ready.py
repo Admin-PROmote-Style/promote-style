@@ -87,7 +87,7 @@ def build():
           + "</div></div></section>"
         + f'<section class="sec" style="padding-top:0"><div class="wrap">'
           + CC.inline_cta("Want a site built this way from the first day it goes live, "
-                           "not retrofitted later?", "contact.html", "Talk to mAIntAIn Style")
+                           "not retrofitted later?", "https://maintain.style", "Talk to mAIntAIn Style")
           + "</div></section>"
         + S.footer()
         + S.back_to_top()

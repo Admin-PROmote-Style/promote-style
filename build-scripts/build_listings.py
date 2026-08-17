@@ -96,7 +96,7 @@ def build():
         + nap()
         + f'<section class="sec" style="padding-top:0"><div class="wrap">'
           + CC.inline_cta("Want your listings and your site working together instead of set up once and forgotten?",
-                           "contact.html", "Talk to mAIntAIn Style")
+                           "https://maintain.style", "Talk to mAIntAIn Style")
           + "</div></section>"
         + S.footer()
         + S.back_to_top()

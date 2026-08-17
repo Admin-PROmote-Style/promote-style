@@ -6,7 +6,12 @@ import site_common as S
 
 def hero():
     order_btn = '<a class="btn btn-primary" href="seo-basics.html">Start Learning — Free</a>'
-    port_btn = '<a class="btn btn-ghost" href="built-seo-ready.html">See a Real SEO-Ready Site</a>'
+    # 2026-08-17: was "See a Real SEO-Ready Site" linking to the internal
+    # proof page -- George's call: don't promise "see" a site without
+    # showing one. Points straight at maintain.style now, which lets that
+    # site finish the sale directly instead of routing through this one's
+    # contact form.
+    port_btn = '<a class="btn btn-ghost" href="https://maintain.style">Build a Real SEO-Ready Site</a>'
     return f"""<section class="hero"><div class="wrap">
   <span class="badge-pill">{C.HERO_BADGE}</span>
   <h1>{C.HERO_H1}</h1>
@@ -63,9 +68,12 @@ def features():
 </div></section>"""
 
 def cta_band():
+    # 2026-08-17: routes straight to maintain.style instead of this site's
+    # own contact.html -- George's call: let maintain.style finish selling
+    # the site itself rather than funneling through a second form here.
     return f"""<section class="cta-band"><div class="wrap">
   <h2>{C.CTA_TITLE}</h2><p>{C.CTA_SUB}</p>
-  <a class="btn btn-primary" href="contact.html">Talk to mAIntAIn Style</a>
+  <a class="btn btn-primary" href="https://maintain.style">Talk to mAIntAIn Style</a>
 </div></section>"""
 
 def build():
