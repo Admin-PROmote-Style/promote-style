@@ -107,14 +107,19 @@ h1,h2,h3{font-family:var(--font-head);line-height:1.15;font-weight:700;letter-sp
 /* feature cards */
 .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
 .card{background:var(--panel);border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:28px;box-shadow:0 12px 28px rgba(0,0,0,.35),0 0 46px rgba(var(--primary-rgb),.28)}
-/* 2026-08-17: slow pulsing glow on the pillars cards only (#pillars scope)
-   -- every other .card usage (comparison, features) keeps the static glow. */
-#pillars .card{animation:cardGlowPulse 4s ease-in-out infinite;border:1px solid var(--gold)}
+/* 2026-08-17: pulsing glow now on every card with the red/coral glow
+   site-wide (:not(.us) excludes the featured comparison card, which has
+   its own static gold treatment). Gold outline on pillars + "why it's
+   free" cards; the first two (non-featured) comparison cards get a red
+   outline instead to match their glow color. */
+.card:not(.us){animation:cardGlowPulse 4s ease-in-out infinite}
 @keyframes cardGlowPulse{
   0%,100%{box-shadow:0 12px 28px rgba(0,0,0,.35),0 0 46px rgba(var(--primary-rgb),.28)}
   50%{box-shadow:0 12px 28px rgba(0,0,0,.35),0 0 68px rgba(var(--primary-rgb),.52)}
 }
-@media(prefers-reduced-motion:reduce){#pillars .card{animation:none}}
+@media(prefers-reduced-motion:reduce){.card:not(.us){animation:none}}
+#pillars .card,#why .card{border:1px solid var(--gold)}
+#difference .card:not(.us){border:1px solid var(--primary)}
 .card .ic{font-family:var(--font-head);font-weight:700;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
 .card h3{font-size:21px;margin-bottom:10px}
 .card p{color:var(--cream-muted);font-size:15px}
