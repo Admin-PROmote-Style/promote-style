@@ -166,7 +166,12 @@ a.port-card{cursor:pointer}
 .plan-features li::before{content:"\\2713";color:var(--gold);font-weight:700}
 .plans-intro{max-width:760px;margin:0 auto 50px;text-align:center;color:var(--cream-muted);font-size:16px}
 /* comparison (home) */
-.card.us{border-color:var(--gold);background:linear-gradient(180deg,var(--panel2),var(--panel));box-shadow:0 0 0 1px rgba(var(--gold-rgb),.35),0 20px 50px rgba(var(--gold-rgb),.12),0 0 46px rgba(var(--gold-rgb),.38)}
+.card.us{border-color:var(--gold);background:linear-gradient(180deg,var(--panel2),var(--panel));animation:cardGlowPulseGold 4s ease-in-out infinite}
+@keyframes cardGlowPulseGold{
+  0%,100%{box-shadow:0 0 0 1px rgba(var(--gold-rgb),.4),0 20px 50px rgba(var(--gold-rgb),.14),0 0 48px rgba(var(--gold-rgb),.44)}
+  50%{box-shadow:0 0 0 1px rgba(var(--gold-rgb),.55),0 20px 50px rgba(var(--gold-rgb),.2),0 0 68px rgba(var(--gold-rgb),.62)}
+}
+@media(prefers-reduced-motion:reduce){.card.us{animation:none;box-shadow:0 0 0 1px rgba(var(--gold-rgb),.4),0 20px 50px rgba(var(--gold-rgb),.14),0 0 48px rgba(var(--gold-rgb),.44)}}
 /* hosting include/limits (pricing) */
 .split-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;max-width:900px;margin:0 auto}
 .split-col{background:var(--panel);border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:26px 28px}
