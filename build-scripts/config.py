@@ -96,11 +96,13 @@ GOOGLE_FONTS_HREF = ("https://fonts.googleapis.com/css2?"
 # ----------------------------------------------------------------------------
 # Nav
 # ----------------------------------------------------------------------------
+# 2026-08-17: collapsed from 3 separate links (SEO Basics / Built SEO-Ready /
+# Business Listings) into one "SEO 101" link -- George's call, the header
+# had gotten crowded and all three now live as tabs on a single page
+# (seo-101.html) instead of three separate destinations.
 NAV_LINKS = [
     ("index.html", "Home"),
-    ("seo-basics.html", "SEO Basics"),
-    ("built-seo-ready.html", "Built SEO-Ready"),
-    ("listings.html", "Business Listings"),
+    ("seo-101.html", "SEO 101"),
     ("https://maintain.style", "mAIntAIn Style"),
 ]
 
@@ -108,7 +110,11 @@ NAV_LINKS = [
 # Homepage copy
 # ----------------------------------------------------------------------------
 HERO_BADGE = "FREE SEO RESOURCES, NO STRINGS"
-HERO_H1    = 'The most useful <span class="grad">SEO resource on the internet</span> — built by people who actually build SEO-ready sites.'
+# 2026-08-17: shortened per George's exact wording -- was "The most useful
+# SEO resource on the internet -- built by people who actually build
+# SEO-ready sites," which read as too much text / too promotional for an
+# education-first site.
+HERO_H1    = 'FREE <span class="grad">SEO resources</span> built by people who build SEO-ready sites.'
 HERO_SUB   = ("Real tips, real keyword research, real setup guides — free. No email wall, no drip "
               "campaign. If you like what you learn here, ask us about a site built this way from day one.")
 
@@ -161,16 +167,19 @@ COMPARISON_ITEMS = [
 # ----------------------------------------------------------------------------
 # Pillar cards (homepage) -- links into the three main content pillars.
 # ----------------------------------------------------------------------------
+# 2026-08-17: SEO Basics / Built SEO-Ready / Business Listings are now three
+# tabs on one page (seo-101.html) instead of three separate pages -- hrefs
+# below deep-link straight to the right tab via hash.
 PILLARS_TAG = "START HERE"
-PILLARS_H2  = "Three places to start, depending on where you're at"
-PILLARS_SUB = "New to SEO, evaluating a site build, or just need your business to show up on Google — pick your starting point."
+PILLARS_H2  = "One page, three tabs — pick your starting point"
+PILLARS_SUB = "New to SEO, evaluating a site build, or just need your business to show up on Google — jump straight to the right tab."
 
 PILLARS = [
-    dict(href="seo-basics.html", label="SEO BASICS", title="Never done SEO before?",
+    dict(href="seo-101.html#basics", label="SEO BASICS", title="Never done SEO before?",
          desc="Start here. What SEO actually is, how keywords work, and how to find the ones people are really searching for."),
-    dict(href="built-seo-ready.html", label="BUILT SEO-READY", title="Evaluating a site build?",
+    dict(href="seo-101.html#built", label="BUILT SEO-READY", title="Evaluating a site build?",
          desc="See exactly what \"SEO-ready\" should mean technically — and how mAIntAIn Style sites ship with it already done."),
-    dict(href="listings.html", label="BUSINESS LISTINGS", title="Not showing up on Google Maps?",
+    dict(href="seo-101.html#listings", label="BUSINESS LISTINGS", title="Not showing up on Google Maps?",
          desc="Set up and verify your Google Business Profile, Bing Places, and Apple Business Connect listings, step by step."),
 ]
 

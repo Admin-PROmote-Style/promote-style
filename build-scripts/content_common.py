@@ -43,7 +43,18 @@ def content_css():
 .jump-nav{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin:26px 0 8px}
 .jump-nav a{font-size:13px;font-weight:700;color:var(--cream-muted);background:var(--panel);border:1px solid rgba(255,255,255,.1);padding:8px 16px;border-radius:999px}
 .jump-nav a:hover{color:var(--cream);border-color:var(--gold)}
+/* tabs -- 2026-08-17: added for seo-101.html, which consolidates what used
+   to be three separate pages (SEO Basics / Built SEO-Ready / Business
+   Listings) into one page switched with tabs -- George's call, so the
+   nav header only needs one link ("SEO 101") instead of three, and the
+   site reads as one resource hub instead of three separate promo pages. */
+.tabs-nav{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;padding:8px 0 12px}
+.tab-btn{font-family:var(--font-body);font-weight:700;font-size:14.5px;letter-spacing:.01em;color:var(--cream-muted);background:var(--panel);border:1.5px solid rgba(255,255,255,.12);padding:13px 26px;border-radius:999px;cursor:pointer;transition:all .2s ease}
+.tab-btn:hover{color:var(--cream);border-color:rgba(255,255,255,.32)}
+.tab-btn.active{color:var(--ink);background:linear-gradient(100deg,var(--gold),var(--gold-deep));border-color:transparent}
+.tab-panel[hidden]{display:none}
 @media(max-width:900px){.topic-grid{grid-template-columns:1fr}.inline-cta{flex-direction:column;align-items:flex-start}}
+@media(max-width:600px){.tabs-nav{gap:8px}.tab-btn{padding:10px 18px;font-size:13px}}
 """
 
 def article_hero(tag, h1, lead):

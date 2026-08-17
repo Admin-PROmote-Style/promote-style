@@ -5,7 +5,7 @@ import config as C
 import site_common as S
 
 def hero():
-    order_btn = '<a class="btn btn-primary" href="seo-basics.html">Start Learning — Free</a>'
+    order_btn = '<a class="btn btn-primary" href="seo-101.html">Start Learning — Free</a>'
     # 2026-08-17: was "See a Real SEO-Ready Site" linking to the internal
     # proof page -- George's call: don't promise "see" a site without
     # showing one. Points straight at maintain.style now, which lets that
