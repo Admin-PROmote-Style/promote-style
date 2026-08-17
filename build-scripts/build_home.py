@@ -40,7 +40,7 @@ def process():
         f'<div class="process-step"><div class="step-num">{n}</div><h3>{t}</h3><p>{d}</p></div>'
         for n, t, d in C.PROCESS_STEPS)
     return f"""<section class="sec" id="process" style="background:var(--panel);border-top:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06)"><div class="wrap">
-  <div class="sec-head"><span class="sec-tag">HOW TO USE THIS SITE</span><h2>From "what's SEO?" to actually showing up</h2>
+  <div class="sec-head"><span class="sec-tag">HOW TO USE THIS SITE</span><h2>From "what's SEO?" to actually showing up in search results</h2>
   <p class="lead">A simple order to work through the free content in, whether you're starting from zero or just filling gaps.</p></div>
   <div class="process">{steps}</div>
 </div></section>"""
