@@ -88,7 +88,7 @@ h1,h2,h3{font-family:var(--font-head);line-height:1.15;font-weight:700;letter-sp
 .card{background:var(--panel);border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:28px;box-shadow:0 12px 28px rgba(0,0,0,.35),0 0 46px rgba(var(--primary-rgb),.28)}
 /* 2026-08-17: slow pulsing glow on the pillars cards only (#pillars scope)
    -- every other .card usage (comparison, features) keeps the static glow. */
-#pillars .card{animation:cardGlowPulse 4s ease-in-out infinite}
+#pillars .card{animation:cardGlowPulse 4s ease-in-out infinite;border:1px solid var(--gold)}
 @keyframes cardGlowPulse{
   0%,100%{box-shadow:0 12px 28px rgba(0,0,0,.35),0 0 46px rgba(var(--primary-rgb),.28)}
   50%{box-shadow:0 12px 28px rgba(0,0,0,.35),0 0 68px rgba(var(--primary-rgb),.52)}

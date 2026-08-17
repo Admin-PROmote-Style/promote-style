@@ -174,7 +174,7 @@ COMPARISON_ITEMS = [
 # 2026-08-17: dropped PILLARS_SUB per George's request -- the h2 alone
 # carries the section, matching the earlier COMPARISON_SUB removal.
 PILLARS_TAG = "START HERE"
-PILLARS_H2  = "One page, three tabs<br>— pick your starting point"
+PILLARS_H2  = "One page, three tabs<br>Pick your starting point"
 
 PILLARS = [
     dict(href="seo-101.html#basics", label="SEO BASICS", title="Never done SEO before?",
