@@ -13,10 +13,11 @@ VERIFIED FACTS ONLY (per project rule -- no invented claims/numbers):
   social, and email).
 - Domain promote.style purchased 2026-08-14; not yet pointed at a live
   Cloudflare project as of this build (2026-08-17).
-- No finished logo artwork exists yet. NAV/LOGO images below are a
-  placeholder text-wordmark SVG (PRO highlighted in coral inside
-  "Promote", matching the mS "AI"-in-"mAIntAIn" device) -- swap for real
-  artwork once a designer/AI image is approved. Flagged inline below.
+- Real logo artwork landed 2026-08-17 (PROmote-Style-Horizontal-Logo-Large.png,
+  PROmote-Style-logo-large.png -- transparent PNGs, PRO in red/PROmote in blue,
+  "Style" in a coral/blue script). Swapped in below, replacing the placeholder
+  text-wordmark SVGs (kept in assets/ unused, in case a vector version is
+  wanted later).
 - Pricing ($149/mo flat, single platform; $249/mo multi-platform; $99/mo
   60-day intro) is kept OUT of on-site copy per the same convention as
   mAIntAIn Style's own pricing page (George's call to keep numbers in the
@@ -38,11 +39,9 @@ TAGLINE       = "Built for you, run for you."
 CITY_STATE    = "Bend, OR"
 EMAIL         = "contact@promote.style"
 
-# Placeholder wordmark SVGs -- PRO highlighted in coral, rest in cream, same
-# device as mAIntAIn Style's "AI"-in-mAIntAIn trick. Replace both paths once
-# real logo artwork exists (see note above).
-LOGO_IMAGE     = "assets/promote-style-logo-mark.svg"       # stacked -- footer divider + favicon
-NAV_LOGO_IMAGE = "assets/promote-style-logo-horizontal.svg"  # horizontal -- header/nav
+# Real logo artwork (transparent PNGs, landed 2026-08-17).
+LOGO_IMAGE     = "assets/promote-style-logo-mark.png"       # stacked -- footer divider + favicon
+NAV_LOGO_IMAGE = "assets/promote-style-logo-horizontal.png"  # horizontal -- header/nav
 
 # ----------------------------------------------------------------------------
 # Contact form -- Web3Forms (free, no backend needed), same pattern as the
