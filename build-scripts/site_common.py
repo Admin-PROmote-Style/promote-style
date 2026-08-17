@@ -194,7 +194,7 @@ a.port-card{cursor:pointer}
 @keyframes ctaFloat2{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(22px,-18px) scale(1.15)}}
 @media(prefers-reduced-motion:reduce){.cta-band::before,.cta-band::after{animation:none}}
 .cta-band h2{font-size:clamp(24px,3.6vw,36px);color:var(--cream);margin-bottom:12px;max-width:760px;margin-left:auto;margin-right:auto}
-.cta-band p{color:var(--cream-muted);margin-bottom:26px;max-width:560px;margin-left:auto;margin-right:auto}
+.cta-band p{color:var(--cream);opacity:.9;margin-bottom:26px;max-width:560px;margin-left:auto;margin-right:auto}
 /* footer */
 .logo-divider{background:radial-gradient(ellipse 1100px 380px at 50% -40px,rgba(var(--primary-rgb),.38) 0%,rgba(var(--primary-rgb),0) 75%) var(--bg-deep);padding:54px 0 60px;text-align:center;border-top:1px solid rgba(255,255,255,.06)}
 .logo-divider img{width:280px;max-width:60vw;height:auto;margin:0 auto}
