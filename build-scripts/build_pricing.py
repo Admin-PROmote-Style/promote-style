@@ -44,20 +44,20 @@ def included():
 </div></section>"""
 
 def addons():
-    a = C.ADDON_MULTI_LOCATION
-    ae = C.ADDON_MULTI_LOCATION_ES
-    feats = "".join(f'<li data-es="{fe}">{f}</li>' for f, fe in zip(a["features"], ae["features"]))
-    card = f"""<div class="plan-card" style="max-width:640px;margin:0 auto">
-  <h3{CC._es_attr(ae['name'])}>{a['name']}</h3>
-  <div class="plan-price">{a['price']}<span>{a['period']}</span></div>
-  <ul class="plan-features">{feats}</ul>
-  <a class="btn btn-ghost" href="contact.html" data-es="Solicitar una cotización">Get a custom quote</a>
-</div>"""
+    cards = []
+    for a, ae in zip(C.ADDONS, C.ADDONS_ES):
+        cards.append(f"""<div class="addon-card">
+  <h4{CC._es_attr(ae['name'])}>{a['name']}</h4>
+  <div class="addon-price"{CC._es_attr(ae.get('price_es', ''))}>{a['price']}</div>
+  <p{CC._es_attr(ae['desc'])}>{a['desc']}</p>
+</div>""")
+    cards_html = "".join(cards)
     return f"""<section class="sec"><div class="wrap">
   <div class="sec-head"><span class="sec-tag"{CC._es_attr(C.ADDONS_TAG_ES)}>{C.ADDONS_TAG}</span>
   <h2{CC._es_attr(C.ADDONS_H2_ES)}>{C.ADDONS_H2}</h2>
   <p class="lead"{CC._es_attr(C.ADDONS_SUB_ES)}>{C.ADDONS_SUB}</p></div>
-  {card}
+  <div class="addon-grid">{cards_html}</div>
+  <p class="hosting-note" data-es="Los materiales impresos se cotizan con un precio exacto antes de comenzar el trabajo; los demás complementos se facturan al precio indicado.">Print & in-store materials are quoted exactly before work begins; every other add-on is billed at the price shown.</p>
 </div></section>"""
 
 def cta_band():

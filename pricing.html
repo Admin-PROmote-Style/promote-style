@@ -169,9 +169,11 @@ a.port-card{cursor:pointer}
 .check-list li span,.x-list li span{color:var(--cream-muted)}
 .hosting-note{max-width:640px;margin:34px auto 0;text-align:center;color:var(--cream-muted);font-size:15px}
 /* addons (pricing) */
-.addon-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;max-width:900px;margin:0 auto}
+.addon-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;max-width:900px;margin:0 auto 20px}
+.addon-grid>div:last-child:nth-child(odd){grid-column:1/-1}
 .addon-card{background:var(--panel);border:1px solid rgba(255,255,255,.07);border-radius:12px;padding:20px 22px}
 .addon-card h4{font-size:15.5px;margin-bottom:6px}
+.addon-price{color:var(--gold);font-weight:700;font-size:14px;margin-bottom:8px}
 .addon-card p{color:var(--cream-muted);font-size:13.5px}
 /* contact form */
 .contact-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:start}
@@ -261,19 +263,19 @@ a.port-card{cursor:pointer}
   <div class="plan-tag">For businesses just getting going</div>
   <h3>Starter</h3>
   <div class="plan-price">$1,000<span>/month</span></div>
-  <ul class="plan-features"><li>4-6 posts/month (Facebook, Instagram, Google Business)</li><li>Basic photo editing</li><li>Light community management</li><li>Minimal ad management (boosted posts only)</li><li>1-2 website updates/month</li><li>Monthly analytics report</li></ul>
+  <ul class="plan-features"><li>4-6 posts/month (Facebook, Instagram, Google Business)</li><li>Basic photo editing</li><li>Light community management</li><li>Minimal ad management (boosted posts only)</li><li>Monthly analytics report</li></ul>
   <a class="btn btn-ghost" href="contact.html" data-es="Empezar">Get started</a>
 </div><div class="plan-card featured">
   <div class="plan-tag">Most popular</div>
   <h3>Growth</h3>
   <div class="plan-price">$2,000<span>/month</span></div>
-  <ul class="plan-features"><li>Everything in Starter</li><li>8-12 posts/month</li><li>Weekly Reels/TikTok-style videos</li><li>Full community management</li><li>Ad campaign setup + optimization (Meta + Google)</li><li>2-4 website updates/month</li><li>Monthly strategy meeting</li></ul>
+  <ul class="plan-features"><li>Everything in Starter</li><li>8-12 posts/month</li><li>Weekly Reels/TikTok-style videos</li><li>Full community management</li><li>Ad campaign setup + optimization (Meta + Google)</li><li>Monthly strategy meeting</li></ul>
   <a class="btn btn-primary" href="contact.html" data-es="Empezar">Get started</a>
 </div><div class="plan-card">
   <div class="plan-tag">For aggressive growth</div>
   <h3>Full-Service</h3>
   <div class="plan-price">$3,000<span>/month</span></div>
-  <ul class="plan-features"><li>Everything in Growth</li><li>12-20 posts/month</li><li>Weekly video content</li><li>Reputation management (reviews + responses)</li><li>Email/SMS marketing campaigns</li><li>Seasonal campaign planning</li><li>Monthly photography session</li><li>Unlimited website updates</li></ul>
+  <ul class="plan-features"><li>Everything in Growth</li><li>12-20 posts/month</li><li>Weekly video content</li><li>Reputation management (reviews + responses)</li><li>Email/SMS marketing campaigns</li><li>Seasonal campaign planning</li><li>Monthly photography session</li></ul>
   <a class="btn btn-ghost" href="contact.html" data-es="Empezar">Get started</a>
 </div></div>
   <p class="plans-intro" data-es="Cada plan es una tarifa mensual fija -- nunca un porcentaje de tu gasto publicitario. El gasto publicitario se factura por separado y se paga directamente a Meta/Google, no a través de nosotros. ¿No sabes qué nivel te conviene? Cuéntanos qué necesitas y te recomendaremos uno.">Every plan is a flat monthly fee -- no percentage of your ad spend, ever. Ad spend itself is billed separately and paid directly to Meta/Google, not through us. Not sure which tier fits your business? Tell us what you need and we'll recommend one.</p>
@@ -281,18 +283,34 @@ a.port-card{cursor:pointer}
   <div class="sec-head"><span class="sec-tag" data-es="EN TODOS LOS PLANES">ON EVERY PLAN</span>
   <h2 data-es="Qué incluye sin importar el nivel que elijas">What's included no matter which tier you pick</h2></div>
   <div class="split-grid" style="grid-template-columns:1fr;max-width:760px">
-    <div class="split-col includes"><ul class="check-list"><li><div><strong data-es="Gestión de Redes Sociales">Social Media Management</strong><span data-es="Publicaciones en Facebook, Instagram y Google Business Profile en un horario real, no esporádico.">Facebook, Instagram, and Google Business Profile posting on a real schedule, not sporadic.</span></div></li><li><div><strong data-es="Producción de Video Corto">Short-Form Video Production</strong><span data-es="Contenido de video estilo Reels/TikTok, según tu nivel.">Reels/TikTok-style video content scaled to your tier.</span></div></li><li><div><strong data-es="Gestión de Publicidad">Advertising Management</strong><span data-es="Configuración y optimización continua de campañas -- nosotros lo manejamos, tú lo apruebas.">Campaign setup and ongoing optimization -- we run it, you approve it.</span></div></li><li><div><strong data-es="Actualizaciones del Sitio Web">Website Updates</strong><span data-es="Cambios de menú, horarios, promociones, fotos nuevas -- gestionado por nosotros cada mes.">Menu changes, hours, promos, new photos -- handled for you every month.</span></div></li><li><div><strong data-es="Optimización de Google Business Profile">Google Business Profile Optimization</strong><span data-es="Mantenido preciso y activo para que aparezcas donde la gente busca.">Kept accurate and active so you show up where people search.</span></div></li><li><div><strong data-es="Revisión Mensual de Analítica + Estrategia">Monthly Analytics + Strategy Review</strong><span data-es="Una mirada real a qué funcionó, no solo un PDF de métricas de vanidad.">A real look at what worked, not just a vanity-metrics PDF.</span></div></li></ul></div>
+    <div class="split-col includes"><ul class="check-list"><li><div><strong data-es="Gestión de Redes Sociales">Social Media Management</strong><span data-es="Publicaciones en Facebook, Instagram y Google Business Profile en un horario real, no esporádico.">Facebook, Instagram, and Google Business Profile posting on a real schedule, not sporadic.</span></div></li><li><div><strong data-es="Producción de Video Corto">Short-Form Video Production</strong><span data-es="Contenido de video estilo Reels/TikTok, según tu nivel.">Reels/TikTok-style video content scaled to your tier.</span></div></li><li><div><strong data-es="Gestión de Publicidad">Advertising Management</strong><span data-es="Configuración y optimización continua de campañas -- nosotros lo manejamos, tú lo apruebas.">Campaign setup and ongoing optimization -- we run it, you approve it.</span></div></li><li><div><strong data-es="Optimización de Google Business Profile">Google Business Profile Optimization</strong><span data-es="Mantenido preciso y activo para que aparezcas donde la gente busca.">Kept accurate and active so you show up where people search.</span></div></li><li><div><strong data-es="Revisión Mensual de Analítica + Estrategia">Monthly Analytics + Strategy Review</strong><span data-es="Una mirada real a qué funcionó, no solo un PDF de métricas de vanidad.">A real look at what worked, not just a vanity-metrics PDF.</span></div></li></ul></div>
   </div>
 </div></section><section class="sec"><div class="wrap">
-  <div class="sec-head"><span class="sec-tag" data-es="COMPLEMENTO">ADD-ON</span>
-  <h2 data-es="¿Llevas más de una ubicación?">Running more than one location?</h2>
-  <p class="lead" data-es="Agrega esto sobre cualquier nivel de negocio individual de arriba.">Layer this on top of any single-business tier above.</p></div>
-  <div class="plan-card" style="max-width:640px;margin:0 auto">
-  <h3 data-es="Complemento Multi-Ubicación / Grupo de Restaurantes">Multi-Location / Restaurant Group Add-On</h3>
-  <div class="plan-price">+$1,200-$2,000<span>/month</span></div>
-  <ul class="plan-features"><li data-es="Calendario de contenido entre marcas">Cross-brand content calendar</li><li data-es="Campañas compartidas entre ubicaciones">Shared campaigns across locations</li><li data-es="Gestión de anuncios multi-ubicación">Multi-location ad management</li><li data-es="Optimización unificada de Google Business">Unified Google Business optimization</li><li data-es="Actualizaciones del sitio en todas las ubicaciones">Website updates across all locations</li><li data-es="Analítica y estrategia grupal">Group analytics + strategy</li></ul>
-  <a class="btn btn-ghost" href="contact.html" data-es="Solicitar una cotización">Get a custom quote</a>
-</div>
+  <div class="sec-head"><span class="sec-tag" data-es="COMPLEMENTOS">ADD-ONS</span>
+  <h2 data-es="¿Necesitas algo extra?">Need something extra?</h2>
+  <p class="lead" data-es="Agrega cualquiera de estos sobre tu plan -- con precio aparte para que tu tarifa mensual siga siendo predecible.">Layer any of these on top of your plan -- priced separately so your monthly fee stays predictable.</p></div>
+  <div class="addon-grid"><div class="addon-card">
+  <h4 data-es="Multi-Ubicación / Grupo de Restaurantes">Multi-Location / Restaurant Group</h4>
+  <div class="addon-price" data-es="+$800/mes por ubicación adicional">+$800/mo per additional location</div>
+  <p data-es="¿Llevas más de una ubicación bajo la misma marca? Calendario de contenido compartido, campañas entre ubicaciones, gestión de anuncios y analítica unificadas -- cada ubicación adicional se agrega a una tarifa fija.">Running more than one location under the same brand? Shared content calendar, cross-location campaigns, unified ad management and analytics -- each additional location added at a flat rate.</p>
+</div><div class="addon-card">
+  <h4 data-es="Materiales de Marketing Impresos y en Tienda">Print & In-Store Marketing Materials</h4>
+  <div class="addon-price" data-es="$150-$400/pieza">$150-$400/piece</div>
+  <p data-es="Menús de pared, tarjetas de mesa, colgadores de puerta, cupones, volantes -- diseñados y listos para imprimir. Con precio por pieza ya que el alcance varía (un colgador de puerta no es un menú de pared); se confirma un precio exacto antes de comenzar el trabajo.">Menu boards, table cards, door hangers, coupons, flyers -- designed and print-ready to hand to your printer. Priced by piece since scope varies (a door hanger isn't a menu board); exact quote confirmed before work begins.</p>
+</div><div class="addon-card">
+  <h4 data-es="Sesión de Contenido Extra">Extra Content Shoot</h4>
+  <div class="addon-price" data-es="$300/sesión">$300/session</div>
+  <p data-es="Una sesión adicional de foto/video en sitio, más allá de la incluida en tu nivel.">An additional on-site photo/video session beyond what's included in your tier's monthly shoot.</p>
+</div><div class="addon-card">
+  <h4 data-es="Renovación Profunda de Listados de Negocio">Business Listings Deep Overhaul</h4>
+  <div class="addon-price" data-es="$350 pago único">$350 one-time</div>
+  <p data-es="Una reconstrucción completa de listados incompletos o con bajo rendimiento en Google Business Profile, Bing Places y Apple Business Connect -- más allá de la optimización continua ya incluida.">A full rebuild of incomplete or underperforming listings across Google Business Profile, Bing Places, and Apple Business Connect -- beyond the ongoing optimization already included.</p>
+</div><div class="addon-card">
+  <h4 data-es="Paquete de Campaña de Temporada">Seasonal Campaign Bundle</h4>
+  <div class="addon-price" data-es="$450/campaña">$450/campaign</div>
+  <p data-es="Un empuje enfocado para una fiesta, evento local, o promoción de temporada -- creado y programado fuera de tu ritmo normal.">A focused push for a holiday, local event, or seasonal promotion -- built and scheduled outside your normal cadence.</p>
+</div></div>
+  <p class="hosting-note" data-es="Los materiales impresos se cotizan con un precio exacto antes de comenzar el trabajo; los demás complementos se facturan al precio indicado.">Print & in-store materials are quoted exactly before work begins; every other add-on is billed at the price shown.</p>
 </div></section><section class="cta-band"><div class="wrap">
   <h2 data-es="¿No estás seguro de qué nivel te conviene?">Not sure which tier fits?</h2>
   <p data-es="Cuéntanos sobre tu negocio y te recomendaremos uno -- o armamos un alcance a la medida si ninguno encaja exactamente.">Tell us about your business and we'll recommend one -- or build a custom scope if none of these fit exactly.</p>

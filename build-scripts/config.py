@@ -269,7 +269,6 @@ PLANS = [
              "Basic photo editing",
              "Light community management",
              "Minimal ad management (boosted posts only)",
-             "1-2 website updates/month",
              "Monthly analytics report",
          ]),
     dict(name="Growth", tag="Most popular", price="$2,000", period="/month",
@@ -280,7 +279,6 @@ PLANS = [
              "Weekly Reels/TikTok-style videos",
              "Full community management",
              "Ad campaign setup + optimization (Meta + Google)",
-             "2-4 website updates/month",
              "Monthly strategy meeting",
          ]),
     dict(name="Full-Service", tag="For aggressive growth", price="$3,000", period="/month",
@@ -293,7 +291,6 @@ PLANS = [
              "Email/SMS marketing campaigns",
              "Seasonal campaign planning",
              "Monthly photography session",
-             "Unlimited website updates",
          ]),
 ]
 
@@ -309,7 +306,6 @@ INCLUDED_ITEMS = [
     ("Social Media Management", "Facebook, Instagram, and Google Business Profile posting on a real schedule, not sporadic."),
     ("Short-Form Video Production", "Reels/TikTok-style video content scaled to your tier."),
     ("Advertising Management", "Campaign setup and ongoing optimization -- we run it, you approve it."),
-    ("Website Updates", "Menu changes, hours, promos, new photos -- handled for you every month."),
     ("Google Business Profile Optimization", "Kept accurate and active so you show up where people search."),
     ("Monthly Analytics + Strategy Review", "A real look at what worked, not just a vanity-metrics PDF."),
 ]
@@ -317,45 +313,48 @@ INCLUDED_ITEMS_ES = [
     ("Gestión de Redes Sociales", "Publicaciones en Facebook, Instagram y Google Business Profile en un horario real, no esporádico."),
     ("Producción de Video Corto", "Contenido de video estilo Reels/TikTok, según tu nivel."),
     ("Gestión de Publicidad", "Configuración y optimización continua de campañas -- nosotros lo manejamos, tú lo apruebas."),
-    ("Actualizaciones del Sitio Web", "Cambios de menú, horarios, promociones, fotos nuevas -- gestionado por nosotros cada mes."),
     ("Optimización de Google Business Profile", "Mantenido preciso y activo para que aparezcas donde la gente busca."),
     ("Revisión Mensual de Analítica + Estrategia", "Una mirada real a qué funcionó, no solo un PDF de métricas de vanidad."),
 ]
 
 # ----------------------------------------------------------------------------
-# Add-ons (pricing page) -- Multi-Location/Restaurant Group upgrade, sourced
-# from the same doc. Shown as a range, not a flat figure, since scope
-# genuinely varies with number of locations (unlike the three core tiers).
+# Add-ons (pricing page) -- à la carte items layered on top of any tier.
+# These exist specifically so extra scope (more locations, print materials,
+# extra shoots, one-time deep work) has a paid home instead of quietly
+# expanding the workload under a flat monthly fee. Priced as ranges since
+# scope varies per request -- exact quote confirmed before work starts.
 # ----------------------------------------------------------------------------
-ADDONS_TAG = "ADD-ON"
-ADDONS_TAG_ES = "COMPLEMENTO"
-ADDONS_H2 = "Running more than one location?"
-ADDONS_H2_ES = "¿Llevas más de una ubicación?"
-ADDONS_SUB = "Layer this on top of any single-business tier above."
-ADDONS_SUB_ES = "Agrega esto sobre cualquier nivel de negocio individual de arriba."
+ADDONS_TAG = "ADD-ONS"
+ADDONS_TAG_ES = "COMPLEMENTOS"
+ADDONS_H2 = "Need something extra?"
+ADDONS_H2_ES = "¿Necesitas algo extra?"
+ADDONS_SUB = "Layer any of these on top of your plan -- priced separately so your monthly fee stays predictable."
+ADDONS_SUB_ES = "Agrega cualquiera de estos sobre tu plan -- con precio aparte para que tu tarifa mensual siga siendo predecible."
 
-ADDON_MULTI_LOCATION = dict(
-    name="Multi-Location / Restaurant Group Add-On", price="+$1,200-$2,000", period="/month",
-    features=[
-        "Cross-brand content calendar",
-        "Shared campaigns across locations",
-        "Multi-location ad management",
-        "Unified Google Business optimization",
-        "Website updates across all locations",
-        "Group analytics + strategy",
-    ],
-)
-ADDON_MULTI_LOCATION_ES = dict(
-    name="Complemento Multi-Ubicación / Grupo de Restaurantes",
-    features=[
-        "Calendario de contenido entre marcas",
-        "Campañas compartidas entre ubicaciones",
-        "Gestión de anuncios multi-ubicación",
-        "Optimización unificada de Google Business",
-        "Actualizaciones del sitio en todas las ubicaciones",
-        "Analítica y estrategia grupal",
-    ],
-)
+ADDONS = [
+    dict(name="Multi-Location / Restaurant Group", price="+$800/mo per additional location",
+         desc="Running more than one location under the same brand? Shared content calendar, cross-location campaigns, unified ad management and analytics -- each additional location added at a flat rate."),
+    dict(name="Print & In-Store Marketing Materials", price="$150-$400/piece",
+         desc="Menu boards, table cards, door hangers, coupons, flyers -- designed and print-ready to hand to your printer. Priced by piece since scope varies (a door hanger isn't a menu board); exact quote confirmed before work begins."),
+    dict(name="Extra Content Shoot", price="$300/session",
+         desc="An additional on-site photo/video session beyond what's included in your tier's monthly shoot."),
+    dict(name="Business Listings Deep Overhaul", price="$350 one-time",
+         desc="A full rebuild of incomplete or underperforming listings across Google Business Profile, Bing Places, and Apple Business Connect -- beyond the ongoing optimization already included."),
+    dict(name="Seasonal Campaign Bundle", price="$450/campaign",
+         desc="A focused push for a holiday, local event, or seasonal promotion -- built and scheduled outside your normal cadence."),
+]
+ADDONS_ES = [
+    dict(name="Multi-Ubicación / Grupo de Restaurantes", price_es="+$800/mes por ubicación adicional",
+         desc="¿Llevas más de una ubicación bajo la misma marca? Calendario de contenido compartido, campañas entre ubicaciones, gestión de anuncios y analítica unificadas -- cada ubicación adicional se agrega a una tarifa fija."),
+    dict(name="Materiales de Marketing Impresos y en Tienda", price_es="$150-$400/pieza",
+         desc="Menús de pared, tarjetas de mesa, colgadores de puerta, cupones, volantes -- diseñados y listos para imprimir. Con precio por pieza ya que el alcance varía (un colgador de puerta no es un menú de pared); se confirma un precio exacto antes de comenzar el trabajo."),
+    dict(name="Sesión de Contenido Extra", price_es="$300/sesión",
+         desc="Una sesión adicional de foto/video en sitio, más allá de la incluida en tu nivel."),
+    dict(name="Renovación Profunda de Listados de Negocio", price_es="$350 pago único",
+         desc="Una reconstrucción completa de listados incompletos o con bajo rendimiento en Google Business Profile, Bing Places y Apple Business Connect -- más allá de la optimización continua ya incluida."),
+    dict(name="Paquete de Campaña de Temporada", price_es="$450/campaña",
+         desc="Un empuje enfocado para una fiesta, evento local, o promoción de temporada -- creado y programado fuera de tu ritmo normal."),
+]
 
 PRICING_CTA_H2 = "Not sure which tier fits?"
 PRICING_CTA_H2_ES = "¿No estás seguro de qué nivel te conviene?"
