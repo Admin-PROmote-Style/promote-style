@@ -121,36 +121,59 @@ NAV_LINKS = [
 # ----------------------------------------------------------------------------
 # Homepage copy
 # ----------------------------------------------------------------------------
-HERO_BADGE = "FREE SEO RESOURCES, NO STRINGS"
-HERO_BADGE_ES = "RECURSOS SEO GRATIS, SIN LETRA PEQUEÑA"
-# 2026-08-17: shortened per George's exact wording -- was "The most useful
-# SEO resource on the internet -- built by people who actually build
-# SEO-ready sites," which read as too much text / too promotional for an
-# education-first site.
-HERO_H1    = 'FREE <span class="grad">SEO resources</span><br>built by people who build<br><span class="grad">SEO-ready sites</span>.'
-HERO_H1_ES = 'Recursos <span class="grad">SEO gratis</span><br>hechos por gente que construye<br><span class="grad">sitios listos para SEO</span>.'
-HERO_SUB   = ("Real tips, real keyword research, real setup guides — free. No email wall, no drip "
-              "campaign. If you like what you learn here, ask us about a site built this way from day one.")
-HERO_SUB_ES = ("Consejos reales, investigación de palabras clave real, guías de configuración reales — gratis. "
-               "Sin muro de correo, sin campaña de goteo. Si te sirve lo que aprendes aquí, pregúntanos por un "
-               "sitio construido así desde el primer día.")
+HERO_BADGE = "DONE-FOR-YOU MARKETING"
+HERO_BADGE_ES = "MARKETING HECHO PARA TI"
+# 2026-08-23: repositioned for the homepage now that PROmote Style has a real,
+# priced product (see PLANS on the pricing page) -- was leading 100% with the
+# free SEO-guides angle and routing every CTA to mAIntAIn Style, with no
+# mention anywhere on the page that PROmote Style itself is a paid,
+# done-for-you service. Now leads with the service; free guides stay as a
+# secondary CTA and trust-builder further down the page (see PILLARS/FEATURES).
+HERO_H1    = 'Your social media, ads, and marketing —<br><span class="grad">handled for you</span>, every month.'
+HERO_H1_ES = 'Tus redes sociales, anuncios y marketing —<br><span class="grad">los manejamos por ti</span>, cada mes.'
+HERO_SUB   = ("Flat monthly plans starting at $1,000 -- you approve the content, we handle the posting, the ads, "
+              "and the reporting. Prefer to learn it yourself first? Our SEO guides are free, no strings attached.")
+HERO_SUB_ES = ("Planes mensuales fijos desde $1,000 -- tú apruebas el contenido, nosotros manejamos las "
+               "publicaciones, los anuncios y los reportes. ¿Prefieres aprenderlo tú mismo primero? Nuestras guías "
+               "de SEO son gratis, sin letra pequeña.")
 
+# 2026-08-23: reworked for the paid service (was about the free SEO guides --
+# "100% free," "practical, not theoretical" -- now about what a paying client
+# cares about). "Built by site builders" kept -- it's still a real, true
+# differentiator.
 TRUST_ITEMS = [
-    ("100% free", "No paywall on any guide", "100% gratis", "Ninguna guía tiene muro de pago"),
-    ("Practical, not theoretical", "Steps you can do today", "Práctico, no teórico", "Pasos que puedes hacer hoy"),
+    ("Flat monthly fee", "No % of your ad spend, ever", "Tarifa mensual fija", "Nunca un % de tu gasto publicitario"),
+    ("You approve everything", "Nothing posts without your OK", "Tú apruebas todo", "Nada se publica sin tu aprobación"),
     ("Built by site builders", "Not just marketers", "Hecho por quienes construyen sitios", "No solo mercadólogos"),
     (CITY_STATE, "Local & remote", CITY_STATE, "Local y remoto"),
 ]
 
+# ----------------------------------------------------------------------------
+# Homepage pricing teaser -- NEW 2026-08-23. Reuses C.PLANS (the same data
+# that drives pricing.html) so the two pages can never drift out of sync;
+# this section just renders a compact version and links to the full page.
+# ----------------------------------------------------------------------------
+PLANS_TEASER_TAG = "FLAT MONTHLY PLANS"
+PLANS_TEASER_TAG_ES = "PLANES MENSUALES FIJOS"
+PLANS_TEASER_H2 = "Three tiers. Pick what fits, upgrade whenever."
+PLANS_TEASER_H2_ES = "Tres niveles. Elige el que te convenga, sube de nivel cuando quieras."
+PLANS_TEASER_SUB = "Every plan is a flat monthly fee -- no percentage of your ad spend, ever."
+PLANS_TEASER_SUB_ES = "Cada plan es una tarifa mensual fija -- nunca un porcentaje de tu gasto publicitario."
+PLANS_TEASER_CTA = "See full pricing & what's included"
+PLANS_TEASER_CTA_ES = "Ver precios completos y qué incluye"
+
+# 2026-08-23: reworked from "how to work through the free guides" (that
+# framing now lives on seo-101.html itself) to "how it works as a client" --
+# this section is on the homepage to sell the service, not the content library.
 PROCESS_STEPS = [
-    ("01", "Learn the basics", "Start with SEO Basics — keywords, search intent, and the fundamentals in plain English.",
-     "Aprende lo básico", "Empieza con SEO Basics — palabras clave, intención de búsqueda y lo esencial en español claro."),
-    ("02", "See it done right", "Built SEO-Ready shows exactly what a properly-built site includes, with real examples.",
-     "Mira cómo se hace bien", "Built SEO-Ready muestra exactamente qué incluye un sitio bien construido, con ejemplos reales."),
-    ("03", "Claim your listings", "Set up Google Business Profile, Bing Places, and the rest so you show up where people search.",
-     "Reclama tus listados", "Configura Google Business Profile, Bing Places y el resto para que aparezcas donde la gente busca."),
-    ("04", "Get help if you want it", "Keep learning free, or let us build the SEO-ready site (or run the marketing) for you.",
-     "Pide ayuda si la quieres", "Sigue aprendiendo gratis, o deja que construyamos el sitio listo para SEO (o llevemos tu marketing) por ti."),
+    ("01", "Tell us about your business", "A quick conversation about what you sell, who you're trying to reach, and what you're already doing.",
+     "Cuéntanos sobre tu negocio", "Una conversación breve sobre qué vendes, a quién buscas llegar, y qué ya estás haciendo."),
+    ("02", "Pick a tier", "Starter, Growth, or Full-Service -- or a custom scope if none of them fit exactly.",
+     "Elige un nivel", "Starter, Growth, o Full-Service -- o un alcance a la medida si ninguno encaja exactamente."),
+    ("03", "We build your systems", "Content calendar, ad campaigns, and profile optimization, set up and running under your own accounts.",
+     "Construimos tus sistemas", "Calendario de contenido, campañas de anuncios y optimización de perfiles, configurados y funcionando bajo tus propias cuentas."),
+    ("04", "You watch it run", "A monthly strategy review and real reporting -- you stay in control, we handle the day-to-day.",
+     "Tú lo ves funcionar", "Una revisión de estrategia mensual y reportes reales -- tú mantienes el control, nosotros manejamos el día a día."),
 ]
 
 FEATURES = [
@@ -168,11 +191,15 @@ FEATURES = [
      "Cada sitio de mAIntAIn Style sale con lo esencial de estas guías ya integrado. No es solo un consejo — es un ejemplo real y en vivo."),
 ]
 
-CTA_TITLE = "Want a site that's SEO-ready before it even launches?"
-CTA_TITLE_ES = "¿Quieres un sitio listo para SEO antes de que siquiera se lance?"
-CTA_SUB   = "mAIntAIn Style builds sites with the fundamentals from these guides baked in from day one — schema, sitemap, speed, structure, all of it. See what that actually looks like."
-CTA_SUB_ES = ("mAIntAIn Style construye sitios con lo esencial de estas guías integrado desde el primer día — "
-              "schema, sitemap, velocidad, estructura, todo. Mira cómo se ve eso en la práctica.")
+# 2026-08-23: this band used to route 100% of homepage traffic to
+# mAIntAIn Style's portfolio ("want a site that's SEO-ready?"), with no ask
+# for PROmote Style's own service anywhere on the page. Now it's PROmote
+# Style's own closing pitch; the mAIntAIn Style cross-sell moves to a
+# secondary button in cta_band() instead of being the only ask.
+CTA_TITLE = "Ready to have your marketing handled?"
+CTA_TITLE_ES = "¿Listo para que manejemos tu marketing?"
+CTA_SUB   = "Tell us about your business and we'll recommend a tier -- or build a custom scope if none of these fit exactly."
+CTA_SUB_ES = "Cuéntanos sobre tu negocio y te recomendaremos un nivel -- o armamos un alcance a la medida si ninguno encaja exactamente."
 
 # ----------------------------------------------------------------------------
 # Comparison section (homepage) -- sells against the two real alternatives a
@@ -180,27 +207,31 @@ CTA_SUB_ES = ("mAIntAIn Style construye sitios con lo esencial de estas guías i
 # ----------------------------------------------------------------------------
 # 2026-08-17: dropped COMPARISON_SUB ("What matters isn't how much content
 # exists...") per George's request -- the h2 alone carries the section.
+# 2026-08-23: reworked from "three ways to learn SEO" (blog posts vs. paid
+# courses vs. our free guides) to "three ways to handle your marketing" --
+# this section now sells the paid service against its two real alternatives
+# instead of selling the free content library against other free content.
 COMPARISON_TAG = "THE DIFFERENCE"
 COMPARISON_TAG_ES = "LA DIFERENCIA"
-COMPARISON_H2  = "Three ways to learn SEO. Only one doesn't waste your time."
-COMPARISON_H2_ES = "Tres formas de aprender SEO. Solo una no te hace perder el tiempo."
+COMPARISON_H2  = "Three ways to handle your marketing. Only one doesn't cost you time or a fortune."
+COMPARISON_H2_ES = "Tres formas de manejar tu marketing. Solo una no te cuesta tiempo ni una fortuna."
 
 COMPARISON_ITEMS = [
-    dict(label="RANDOM BLOG POSTS", title="Outdated, contradictory, vague",
-         desc="Search \"how to do SEO\" and get a thousand takes, half from 2019, most written to rank for the term rather than actually explain it.",
+    dict(label="DOING IT YOURSELF", title="Whenever you find the time",
+         desc="Posting between running the business, managing ads you don't have time to optimize, and figuring out Google Business Profile on your own -- it's not that you can't, it's that you shouldn't have to.",
          featured=False,
-         label_es="ARTÍCULOS DE BLOG AL AZAR", title_es="Desactualizados, contradictorios, vagos",
-         desc_es="Busca \"cómo hacer SEO\" y encuentra mil opiniones distintas, la mitad de 2019, la mayoría escritas para posicionarse por el término en vez de explicarlo de verdad."),
-    dict(label="PAID SEO COURSES", title="Locked behind a price tag",
-         desc="The good information exists — behind a $200 course or a \"book a call\" wall before you've learned anything at all.",
+         label_es="HACERLO TÚ MISMO", title_es="Cuando encuentres el tiempo",
+         desc_es="Publicar entre atender el negocio, manejar anuncios que no tienes tiempo de optimizar, y descifrar Google Business Profile por tu cuenta -- no es que no puedas, es que no deberías tener que hacerlo."),
+    dict(label="A TRADITIONAL AGENCY", title="Expensive, slow, and impersonal",
+         desc="Long contracts, junior account managers who've never run a business like yours, and pricing that's rarely a flat number you can actually plan around.",
          featured=False,
-         label_es="CURSOS DE SEO DE PAGO", title_es="Encerrados detrás de un precio",
-         desc_es="La buena información existe — detrás de un curso de $200 o un muro de \"agenda una llamada\" antes de que hayas aprendido algo siquiera."),
-    dict(label=BUSINESS_NAME.upper(), title="Free, current, and provable",
-         desc="Every guide here is free and written by people who build SEO-ready sites for a living — and who'll show you exactly what that looks like, not just tell you.",
+         label_es="UNA AGENCIA TRADICIONAL", title_es="Cara, lenta e impersonal",
+         desc_es="Contratos largos, gerentes de cuenta junior que nunca han manejado un negocio como el tuyo, y precios que rara vez son un número fijo con el que puedas planear de verdad."),
+    dict(label=BUSINESS_NAME.upper(), title="Flat fee, real people, you approve everything",
+         desc="One flat monthly price, no ad-spend markup, and a real strategy review every month -- run by people who also build the sites these campaigns point to.",
          featured=True,
-         label_es=BUSINESS_NAME.upper(), title_es="Gratis, actual y demostrable",
-         desc_es="Cada guía aquí es gratis y está escrita por gente que construye sitios listos para SEO para vivir — y que te va a mostrar exactamente cómo se ve eso, no solo contártelo."),
+         label_es=BUSINESS_NAME.upper(), title_es="Tarifa fija, gente real, tú apruebas todo",
+         desc_es="Un precio mensual fijo, sin recargo sobre tu gasto publicitario, y una revisión de estrategia real cada mes -- manejado por gente que también construye los sitios a los que apuntan estas campañas."),
 ]
 
 # ----------------------------------------------------------------------------
@@ -211,10 +242,13 @@ COMPARISON_ITEMS = [
 # below deep-link straight to the right tab via hash.
 # 2026-08-17: dropped PILLARS_SUB per George's request -- the h2 alone
 # carries the section, matching the earlier COMPARISON_SUB removal.
-PILLARS_TAG = "START HERE"
-PILLARS_TAG_ES = "EMPIEZA AQUÍ"
-PILLARS_H2  = "One page, three tabs<br>Pick your starting point"
-PILLARS_H2_ES = "Una página, tres pestañas<br>Elige tu punto de partida"
+# 2026-08-23: retitled -- this section no longer opens the homepage (the
+# service pitch does), so "START HERE" no longer fits. It's now framed as
+# the free-guides option for anyone who wants to DIY first.
+PILLARS_TAG = "FREE SEO GUIDES"
+PILLARS_TAG_ES = "GUÍAS SEO GRATIS"
+PILLARS_H2  = "Prefer to learn it yourself first?<br>Start here, free"
+PILLARS_H2_ES = "¿Prefieres aprenderlo tú mismo primero?<br>Empieza aquí, gratis"
 
 PILLARS = [
     dict(href="seo-101.html#basics", label="SEO BASICS", title="Never done SEO before?",
