@@ -18,10 +18,21 @@ VERIFIED FACTS ONLY (per project rule -- no invented claims/numbers):
   "Style" in a coral/blue script). Swapped in below, replacing the placeholder
   text-wordmark SVGs (kept in assets/ unused, in case a vector version is
   wanted later).
-- Pricing ($149/mo flat, single platform; $249/mo multi-platform; $99/mo
-  60-day intro) is kept OUT of on-site copy per the same convention as
-  mAIntAIn Style's own pricing page (George's call to keep numbers in the
-  conversation, not published) -- reference only, not rendered here.
+- 2026-08-23: pricing convention REVERSED -- George's earlier $149/$249/$99
+  ad-only numbers (from the 2026-08-14 Brand Basics draft) are superseded.
+  Verified that mAIntAIn Style's OWN pricing.html already publishes real
+  one-time figures ($500/$1,500/$2,500) -- the "keep pricing off-site" note
+  above was stale, not a live convention. George confirmed today: publish
+  real monthly figures on a new pricing.html for this site too, sourced from
+  Single-Business_Marketing_Agreement.pdf (added 2026-08-23, single-business
+  scope -- distinct from the same day's Restaurant_Group_*.docx/.pdf, which
+  covers the Fat Tony's/Simon's/Tacos 3-restaurant bundle specifically).
+  Single-business doc gives ranges (Starter $600-$900/mo, Growth
+  $1,000-$1,500/mo, Full-Service $1,800-$2,500/mo); George's own recollection
+  when asked was "$1,000/$2,000/$3,000," so the TOP of each documented range
+  was chosen as the published figure -- closest defensible number to both
+  sources. Flag to George to confirm/adjust if these aren't quite right:
+  Starter $900/mo, Growth $1,500/mo, Full-Service $2,500/mo. See PLANS below.
 - This build (2026-08-17) adds the free SEO-resource content arm on top of
   the existing brand basics: PROmote Style's site itself is the top-of-
   funnel -- resourceful, wide-audience SEO content that (a) demonstrates
@@ -102,6 +113,7 @@ GOOGLE_FONTS_HREF = ("https://fonts.googleapis.com/css2?"
 # (seo-101.html) instead of three separate destinations.
 NAV_LINKS = [
     ("index.html", "Home"),
+    ("pricing.html", "Pricing"),
     ("seo-101.html", "SEO 101"),
     ("https://maintain.style", "mAIntAIn Style"),
 ]
@@ -228,6 +240,127 @@ CONTACT_SUB = ("Whether you want a site built SEO-ready from day one, want us to
                "question about one of the guides — tell us a bit about what you need.")
 CONTACT_SUB_ES = ("Ya sea que quieras un sitio construido listo para SEO desde el primer día, que llevemos tu "
                    "marketing, o solo tengas una pregunta sobre una de las guías — cuéntanos un poco qué necesitas.")
+
+# ----------------------------------------------------------------------------
+# Pricing page copy -- sourced from Single-Business_Marketing_Agreement.pdf
+# (2026-08-23, single-business scope). Monthly retainer, not a one-time build
+# fee like mAIntAIn Style's own PLANS -- this is ongoing marketing management.
+# Published figures are the TOP of each documented range (see note atop this
+# file) -- confirm with George before treating as final.
+# ----------------------------------------------------------------------------
+PRICING_HERO_TAG = "PRICING"
+PRICING_HERO_TAG_ES = "PRECIOS"
+PRICING_HERO_H1 = 'Marketing that <span class="grad">runs itself</span>,<br>priced in plain numbers'
+PRICING_HERO_H1_ES = 'Marketing que <span class="grad">se administra solo</span>,<br>con precios claros'
+
+PLANS_INTRO = ("Every plan is a flat monthly fee -- no percentage of your ad spend, ever. Ad spend itself "
+               "is billed separately and paid directly to Meta/Google, not through us. Not sure which tier "
+               "fits your business? Tell us what you need and we'll recommend one.")
+PLANS_INTRO_ES = ("Cada plan es una tarifa mensual fija -- nunca un porcentaje de tu gasto publicitario. El "
+                   "gasto publicitario se factura por separado y se paga directamente a Meta/Google, no a "
+                   "través de nosotros. ¿No sabes qué nivel te conviene? Cuéntanos qué necesitas y te "
+                   "recomendaremos uno.")
+
+PLANS = [
+    dict(name="Starter", tag="For businesses just getting going", price="$900", period="/month",
+         featured=False,
+         features=[
+             "4-6 posts/month (Facebook, Instagram, Google Business)",
+             "Basic photo editing",
+             "Light community management",
+             "Minimal ad management (boosted posts only)",
+             "1-2 website updates/month",
+             "Monthly analytics report",
+         ]),
+    dict(name="Growth", tag="Most popular", price="$1,500", period="/month",
+         featured=True,
+         features=[
+             "Everything in Starter",
+             "8-12 posts/month",
+             "Weekly Reels/TikTok-style videos",
+             "Full community management",
+             "Ad campaign setup + optimization (Meta + Google)",
+             "2-4 website updates/month",
+             "Monthly strategy meeting",
+         ]),
+    dict(name="Full-Service", tag="For aggressive growth", price="$2,500", period="/month",
+         featured=False,
+         features=[
+             "Everything in Growth",
+             "12-20 posts/month",
+             "Weekly video content",
+             "Reputation management (reviews + responses)",
+             "Email/SMS marketing campaigns",
+             "Seasonal campaign planning",
+             "Monthly photography session",
+             "Unlimited website updates",
+         ]),
+]
+
+# Shared across every tier -- from "Included Services" in
+# Single-Business_Marketing_Agreement.pdf. Shown once on the page instead of
+# repeated on every card.
+INCLUDED_TAG = "ON EVERY PLAN"
+INCLUDED_TAG_ES = "EN TODOS LOS PLANES"
+INCLUDED_H2 = "What's included no matter which tier you pick"
+INCLUDED_H2_ES = "Qué incluye sin importar el nivel que elijas"
+
+INCLUDED_ITEMS = [
+    ("Social Media Management", "Facebook, Instagram, and Google Business Profile posting on a real schedule, not sporadic."),
+    ("Short-Form Video Production", "Reels/TikTok-style video content scaled to your tier."),
+    ("Advertising Management", "Campaign setup and ongoing optimization -- we run it, you approve it."),
+    ("Website Updates", "Menu changes, hours, promos, new photos -- handled for you every month."),
+    ("Google Business Profile Optimization", "Kept accurate and active so you show up where people search."),
+    ("Monthly Analytics + Strategy Review", "A real look at what worked, not just a vanity-metrics PDF."),
+]
+INCLUDED_ITEMS_ES = [
+    ("Gestión de Redes Sociales", "Publicaciones en Facebook, Instagram y Google Business Profile en un horario real, no esporádico."),
+    ("Producción de Video Corto", "Contenido de video estilo Reels/TikTok, según tu nivel."),
+    ("Gestión de Publicidad", "Configuración y optimización continua de campañas -- nosotros lo manejamos, tú lo apruebas."),
+    ("Actualizaciones del Sitio Web", "Cambios de menú, horarios, promociones, fotos nuevas -- gestionado por nosotros cada mes."),
+    ("Optimización de Google Business Profile", "Mantenido preciso y activo para que aparezcas donde la gente busca."),
+    ("Revisión Mensual de Analítica + Estrategia", "Una mirada real a qué funcionó, no solo un PDF de métricas de vanidad."),
+]
+
+# ----------------------------------------------------------------------------
+# Add-ons (pricing page) -- Multi-Location/Restaurant Group upgrade, sourced
+# from the same doc. Shown as a range, not a flat figure, since scope
+# genuinely varies with number of locations (unlike the three core tiers).
+# ----------------------------------------------------------------------------
+ADDONS_TAG = "ADD-ON"
+ADDONS_TAG_ES = "COMPLEMENTO"
+ADDONS_H2 = "Running more than one location?"
+ADDONS_H2_ES = "¿Llevas más de una ubicación?"
+ADDONS_SUB = "Layer this on top of any single-business tier above."
+ADDONS_SUB_ES = "Agrega esto sobre cualquier nivel de negocio individual de arriba."
+
+ADDON_MULTI_LOCATION = dict(
+    name="Multi-Location / Restaurant Group Add-On", price="+$1,200-$2,000", period="/month",
+    features=[
+        "Cross-brand content calendar",
+        "Shared campaigns across locations",
+        "Multi-location ad management",
+        "Unified Google Business optimization",
+        "Website updates across all locations",
+        "Group analytics + strategy",
+    ],
+)
+ADDON_MULTI_LOCATION_ES = dict(
+    name="Complemento Multi-Ubicación / Grupo de Restaurantes",
+    features=[
+        "Calendario de contenido entre marcas",
+        "Campañas compartidas entre ubicaciones",
+        "Gestión de anuncios multi-ubicación",
+        "Optimización unificada de Google Business",
+        "Actualizaciones del sitio en todas las ubicaciones",
+        "Analítica y estrategia grupal",
+    ],
+)
+
+PRICING_CTA_H2 = "Not sure which tier fits?"
+PRICING_CTA_H2_ES = "¿No estás seguro de qué nivel te conviene?"
+PRICING_CTA_SUB = "Tell us about your business and we'll recommend one -- or build a custom scope if none of these fit exactly."
+PRICING_CTA_SUB_ES = "Cuéntanos sobre tu negocio y te recomendaremos uno -- o armamos un alcance a la medida si ninguno encaja exactamente."
 
 # ----------------------------------------------------------------------------
 # Back-to-top icon -- reuse mS's blue arrow until a coral-family icon exists.

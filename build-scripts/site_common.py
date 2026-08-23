@@ -159,7 +159,10 @@ a.port-card{cursor:pointer}
 .plan-card{background:var(--panel);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:32px 28px;display:flex;flex-direction:column}
 .plan-card.featured{border-color:var(--gold);background:linear-gradient(180deg,var(--panel2),var(--panel));box-shadow:0 0 0 1px rgba(255,209,93,.30),0 20px 50px rgba(255,209,93,.10)}
 .plan-tag{font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
-.plan-card h3{font-size:24px;margin-bottom:18px}
+.plan-card h3{font-size:24px;margin-bottom:4px}
+.plan-price{font-family:var(--font-head);font-size:34px;font-weight:800;color:var(--cream);margin-bottom:18px;display:flex;align-items:baseline;gap:6px}
+.plan-price span{font-family:var(--font-body);font-size:13px;font-weight:600;color:var(--cream-muted)}
+.plan-card.featured .plan-price{color:var(--gold)}
 .plan-features{list-style:none;margin:0 0 26px;flex:1}
 .plan-features li{color:var(--cream-muted);font-size:14.5px;padding:9px 0;border-top:1px solid rgba(255,255,255,.06);display:flex;gap:10px}
 .plan-features li:first-child{border-top:0}
@@ -181,8 +184,8 @@ a.port-card{cursor:pointer}
 .check-list,.x-list{list-style:none}
 .check-list li,.x-list li{display:flex;gap:10px;align-items:flex-start;padding:11px 0;border-top:1px solid rgba(255,255,255,.06);font-size:14px}
 .check-list li:first-child,.x-list li:first-child{border-top:0}
-.check-list li::before{content:"\2713";color:var(--gold);font-weight:700;flex:0 0 auto;line-height:1.5}
-.x-list li::before{content:"\2014";color:var(--cream-muted);font-weight:700;flex:0 0 auto;line-height:1.5}
+.check-list li::before{content:"\\2713";color:var(--gold);font-weight:700;flex:0 0 auto;line-height:1.5}
+.x-list li::before{content:"\\2014";color:var(--cream-muted);font-weight:700;flex:0 0 auto;line-height:1.5}
 .check-list li strong,.x-list li strong{color:var(--cream);display:block;font-size:14.5px;margin-bottom:2px}
 .check-list li span,.x-list li span{color:var(--cream-muted)}
 .hosting-note{max-width:640px;margin:34px auto 0;text-align:center;color:var(--cream-muted);font-size:15px}
@@ -306,6 +309,7 @@ NAV_LABELS_ES = {
     "Home": "Inicio",
     "Portfolio": "Portafolio",
     "Plans": "Planes",
+    "Pricing": "Precios",
     "SEO 101": "Fundamentos SEO",
     # "mAIntAIn Style" intentionally omitted -- it's a brand name, not translated.
 }
