@@ -262,7 +262,7 @@ PLANS_INTRO_ES = ("Cada plan es una tarifa mensual fija -- nunca un porcentaje d
                    "recomendaremos uno.")
 
 PLANS = [
-    dict(name="Starter", tag="For businesses just getting going", price="$900", period="/month",
+    dict(name="Starter", tag="For businesses just getting going", price="$1,000", period="/month",
          featured=False,
          features=[
              "4-6 posts/month (Facebook, Instagram, Google Business)",
@@ -272,7 +272,7 @@ PLANS = [
              "1-2 website updates/month",
              "Monthly analytics report",
          ]),
-    dict(name="Growth", tag="Most popular", price="$1,500", period="/month",
+    dict(name="Growth", tag="Most popular", price="$2,000", period="/month",
          featured=True,
          features=[
              "Everything in Starter",
@@ -283,7 +283,7 @@ PLANS = [
              "2-4 website updates/month",
              "Monthly strategy meeting",
          ]),
-    dict(name="Full-Service", tag="For aggressive growth", price="$2,500", period="/month",
+    dict(name="Full-Service", tag="For aggressive growth", price="$3,000", period="/month",
          featured=False,
          features=[
              "Everything in Growth",
