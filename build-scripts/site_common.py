@@ -49,6 +49,12 @@ def css_root():
 
 def base_css():
     return css_root() + """
+/* 2026-08-23: native dissolve transition between pages on this site.
+   Same-origin only (Chrome/Edge 126+, Safari 18.2+) -- Firefox and any
+   cross-domain link (e.g. to maintain.style or client.style) just fall
+   back to a normal instant navigation, no breakage either way. */
+@view-transition{navigation:auto}
+::view-transition-old(root),::view-transition-new(root){animation-duration:.4s}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{font-family:var(--font-body);color:var(--cream);background:var(--bg-deep);line-height:1.6;
