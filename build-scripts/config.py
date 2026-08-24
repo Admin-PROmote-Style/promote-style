@@ -59,7 +59,7 @@ NAV_LOGO_IMAGE = "assets/promote-style-logo-horizontal.png"  # horizontal -- hea
 # mAIntAIn Style site. Get a free access key at https://web3forms.com and
 # paste it below. Form will not submit anywhere until this is filled in.
 # ----------------------------------------------------------------------------
-WEB3FORMS_ACCESS_KEY = "648c1774-77ad-4828-8bef-8088601b7521"   # live 2026-08-24, named "PROmote Style Contact Form" in Web3Forms
+WEB3FORMS_ACCESS_KEY = "3856a294-ecef-4bd8-8a8c-68fd92e47037"   # live 2026-08-24 -- separate, dedicated Web3Forms account tied to contact@maintain.style, distinct from George's OCH account
 
 # ----------------------------------------------------------------------------
 # Deploy
