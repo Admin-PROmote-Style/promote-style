@@ -295,8 +295,16 @@ PLANS_INTRO_ES = ("Cada plan es una tarifa mensual fija -- nunca un porcentaje d
                    "través de nosotros. ¿No sabes qué nivel te conviene? Cuéntanos qué necesitas y te "
                    "recomendaremos uno.")
 
+# 2026-08-24: added tag_es/name_es/period_es/features_es to every tier --
+# the plan cards had NO Spanish translation at all (only the "Get started"
+# button did), so switching the lang toggle left the cards in English while
+# the rest of the page went Spanish. George caught this on the live site and
+# asked for full ESP parity. plans_teaser() on the homepage reuses these same
+# dicts (tag/name/period only, no features) -- fixed there too, same reason.
 PLANS = [
-    dict(name="Starter", tag="For businesses just getting going", price="$1,000", period="/month",
+    dict(name="Starter", name_es="Inicial",
+         tag="For businesses just getting going", tag_es="Para negocios que recién comienzan",
+         price="$1,000", period="/month", period_es="/mes",
          featured=False,
          features=[
              "4-6 posts/month (Facebook, Instagram, Google Business)",
@@ -304,8 +312,24 @@ PLANS = [
              "Light community management",
              "Minimal ad management (boosted posts only)",
              "Monthly analytics report",
+         ],
+         features_es=[
+             "4-6 publicaciones al mes (Facebook, Instagram, Google Business)",
+             "Edición básica de fotos",
+             "Gestión ligera de la comunidad",
+             "Gestión mínima de anuncios (solo publicaciones impulsadas)",
+             "Informe mensual de analítica",
+         ],
+         # "at a glance" strip on the card -- 3 quick stats shown above the
+         # full feature list (2026-08-24, from the pricing-page mockup).
+         glance=[
+             dict(val="4-6", val_es="4-6", lbl="Posts/mo", lbl_es="Publicaciones/mes"),
+             dict(val="Boosted", val_es="Impulsados", lbl="Ad Mgmt", lbl_es="Anuncios"),
+             dict(val="Light", val_es="Ligera", lbl="Community", lbl_es="Comunidad"),
          ]),
-    dict(name="Growth", tag="Most popular", price="$2,000", period="/month",
+    dict(name="Growth", name_es="Crecimiento",
+         tag="Most popular", tag_es="Más popular",
+         price="$2,000", period="/month", period_es="/mes",
          featured=True,
          features=[
              "Everything in Starter",
@@ -314,8 +338,23 @@ PLANS = [
              "Full community management",
              "Ad campaign setup + optimization (Meta + Google)",
              "Monthly strategy meeting",
+         ],
+         features_es=[
+             "Todo lo de Inicial",
+             "8-12 publicaciones al mes",
+             "Videos semanales estilo Reels/TikTok",
+             "Gestión completa de la comunidad",
+             "Configuración y optimización de campañas publicitarias (Meta + Google)",
+             "Reunión mensual de estrategia",
+         ],
+         glance=[
+             dict(val="8-12", val_es="8-12", lbl="Posts/mo", lbl_es="Publicaciones/mes"),
+             dict(val="Weekly", val_es="Semanal", lbl="Video", lbl_es="Video"),
+             dict(val="Full", val_es="Completa", lbl="Ad Mgmt", lbl_es="Anuncios"),
          ]),
-    dict(name="Full-Service", tag="For aggressive growth", price="$3,000", period="/month",
+    dict(name="Full-Service", name_es="Servicio Completo",
+         tag="For aggressive growth", tag_es="Para crecimiento agresivo",
+         price="$3,000", period="/month", period_es="/mes",
          featured=False,
          features=[
              "Everything in Growth",
@@ -325,6 +364,20 @@ PLANS = [
              "Email/SMS marketing campaigns",
              "Seasonal campaign planning",
              "Monthly photography session",
+         ],
+         features_es=[
+             "Todo lo de Crecimiento",
+             "12-20 publicaciones al mes",
+             "Contenido de video semanal",
+             "Gestión de reputación (reseñas + respuestas)",
+             "Campañas de marketing por correo electrónico/SMS",
+             "Planificación de campañas de temporada",
+             "Sesión de fotografía mensual",
+         ],
+         glance=[
+             dict(val="12-20", val_es="12-20", lbl="Posts/mo", lbl_es="Publicaciones/mes"),
+             dict(val="Weekly", val_es="Semanal", lbl="Video+Photo", lbl_es="Video+Foto"),
+             dict(val="Full", val_es="Completa", lbl="Reputation", lbl_es="Reputación"),
          ]),
 ]
 
@@ -400,6 +453,104 @@ PRICING_CTA_H2 = "Not sure which tier fits?"
 PRICING_CTA_H2_ES = "¿No estás seguro de qué nivel te conviene?"
 PRICING_CTA_SUB = "Tell us about your business and we'll recommend one -- or build a custom scope if none of these fit exactly."
 PRICING_CTA_SUB_ES = "Cuéntanos sobre tu negocio y te recomendaremos uno -- o armamos un alcance a la medida si ninguno encaja exactamente."
+
+# ----------------------------------------------------------------------------
+# Pricing page additions (2026-08-24) -- built from pricing-page mockups
+# George signed off on: a per-day cost line, a "who this is right for"
+# section, and a full row-by-row tier comparison table lower on the page.
+# Sourced from a Grok review of the live site; the two structural pieces
+# (comparison table, fit section) were held back pending sign-off, then
+# approved. DAILY_COST amounts are plain division on PLANS prices / 30,
+# rounded -- not an invented stat. COMPARE_GROUPS values are hand-authored
+# to read well as table rows (not auto-derived from PLANS features) --
+# if a tier's features/price ever change, update both places.
+# ----------------------------------------------------------------------------
+DAILY_COST_CAPTION = ("What each plan works out to per day -- for social posting, video, ad management, "
+                       "and a real monthly review, all handled for you.")
+DAILY_COST_CAPTION_ES = ("Lo que cada plan representa por día -- publicaciones en redes, video, gestión de "
+                          "anuncios y una revisión mensual real, todo manejado por ti.")
+# amounts derived from PLANS price / 30, rounded to whole dollars
+DAILY_COST_AMOUNTS = ["~$33", "~$67", "~$100"]  # Starter, Growth, Full-Service in PLANS order
+
+FIT_TAG = "IS THIS RIGHT FOR YOU?"
+FIT_TAG_ES = "¿ES ESTO ADECUADO PARA TI?"
+FIT_H2 = "Built for businesses ready to hand this off"
+FIT_H2_ES = "Diseñado para negocios listos para delegar esto"
+
+FIT_YES_LABEL = "Good fit if"
+FIT_YES_LABEL_ES = "Es buena opción si"
+FIT_YES_ITEMS = [
+    ("You're already generating revenue and treat marketing as a real cost of doing business, not an experiment",
+     "Ya generas ingresos y tratas el marketing como un costo real de operar tu negocio, no como un experimento"),
+    ("You've been posting inconsistently yourself, or outgrown a freelancer's bandwidth",
+     "Has estado publicando de forma inconsistente tú mismo, o superaste la capacidad de un freelancer"),
+    ("A past agency felt slow, opaque about fees, or took a cut of your ad spend",
+     "Una agencia anterior te pareció lenta, poco transparente con las tarifas, o cobraba un porcentaje de tu gasto publicitario"),
+    ("You want someone running social, video, and ads day-to-day -- but still approving what goes out before it does",
+     "Quieres que alguien maneje redes, video y anuncios día a día -- pero aprobando tú lo que se publica antes de que salga"),
+]
+
+FIT_NO_LABEL = "Might not be a fit if"
+FIT_NO_LABEL_ES = "Podría no ser para ti si"
+FIT_NO_ITEMS = [
+    ("You're pre-revenue or just getting started -- a freelancer, or DIY with our free SEO guides, is the better starting point",
+     "Aún no generas ingresos o recién comienzas -- un freelancer, o hacerlo tú mismo con nuestras guías gratuitas de SEO, es mejor punto de partida"),
+    ("You want zero involvement -- every plan here includes a monthly review and approval step, not a black box",
+     "Quieres cero involucramiento -- cada plan aquí incluye una revisión mensual y un paso de aprobación, no es una caja negra"),
+    ("You need work done in-house rather than managed for you",
+     "Necesitas que el trabajo se haga internamente en lugar de que lo gestionemos por ti"),
+]
+
+COMPARE_TAG = "FULL BREAKDOWN"
+COMPARE_TAG_ES = "DESGLOSE COMPLETO"
+COMPARE_H2 = "Every tier, side by side"
+COMPARE_H2_ES = "Cada nivel, lado a lado"
+COMPARE_LEAD = "The same three plans above, broken out row by row so you can see exactly what changes between them."
+COMPARE_LEAD_ES = "Los mismos tres planes de arriba, desglosados fila por fila para que veas exactamente qué cambia entre ellos."
+COMPARE_LINK = "See the full tier-by-tier breakdown"
+COMPARE_LINK_ES = "Ver el desglose completo por nivel"
+
+# Each row's `values` has one entry per PLANS tier, in PLANS order (Starter,
+# Growth, Full-Service). A value is "check", "dash", or an (text, text_es)
+# tuple.
+COMPARE_GROUPS = [
+    dict(name="Content & Posting", name_es="Contenido y Publicaciones", rows=[
+        dict(label="Posts per month", label_es="Publicaciones al mes",
+             values=[("4–6", "4–6"), ("8–12", "8–12"), ("12–20", "12–20")]),
+        dict(label="Short-form video", label_es="Video corto",
+             values=[
+                 ("Basic photo editing only", "Solo edición básica de fotos"),
+                 ("Weekly Reels/TikTok-style", "Semanal, estilo Reels/TikTok"),
+                 ("Weekly, higher production value", "Semanal, con mayor calidad de producción"),
+             ]),
+        dict(label="Monthly photography session", label_es="Sesión de fotografía mensual",
+             values=["dash", "dash", "check"]),
+    ]),
+    dict(name="Community & Reputation", name_es="Comunidad y Reputación", rows=[
+        dict(label="Community management", label_es="Gestión de la comunidad",
+             values=[("Light", "Ligera"), ("Full", "Completa"), ("Full", "Completa")]),
+        dict(label="Review & reputation management", label_es="Gestión de reseñas y reputación",
+             values=["dash", "dash", "check"]),
+    ]),
+    dict(name="Advertising", name_es="Publicidad", rows=[
+        dict(label="Ad management", label_es="Gestión de anuncios",
+             values=[
+                 ("Boosted posts only", "Solo publicaciones impulsadas"),
+                 ("Full setup + optimization (Meta + Google)", "Configuración y optimización completas (Meta + Google)"),
+                 ("Full setup + optimization (Meta + Google)", "Configuración y optimización completas (Meta + Google)"),
+             ]),
+    ]),
+    dict(name="Strategy & Extras", name_es="Estrategia y Extras", rows=[
+        dict(label="Monthly analytics report", label_es="Informe mensual de analítica",
+             values=["check", "check", "check"]),
+        dict(label="Monthly strategy meeting", label_es="Reunión mensual de estrategia",
+             values=["dash", "check", "check"]),
+        dict(label="Email / SMS marketing campaigns", label_es="Campañas de marketing por correo/SMS",
+             values=["dash", "dash", "check"]),
+        dict(label="Seasonal campaign planning", label_es="Planificación de campañas de temporada",
+             values=["dash", "dash", "check"]),
+    ]),
+]
 
 # ----------------------------------------------------------------------------
 # Back-to-top icon -- reuse mS's blue arrow until a coral-family icon exists.

@@ -26,13 +26,16 @@ def plans_teaser():
     # 2026-08-23: NEW. Reuses C.PLANS directly (same data driving
     # pricing.html) so this teaser can't drift out of sync with the real
     # page -- it renders name/tag/price and links straight to pricing.html.
+    # 2026-08-24: added data-es to tag/name/period -- this teaser had the
+    # same missing-ESP bug as the pricing-page cards (only pricing.html's
+    # cards were reported live, but this reuses the exact same fields).
     cards = []
     for p in C.PLANS:
         cls = "plan-card featured" if p["featured"] else "plan-card"
         cards.append(f"""<a class="{cls}" href="pricing.html" style="text-decoration:none;display:flex;flex-direction:column">
-  <div class="plan-tag">{p['tag']}</div>
-  <h3>{p['name']}</h3>
-  <div class="plan-price">{p['price']}<span>{p['period']}</span></div>
+  <div class="plan-tag"{CC._es_attr(p.get('tag_es'))}>{p['tag']}</div>
+  <h3{CC._es_attr(p.get('name_es'))}>{p['name']}</h3>
+  <div class="plan-price">{p['price']}<span{CC._es_attr(p.get('period_es'))}>{p['period']}</span></div>
 </a>""")
     cards_html = "".join(cards)
     return f"""<section class="sec" style="background:var(--panel);border-top:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06)"><div class="wrap">
