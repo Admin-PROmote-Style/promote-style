@@ -69,7 +69,7 @@ def cta_band():
 
 def build():
     title = f"Pricing — {C.BUSINESS_NAME}"
-    desc = "PROmote Style monthly marketing management pricing: Starter $900/mo, Growth $1,500/mo, Full-Service $2,500/mo. Flat fee, no percentage of ad spend."
+    desc = "PROmote Style monthly marketing management pricing: Starter $1,000/mo, Growth $2,000/mo, Full-Service $3,000/mo. Flat fee, no percentage of ad spend."
     html = (
         S.head(title, desc, "pricing.html")
         + S.nav("pricing.html")
