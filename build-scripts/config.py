@@ -29,10 +29,10 @@ VERIFIED FACTS ONLY (per project rule -- no invented claims/numbers):
   covers the Fat Tony's/Simon's/Tacos 3-restaurant bundle specifically).
   Single-business doc gives ranges (Starter $600-$900/mo, Growth
   $1,000-$1,500/mo, Full-Service $1,800-$2,500/mo); George's own recollection
-  when asked was "$1,000/$2,000/$3,000," so the TOP of each documented range
-  was chosen as the published figure -- closest defensible number to both
-  sources. Flag to George to confirm/adjust if these aren't quite right:
-  Starter $900/mo, Growth $1,500/mo, Full-Service $2,500/mo. See PLANS below.
+  when asked was "$1,000/$2,000/$3,000." An initial draft published the TOP
+  of each documented range ($900/$1,500/$2,500) instead -- CORRECTED same day
+  once caught: George's actual figures are final. Confirmed live: Starter
+  $1,000/mo, Growth $2,000/mo, Full-Service $3,000/mo. See PLANS below.
 - This build (2026-08-17) adds the free SEO-resource content arm on top of
   the existing brand basics: PROmote Style's site itself is the top-of-
   funnel -- resourceful, wide-audience SEO content that (a) demonstrates
@@ -366,8 +366,14 @@ ADDONS_SUB = "Layer any of these on top of your plan -- priced separately so you
 ADDONS_SUB_ES = "Agrega cualquiera de estos sobre tu plan -- con precio aparte para que tu tarifa mensual siga siendo predecible."
 
 ADDONS = [
-    dict(name="Multi-Location / Restaurant Group", price="+$800/mo per additional location",
-         desc="Running more than one location under the same brand? Shared content calendar, cross-location campaigns, unified ad management and analytics -- each additional location added at a flat rate."),
+    # 2026-08-24: was a flat "+$800/mo per additional location" -- WRONG, that
+    # number only made sense off the Starter price. George confirmed the real
+    # mechanic: 20% off the client's plan rate, per additional location
+    # (Starter $1,000 -> $800, Growth $2,000 -> $1,600, Full-Service $3,000 ->
+    # $2,400). The flat-$800 version had been live since 2026-08-23; caught
+    # and corrected 2026-08-24, George confirmed the mechanic before push.
+    dict(name="Additional Location", price="20% off your plan's rate, per location",
+         desc="Running more than one location under the same brand? Each additional location is billed at 20% off your plan's monthly rate -- e.g. $800/mo on Starter, $1,600/mo on Growth, $2,400/mo on Full-Service. Shared content calendar, cross-location campaigns, unified ad management and analytics."),
     dict(name="Print & In-Store Marketing Materials", price="$150-$400/piece",
          desc="Menu boards, table cards, door hangers, coupons, flyers -- designed and print-ready to hand to your printer. Priced by piece since scope varies (a door hanger isn't a menu board); exact quote confirmed before work begins."),
     dict(name="Extra Content Shoot", price="$300/session",
@@ -378,8 +384,8 @@ ADDONS = [
          desc="A focused push for a holiday, local event, or seasonal promotion -- built and scheduled outside your normal cadence."),
 ]
 ADDONS_ES = [
-    dict(name="Multi-Ubicación / Grupo de Restaurantes", price_es="+$800/mes por ubicación adicional",
-         desc="¿Llevas más de una ubicación bajo la misma marca? Calendario de contenido compartido, campañas entre ubicaciones, gestión de anuncios y analítica unificadas -- cada ubicación adicional se agrega a una tarifa fija."),
+    dict(name="Ubicación Adicional", price_es="20% de descuento sobre la tarifa de tu plan, por ubicación",
+         desc="¿Llevas más de una ubicación bajo la misma marca? Cada ubicación adicional se factura con un 20% de descuento sobre tu tarifa mensual -- por ejemplo, $800/mes en Starter, $1,600/mes en Growth, $2,400/mes en Full-Service. Calendario de contenido compartido, campañas entre ubicaciones, gestión de anuncios y analítica unificadas."),
     dict(name="Materiales de Marketing Impresos y en Tienda", price_es="$150-$400/pieza",
          desc="Menús de pared, tarjetas de mesa, colgadores de puerta, cupones, volantes -- diseñados y listos para imprimir. Con precio por pieza ya que el alcance varía (un colgador de puerta no es un menú de pared); se confirma un precio exacto antes de comenzar el trabajo."),
     dict(name="Sesión de Contenido Extra", price_es="$300/sesión",
