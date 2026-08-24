@@ -119,9 +119,22 @@ def full_compare():
 
 PRICING_EXTRA_CSS = """
 .at-a-glance{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:20px;padding:14px;background:rgba(255,255,255,.03);border-radius:10px;border:1px solid rgba(255,255,255,.06)}
-.glance-item{text-align:center}
+/* 2026-08-24: George caught this in ESP -- "Publicaciones/mes",
+   "Reputacion", etc. are longer than their English labels, and a CSS grid
+   item's default min-width is auto (its content's own max-content size),
+   NOT 0. That means the column refused to shrink below the width of its
+   longest unbreakable word, forcing .at-a-glance -- and everything around
+   it, all the way out to the page itself -- wider than the viewport
+   (site-wide horizontal scroll, not just a clipped card). min-width:0 lets
+   the grid track actually shrink and the label wrap/hyphenate normally
+   instead of forcing overflow. */
+.glance-item{text-align:center;min-width:0}
 .glance-item .num{display:block;font-size:18px;font-weight:800;color:var(--gold);font-family:var(--font-head)}
-.glance-item .lbl{display:block;font-size:10px;color:var(--cream-muted);text-transform:uppercase;letter-spacing:.04em;margin-top:2px}
+.glance-item .lbl{display:block;font-size:10px;color:var(--cream-muted);text-transform:uppercase;letter-spacing:.04em;margin-top:2px;overflow-wrap:break-word;hyphens:auto}
+/* Spanish labels run longer than English (site sets <html lang="es"> when
+   the ESP toggle is on -- see lang_script() in site_common.py) -- give them
+   a little breathing room instead of relying on wrap/hyphenation alone. */
+html[lang="es"] .glance-item .lbl{font-size:9px;letter-spacing:.01em}
 .daily-cost{display:flex;justify-content:center;gap:0;flex-wrap:wrap;max-width:720px;margin:30px auto 0;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:12px;overflow:hidden}
 .daily-item{flex:1;min-width:160px;text-align:center;padding:16px 18px;border-left:1px solid rgba(255,255,255,.07)}
 .daily-item:first-child{border-left:0}
@@ -129,7 +142,7 @@ PRICING_EXTRA_CSS = """
 .daily-item .amt span{font-size:12px;font-weight:600;color:var(--cream-muted)}
 .daily-item .lbl{font-size:11.5px;color:var(--cream-muted);margin-top:3px}
 .daily-caption{text-align:center;font-size:12.5px;color:var(--cream-muted);max-width:600px;margin:12px auto 0}
-.fit-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;max-width:920px;margin:0 auto}
+.fit-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;max-width:920px;margin:0 auto;min-width:0}
 /* 2026-08-24: this grid had NO mobile breakpoint at all -- stayed 2 columns
    even on phones, squishing every line of text. Site convention (see
    .addon-grid/.split-grid/.plans-grid in site_common.py) collapses 2-col
