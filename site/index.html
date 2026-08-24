@@ -181,6 +181,13 @@ a.port-card{cursor:pointer}
 /* hosting include/limits (pricing) */
 .split-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;max-width:900px;margin:0 auto}
 .split-col{background:var(--panel);border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:26px 28px}
+/* George's call 2026-08-24: the "on every plan" includes panel (pricing.html)
+   is the only .split-col.includes on the site (checked -- .limits isn't
+   used anywhere yet), so it's safe to give it the same gold frame +
+   pulsing-glow treatment as .addon-card, reusing the existing cardGlowPulse
+   keyframes rather than defining a new one. */
+.split-col.includes{border:1px solid var(--gold);box-shadow:0 12px 28px rgba(0,0,0,.35),0 0 46px rgba(var(--primary-rgb),.28);animation:cardGlowPulse 4s ease-in-out infinite}
+@media(prefers-reduced-motion:reduce){.split-col.includes{animation:none}}
 .split-col h3{font-size:16px;margin-bottom:14px;text-transform:uppercase;letter-spacing:.06em}
 .split-col.includes h3{color:var(--gold)}
 .split-col.limits h3{color:var(--cream-muted)}
