@@ -163,7 +163,25 @@ a.port-card{cursor:pointer}
 /* pricing */
 .plans-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:stretch}
 .plan-card{background:var(--panel);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:32px 28px;display:flex;flex-direction:column}
-.plan-card.featured{border-color:var(--gold);background:linear-gradient(180deg,var(--panel2),var(--panel));box-shadow:0 0 0 1px rgba(255,209,93,.30),0 20px 50px rgba(255,209,93,.10)}
+/* 2026-08-24, George's call: each tier gets its own frame/glow color so the
+   3 cards read as distinct at a glance -- Starter + Full-Service in blue
+   (reuses the same blue already used as an ambient background accent, see
+   body's radial-gradient above), Growth (.featured) upgraded from a static
+   gold shadow to the same pulsing-glow treatment used elsewhere on the site
+   (cardGlowPulse pattern), just in gold instead of coral. Applies wherever
+   .plans-grid/.plan-card is used -- pricing.html AND the homepage teaser
+   share this file, so both stay in sync automatically. */
+.plans-grid .plan-card:first-child,.plans-grid .plan-card:last-child{border:1px solid rgba(0,143,255,.55);animation:planGlowBlue 4s ease-in-out infinite}
+@keyframes planGlowBlue{
+  0%,100%{box-shadow:0 12px 28px rgba(0,0,0,.35),0 0 46px rgba(0,143,255,.28)}
+  50%{box-shadow:0 12px 28px rgba(0,0,0,.35),0 0 68px rgba(0,143,255,.50)}
+}
+.plan-card.featured{border-color:var(--gold);background:linear-gradient(180deg,var(--panel2),var(--panel));animation:planGlowGold 4s ease-in-out infinite}
+@keyframes planGlowGold{
+  0%,100%{box-shadow:0 0 0 1px rgba(255,209,93,.30),0 20px 50px rgba(255,209,93,.10),0 0 46px rgba(var(--gold-rgb),.28)}
+  50%{box-shadow:0 0 0 1px rgba(255,209,93,.30),0 20px 50px rgba(255,209,93,.10),0 0 68px rgba(var(--gold-rgb),.50)}
+}
+@media(prefers-reduced-motion:reduce){.plans-grid .plan-card:first-child,.plans-grid .plan-card:last-child,.plan-card.featured{animation:none}}
 .plan-tag{font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
 .plan-card h3{font-size:24px;margin-bottom:4px}
 .plan-price{font-family:var(--font-head);font-size:34px;font-weight:800;color:var(--cream);margin-bottom:18px;display:flex;align-items:baseline;gap:6px}

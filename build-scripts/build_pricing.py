@@ -153,8 +153,17 @@ html[lang="es"] .glance-item .lbl{font-size:9px;letter-spacing:.01em}
    grids to 1 col at max-width:900px -- match it here. */
 @media(max-width:900px){.fit-grid{grid-template-columns:1fr}}
 .fit-card{background:var(--panel);border-radius:14px;padding:26px 28px}
-.fit-card.yes{border:1px solid rgba(61,220,132,.35)}
-.fit-card.no{border:1px solid rgba(255,255,255,.10)}
+/* George's call: green glow on the "good fit" card, red frame+glow on
+   "not a fit" -- .fit-card.no reuses the site's existing cardGlowPulse
+   keyframes (coral/var(--primary), already treated as "red" elsewhere on
+   this site -- see #difference .card in this file) instead of a new one. */
+.fit-card.yes{border:1px solid rgba(61,220,132,.55);animation:fitGlowGreen 4s ease-in-out infinite}
+.fit-card.no{border:1px solid var(--primary);animation:cardGlowPulse 4s ease-in-out infinite}
+@keyframes fitGlowGreen{
+  0%,100%{box-shadow:0 12px 28px rgba(0,0,0,.35),0 0 46px rgba(61,220,132,.28)}
+  50%{box-shadow:0 12px 28px rgba(0,0,0,.35),0 0 68px rgba(61,220,132,.50)}
+}
+@media(prefers-reduced-motion:reduce){.fit-card.yes,.fit-card.no{animation:none}}
 .fit-card h3{font-size:16px;display:flex;align-items:center;gap:8px;margin-bottom:14px}
 .fit-card.yes h3{color:#3ddc84}
 .fit-card.no h3{color:var(--cream-muted)}
