@@ -108,10 +108,13 @@ def full_compare():
   <div class="wrap sec-head"><span class="sec-tag"{CC._es_attr(C.COMPARE_TAG_ES)}>{C.COMPARE_TAG}</span>
   <h2{CC._es_attr(C.COMPARE_H2_ES)}>{C.COMPARE_H2}</h2>
   <p class="lead"{CC._es_attr(C.COMPARE_LEAD_ES)}>{C.COMPARE_LEAD}</p></div>
-  <div class="wrap"><div class="cmp-wrap"><table class="cmp">
-    <thead>{header_row}</thead>
-    <tbody>{"".join(body_rows)}</tbody>
-  </table></div></div>
+  <div class="wrap">
+    <p class="cmp-swipe-hint" data-es="Desliza para ver los 3 niveles &rarr;">Swipe to see all 3 tiers &rarr;</p>
+    <div class="cmp-outer"><div class="cmp-wrap"><table class="cmp">
+      <thead>{header_row}</thead>
+      <tbody>{"".join(body_rows)}</tbody>
+    </table></div><div class="cmp-fade" aria-hidden="true"></div></div>
+  </div>
 </section>"""
 
 PRICING_EXTRA_CSS = """
@@ -127,6 +130,11 @@ PRICING_EXTRA_CSS = """
 .daily-item .lbl{font-size:11.5px;color:var(--cream-muted);margin-top:3px}
 .daily-caption{text-align:center;font-size:12.5px;color:var(--cream-muted);max-width:600px;margin:12px auto 0}
 .fit-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;max-width:920px;margin:0 auto}
+/* 2026-08-24: this grid had NO mobile breakpoint at all -- stayed 2 columns
+   even on phones, squishing every line of text. Site convention (see
+   .addon-grid/.split-grid/.plans-grid in site_common.py) collapses 2-col
+   grids to 1 col at max-width:900px -- match it here. */
+@media(max-width:900px){.fit-grid{grid-template-columns:1fr}}
 .fit-card{background:var(--panel);border-radius:14px;padding:26px 28px}
 .fit-card.yes{border:1px solid rgba(61,220,132,.35)}
 .fit-card.no{border:1px solid rgba(255,255,255,.10)}
@@ -142,7 +150,16 @@ PRICING_EXTRA_CSS = """
 .cmp-link{display:inline-flex;align-items:center;gap:8px;color:var(--gold);font-weight:700;font-size:14px;text-decoration:none;cursor:pointer}
 .cmp-link .arrow{transition:transform .2s ease}
 .cmp-link:hover .arrow{transform:translateY(3px)}
-.cmp-wrap{overflow-x:auto;border-radius:16px;border:1px solid rgba(255,255,255,.08);background:var(--panel2)}
+.cmp-outer{position:relative}
+.cmp-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:16px;border:1px solid rgba(255,255,255,.08);background:var(--panel2)}
+/* 2026-08-24: the table scrolled fine on mobile but gave no hint that it
+   did -- the cut-off right edge just looked like the table ended there.
+   Adds an explicit "swipe" label (mobile only) plus a static edge fade so
+   the cut-off column reads as "more here", not "that's all of it". */
+.cmp-swipe-hint{display:none;text-align:center;align-items:center;justify-content:center;gap:6px;color:var(--gold);font-weight:700;font-size:12.5px;letter-spacing:.02em;margin-bottom:10px}
+@media(max-width:900px){.cmp-swipe-hint{display:flex}}
+.cmp-fade{display:none;position:absolute;top:1px;right:1px;bottom:1px;width:36px;border-radius:0 16px 16px 0;background:linear-gradient(to right,transparent,var(--panel2) 80%);pointer-events:none}
+@media(max-width:900px){.cmp-fade{display:block}}
 table.cmp{width:100%;border-collapse:collapse;min-width:640px}
 table.cmp th,table.cmp td{padding:15px 20px;text-align:center;border-bottom:1px solid rgba(255,255,255,.06)}
 table.cmp th:first-child,table.cmp td:first-child{text-align:left;color:var(--cream-muted);font-size:14px;font-weight:500;width:34%}
@@ -161,6 +178,13 @@ tbody tr:last-child td{border-bottom:0}
 tr.row-group td{background:rgba(255,255,255,.02);color:var(--gold);font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;text-align:left;padding:11px 20px}
 .cmp-cta-row td{padding:20px 20px 24px;border-bottom:0}
 @media(max-width:720px){table.cmp{min-width:560px}}
+/* Add-on cards -- gold frame + the same pulsing coral glow used site-wide
+   on .card (pillars/why-it's-free sections use this exact combo: gold
+   border, coral animated glow via the shared cardGlowPulse keyframes
+   already defined in site_common.py's base_css()). Reuses the animation
+   name rather than redefining it. */
+.addon-card{border:1px solid var(--gold);box-shadow:0 12px 28px rgba(0,0,0,.35),0 0 46px rgba(var(--primary-rgb),.28);animation:cardGlowPulse 4s ease-in-out infinite}
+@media(prefers-reduced-motion:reduce){.addon-card{animation:none}}
 """
 
 def included():

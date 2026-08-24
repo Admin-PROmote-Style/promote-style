@@ -193,9 +193,16 @@ a.port-card{cursor:pointer}
 .contact-side p{color:var(--cream-muted);font-size:14.5px;margin-bottom:22px}
 .contact-side a.email{color:var(--gold);font-weight:700}
 .form-note{font-size:12.5px;color:var(--cream-muted);margin-top:10px}
-/* cta band -- 2026-08-17: matches hero's radial glow instead of the diagonal
-   linear-gradient (which produced a hard dark-navy corner on the right) */
-.cta-band{background:linear-gradient(135deg,var(--primary),#3a0f08);text-align:center;padding:64px 32px;border-radius:0;border-top:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.08);position:relative;overflow:hidden}
+/* cta band -- 2026-08-17: comment said this "matches hero's radial glow
+   instead of the diagonal linear-gradient", but the actual background rule
+   below was never changed -- it still had the old
+   linear-gradient(135deg,var(--primary),#3a0f08), which is exactly the hard
+   dark corner (bottom-right) the comment describes fixing. Caught live on
+   the pricing page's "Not sure which tier fits?" band 2026-08-24 and
+   actually applied the radial-glow treatment this time, using the same
+   technique as .hero (radial highlight over a flat base) instead of a
+   directional gradient. */
+.cta-band{background:radial-gradient(ellipse 1100px 380px at 50% -40px,rgba(255,255,255,.14) 0%,rgba(255,255,255,0) 70%) var(--primary-deep);text-align:center;padding:64px 32px;border-radius:0;border-top:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.08);position:relative;overflow:hidden}
 .cta-band::before{content:"";position:absolute;width:420px;height:420px;border-radius:50%;background:rgba(255,255,255,.06);top:-160px;right:-120px;animation:ctaFloat1 14s ease-in-out infinite;pointer-events:none}
 .cta-band::after{content:"";position:absolute;width:280px;height:280px;border-radius:50%;background:rgba(255,179,71,.08);bottom:-120px;left:-80px;animation:ctaFloat2 16s ease-in-out infinite;pointer-events:none}
 .cta-band .wrap{position:relative;z-index:1}
