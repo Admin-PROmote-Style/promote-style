@@ -89,9 +89,11 @@ h1,h2,h3{font-family:var(--font-head);line-height:1.15;font-weight:700;letter-sp
 .sec{padding:88px 0;scroll-margin-top:116px}
 .sec-tag{color:var(--gold);font-weight:700;letter-spacing:.14em;font-size:12.5px;text-transform:uppercase}
 .sec h2{font-size:clamp(26px,3.6vw,38px);margin:10px 0 16px}
+.sec h1{font-size:clamp(26px,3.6vw,38px);margin:10px 0 16px}
 .sec-head{text-align:center;max-width:680px;margin:0 auto 40px}
 .sec-head .sec-tag{display:block;margin-bottom:10px}
 .sec-head h2{margin-bottom:14px}
+.sec-head h1{margin-bottom:14px}
 .lead{color:var(--cream-muted);font-size:17px;max-width:640px}
 .sec-head .lead{margin:0 auto}
 .badge-pill{display:inline-block;background:rgba(255,209,93,.14);border:1px solid rgba(255,209,93,.45);color:var(--gold);font-size:12px;font-weight:700;padding:7px 16px;border-radius:999px;letter-spacing:.08em;margin-bottom:26px}
@@ -390,7 +392,6 @@ def footer():
     return f"""<section class="logo-divider"><img src="{embed_img(C.LOGO_IMAGE)}" alt="{C.BUSINESS_NAME} logo"></section>
 <footer class="foot"><div class="wrap">
   <a class="email" href="mailto:{C.EMAIL}">{_SVG_MAIL}<span>{C.EMAIL}</span></a>
-  <div class="foot-links">{links}<a href="contact.html" data-es="Contacto">Contact</a></div>
   <p class="copyright" data-es="&copy; {yr} {C.BUSINESS_NAME}. Con sede en {C.CITY_STATE}.">&copy; {yr} {C.BUSINESS_NAME}. Based in {C.CITY_STATE}.</p>
 </div></footer>"""
 

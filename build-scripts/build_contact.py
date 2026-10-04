@@ -30,7 +30,7 @@ def content():
   <p data-es-html="mAIntAIn Style construye sitios listos para SEO desde el primer día — <a href=&quot;https://maintain.style&quot; style=&quot;color:var(--gold);font-weight:700&quot;>mira su trabajo directamente</a>.">mAIntAIn Style builds sites SEO-ready from day one — <a href="https://maintain.style" style="color:var(--gold);font-weight:700">see their work directly</a>.</p>
 </div>"""
     return f"""<section class="sec"><div class="wrap">
-  <div class="sec-head" style="margin-bottom:50px"><span class="sec-tag" data-es="CONTACTO">CONTACT</span><h2{CC._es_attr(C.CONTACT_H1_ES)}>{C.CONTACT_H1}</h2>
+  <div class="sec-head" style="margin-bottom:50px"><span class="sec-tag" data-es="CONTACTO">CONTACT</span><h1{CC._es_attr(C.CONTACT_H1_ES)}>{C.CONTACT_H1}</h1>
   <p class="lead"{CC._es_attr(C.CONTACT_SUB_ES)}>{C.CONTACT_SUB}</p></div>
   <div class="contact-grid">{form}{side}</div>
 </div></section>"""

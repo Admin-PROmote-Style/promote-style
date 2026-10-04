@@ -116,6 +116,7 @@ NAV_LINKS = [
     ("pricing.html", "Pricing"),
     ("seo-101.html", "SEO 101"),
     ("https://maintain.style", "mAIntAIn Style"),
+    ("https://client.style", "Client Style"),
 ]
 
 # ----------------------------------------------------------------------------
