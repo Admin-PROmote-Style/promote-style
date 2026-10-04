@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import os, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-import build_home, build_seo101, build_contact, build_pricing
+import build_home, build_seo101, build_contact, build_pricing, build_404
 import build_seo_files
 import site_common as S
 
@@ -11,5 +11,6 @@ if __name__ == "__main__":
     build_seo101.build()
     build_contact.build()
     build_pricing.build()
+    build_404.build()         # 404.html so unknown URLs return a real 404
     build_seo_files.build()   # robots.txt + sitemap.xml
     print(chr(10) + "All pages built.")
