@@ -115,6 +115,8 @@ h1,h2,h3{font-family:var(--font-head);line-height:1.15;font-weight:700;letter-sp
 .process-step p{color:var(--cream-muted);font-size:14.5px}
 /* feature cards */
 .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.cards.quad,.cards.pair{grid-template-columns:repeat(2,1fr)}
+.cards.pair{max-width:820px;margin:0 auto}
 .card{background:var(--panel);border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:28px;box-shadow:0 12px 28px rgba(0,0,0,.35),0 0 46px rgba(var(--primary-rgb),.28)}
 /* 2026-08-17: pulsing glow now on every card with the red/coral glow
    site-wide (:not(.us) excludes the featured comparison card, which has
@@ -127,7 +129,7 @@ h1,h2,h3{font-family:var(--font-head);line-height:1.15;font-weight:700;letter-sp
   50%{box-shadow:0 12px 28px rgba(0,0,0,.35),0 0 68px rgba(var(--primary-rgb),.52)}
 }
 @media(prefers-reduced-motion:reduce){.card:not(.us){animation:none}}
-#pillars .card,#why .card{border:1px solid var(--gold)}
+#pillars .card,#guides .card,#why .card{border:1px solid var(--gold)}
 #difference .card:not(.us){border:1px solid var(--primary)}
 .card .ic{font-family:var(--font-head);font-weight:700;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
 .card h3{font-size:21px;margin-bottom:10px}
@@ -165,15 +167,10 @@ a.port-card{cursor:pointer}
 /* pricing */
 .plans-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:stretch}
 .plan-card{background:var(--panel);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:32px 28px;display:flex;flex-direction:column}
-/* 2026-08-24, George's call: each tier gets its own frame/glow color so the
-   3 cards read as distinct at a glance -- Starter + Full-Service in blue
-   (reuses the same blue already used as an ambient background accent, see
-   body's radial-gradient above), Growth (.featured) upgraded from a static
-   gold shadow to the same pulsing-glow treatment used elsewhere on the site
-   (cardGlowPulse pattern), just in gold instead of coral. Applies wherever
-   .plans-grid/.plan-card is used -- pricing.html AND the homepage teaser
-   share this file, so both stay in sync automatically. */
-.plans-grid .plan-card:first-child,.plans-grid .plan-card:last-child{border:1px solid rgba(0,143,255,.55);animation:planGlowBlue 4s ease-in-out infinite}
+/* Each package card gets a frame. Non-featured cards use the blue accent
+   already in the page background. The featured card uses the gold pulse. */
+.plans-grid.plans-4{grid-template-columns:repeat(2,1fr)}
+.plans-grid .plan-card:not(.featured){border:1px solid rgba(0,143,255,.55);animation:planGlowBlue 4s ease-in-out infinite}
 @keyframes planGlowBlue{
   0%,100%{box-shadow:0 12px 28px rgba(0,0,0,.35),0 0 46px rgba(0,143,255,.28)}
   50%{box-shadow:0 12px 28px rgba(0,0,0,.35),0 0 68px rgba(0,143,255,.50)}
@@ -183,7 +180,7 @@ a.port-card{cursor:pointer}
   0%,100%{box-shadow:0 0 0 1px rgba(255,209,93,.30),0 20px 50px rgba(255,209,93,.10),0 0 46px rgba(var(--gold-rgb),.28)}
   50%{box-shadow:0 0 0 1px rgba(255,209,93,.30),0 20px 50px rgba(255,209,93,.10),0 0 68px rgba(var(--gold-rgb),.50)}
 }
-@media(prefers-reduced-motion:reduce){.plans-grid .plan-card:first-child,.plans-grid .plan-card:last-child,.plan-card.featured{animation:none}}
+@media(prefers-reduced-motion:reduce){.plans-grid .plan-card:not(.featured),.plan-card.featured{animation:none}}
 .plan-tag{font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
 .plan-card h3{font-size:24px;margin-bottom:4px}
 .plan-price{font-family:var(--font-head);font-size:34px;font-weight:800;color:var(--cream);margin-bottom:18px;display:flex;align-items:baseline;gap:6px}
@@ -272,9 +269,9 @@ a.port-card{cursor:pointer}
 /* responsive */
 @media(max-width:900px){
  .process{grid-template-columns:1fr 1fr}
- .cards{grid-template-columns:1fr}
+ .cards,.cards.quad,.cards.pair{grid-template-columns:1fr}
  .portfolio-grid{grid-template-columns:1fr}
- .plans-grid{grid-template-columns:1fr}
+ .plans-grid,.plans-grid.plans-4{grid-template-columns:1fr}
  .contact-grid{grid-template-columns:1fr}
  .split-grid,.addon-grid{grid-template-columns:1fr}
  .nav-links,.nav-cta{display:none}.hamb{display:block}
@@ -307,7 +304,7 @@ def head(title, description, path="index.html"):
     og_image = f"{live}/{C.LOGO_IMAGE}"
     org_schema = f"""<script type="application/ld+json">
 {{"@context":"https://schema.org","@type":"Organization","name":"{C.BUSINESS_NAME}",
-"description":"{C.TAGLINE}","url":"{live}/","logo":"{og_image}",
+"description":"{C.META_DESC}","url":"{live}/","logo":"{og_image}",
 "areaServed":"{C.CITY_STATE}","email":"{C.EMAIL}"}}
 </script>"""
     return f"""<!doctype html><html lang="en"><head>
@@ -375,24 +372,22 @@ def nav(active=""):
     {links}
   </div>
   <div class="nav-cta">
-    <a class="btn btn-primary" href="contact.html" data-es="Iniciar un proyecto">Start a Project</a>
+    <a class="btn btn-primary" href="mailto:{C.EMAIL}">Get started</a>
   </div>
   <button class="hamb" onclick="document.getElementById('mm').classList.toggle('open')">&#9776;</button>
 </div>
 <div class="mobile-menu" id="mm">
   {mob_links}
-  <a href="contact.html" data-es="Iniciar un proyecto">Start a Project</a>
+  <a href="mailto:{C.EMAIL}">Get started</a>
 </div>
 <button class="lang-toggle" id="langToggle" type="button" aria-label="Switch language">ESP</button>
 </nav>"""
 
 def footer():
-    yr = datetime.date.today().year
-    links = "".join(f'<a href="{href}"{_ext_attr(href)}{_es_attr(label)}>{label}</a>' for href, label in C.NAV_LINKS)
     return f"""<section class="logo-divider"><img src="{embed_img(C.LOGO_IMAGE)}" alt="{C.BUSINESS_NAME} logo"></section>
 <footer class="foot"><div class="wrap">
   <a class="email" href="mailto:{C.EMAIL}">{_SVG_MAIL}<span>{C.EMAIL}</span></a>
-  <p class="copyright" data-es="&copy; {yr} {C.BUSINESS_NAME}. Con sede en {C.CITY_STATE}.">&copy; {yr} {C.BUSINESS_NAME}. Based in {C.CITY_STATE}.</p>
+  <p class="copyright">{C.FOOTER_LINE}</p>
 </div></footer>"""
 
 def back_to_top():
