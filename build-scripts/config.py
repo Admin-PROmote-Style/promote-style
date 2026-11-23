@@ -64,11 +64,51 @@ BENEFITS = [
 ]
 
 BOTS_H2 = "Meet your Bot Office"
+BOTS_SUB = ("Four helpers that take routine work off your plate, so you can focus on running your business.")
+BOTS_CLOSE = ("You stay in control. Your bots draft, suggest, and prepare; nothing goes public without your OK.")
 BOTS = [
-    ("Social Bot", "Posts to X on a schedule, in your brand's voice."),
-    ("Reviews Bot", "Drafts thoughtful replies to new reviews, ready for you to approve."),
-    ("Inbox Bot", "Sorts customer email and drafts answers so nothing slips through."),
-    ("Website Bot", "Updates your site when you ask in plain words, powered by Client Style."),
+    dict(name="Social Bot",
+         promise="Never stare at a blank post again.",
+         intro="Your Social Bot is your creative partner for social media. It helps you come up with ideas, write posts, and keep a steady schedule.",
+         does=[
+             "Brainstorms post ideas around your products, events, promotions, and seasons",
+             "Writes captions in your brand's voice, ready to use or tweak",
+             "Turns one idea into versions for different platforms",
+             "Suggests hashtags, timing, and calls to action",
+             "Plans a content calendar so you're never scrambling",
+             "Posts to X automatically on your schedule, once you approve",
+         ],
+         you_get="Fresh, on-brand posts every week without the writer's block."),
+    dict(name="Reviews Bot",
+         promise="Every review gets a thoughtful reply.",
+         intro="Reviews shape how new customers see you. Your Reviews Bot makes sure no one is ignored.",
+         does=[
+             "Drafts warm thank-yous for happy customers",
+             "Writes calm, professional responses to complaints",
+             "Flags reviews that need your personal attention",
+             "Spots patterns in what customers praise or complain about",
+         ],
+         you_get="A reputation that shows you care, in minutes instead of hours."),
+    dict(name="Inbox Bot",
+         promise="Nothing important slips through.",
+         intro="Your Inbox Bot reads through the noise and surfaces what matters.",
+         does=[
+             "Sorts customer emails, inquiries, and orders from the clutter",
+             "Drafts clear replies for you to review and send",
+             "Highlights time-sensitive messages first",
+             "Summarizes your inbox so you can catch up fast",
+         ],
+         you_get="Faster responses and fewer missed opportunities."),
+    dict(name="Website Bot",
+         promise="Update your website by just asking.",
+         intro="Powered by Client Style, your Website Bot keeps your site current without a developer.",
+         does=[
+             "Updates hours, prices, specials, and announcements in plain words",
+             "Adds new photos, products, and pages",
+             "Keeps your information consistent and accurate",
+             "Every change waits for your approval before going live",
+         ],
+         you_get="A website that's always up to date, without the hassle."),
 ]
 
 PACKAGES_H2 = "Simple packages. One-time setup."
