@@ -111,6 +111,79 @@ BOTS = [
          you_get="A website that's always up to date, without the hassle."),
 ]
 
+ADV_H2 = "Advanced Bot Office"
+ADV_SUB = "Everything in Basic, plus a full team of specialist bots."
+ADV_INTRO = ("Every business is different. With the Advanced Bot Office, you get every specialist bot below, "
+             "set up around how your business runs, plus monthly updates that keep your Bot Office growing.")
+ADV_BOTS = [
+    dict(name="Finance Bot",
+         promise="Know where your money goes.",
+         does=[
+             "Organizes receipts, invoices, and bills",
+             "Flags unusual charges and upcoming due dates",
+             "Summarizes weekly sales and spending in plain words",
+             "Prepares tidy records for your bookkeeper or accountant",
+         ],
+         you_get="A clear picture of your finances without digging through paperwork."),
+    dict(name="Competition Bot",
+         promise="Stay one step ahead.",
+         does=[
+             "Watches competitors' websites, prices, and promotions",
+             "Tracks what they post and how customers respond",
+             "Spots new businesses opening nearby",
+             "Sends you a short weekly summary of what changed",
+         ],
+         you_get="Market awareness without spending hours researching."),
+    dict(name="Events & Promotions Bot",
+         promise="Fill your calendar and your seats.",
+         does=[
+             "Plans specials, sales, and seasonal promotions",
+             "Writes announcements for your website, email, and social posts",
+             "Reminds you ahead of holidays and local events",
+             "Tracks which promotions worked best",
+         ],
+         you_get="Promotions that are planned ahead, not thrown together last minute."),
+    dict(name="Customer Care Bot",
+         promise="Keep customers coming back.",
+         does=[
+             "Drafts follow-ups and thank-you messages",
+             "Answers common questions about hours, services, and policies",
+             "Collects feedback and highlights what to improve",
+             "Reminds you to reach out to regulars",
+         ],
+         you_get="Loyal customers who feel remembered."),
+    dict(name="Scheduling Bot",
+         promise="Your calendar, under control.",
+         does=[
+             "Keeps track of appointments, bookings, and deadlines",
+             "Sends reminders so nothing is missed",
+             "Drafts schedules and shift plans for your review",
+             "Warns you about conflicts before they happen",
+         ],
+         you_get="Fewer surprises and smoother days."),
+    dict(name="Reports Bot",
+         promise="Your business at a glance.",
+         does=[
+             "Pulls together sales, reviews, social, and website activity",
+             "Delivers a simple weekly or monthly report",
+             "Highlights what's up, what's down, and what to watch",
+             "Suggests next steps in plain words",
+         ],
+         you_get="Better decisions with less guesswork."),
+]
+ADV_UPDATES_H = "Your Bot Office keeps getting better."
+ADV_UPDATES_P = ("Every month you'll get an email with what's new, fresh ideas for your business, "
+                 "and ready-to-use prompts that switch on new bots and features. Just copy, paste, "
+                 "and your Bot Office does the rest.")
+ADV_UPDATES = [
+    "New bots and features as they're released",
+    "Seasonal ideas and quick wins",
+    "Ready-to-paste prompts to put them to work",
+    "Tips to get more from every bot",
+]
+ADV_CLOSE = "Don't see what you need? We'll design a bot around it."
+ADV_BUTTON = "Talk with us"
+
 PACKAGES_H2 = "Simple packages. One-time setup."
 PACKAGES_SUB = "No monthly fees from us."
 PACKAGES_NOTE = "Your only ongoing cost is your own Cursor plan, billed directly by Cursor."
@@ -123,8 +196,10 @@ PLANS = [
     ]),
     dict(name="Advanced Bot Office", price="$1,000", tag="", featured=False, features=[
         "Everything in Basic",
-        "Bots customized for your type of business",
-        "Extra automations for specials, updates, and events",
+        "Every specialist bot: Finance, Competition, Events & Promotions, Customer Care, Scheduling, and Reports",
+        "A planning session to set each bot up for your business",
+        "Custom automations for your routine tasks",
+        "Monthly Bot Office updates with new bots and ready-to-use prompts",
     ]),
     dict(name="Full Basic Package", price="$750", tag="", featured=False, features=[
         "Basic website by mAIntAIn Style",
@@ -132,7 +207,8 @@ PLANS = [
     ]),
     dict(name="Full Advanced Package", price="$1,500", tag="Best value", featured=True, features=[
         "Advanced website by mAIntAIn Style",
-        "Advanced Bot Office",
+        "Advanced Bot Office with every specialist bot",
+        "Monthly Bot Office updates",
     ]),
 ]
 
@@ -174,6 +250,8 @@ FAQ_H2 = "FAQ"
 FAQ = [
     ("Do I have to post anything myself?",
      "No. Your bots prepare posts and replies; you just approve them."),
+    ("How do I get new bots and features?",
+     "Every month we email you updates, ideas, and ready-to-use prompts to switch on new bots. Copy, paste, and your Bot Office does the rest."),
     ("Are there monthly fees?",
      "Not from us. You only pay for your own Cursor plan."),
     ("What if I need help later?",
