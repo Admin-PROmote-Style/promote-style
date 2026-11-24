@@ -5,7 +5,28 @@ import config as C
 import site_common as S
 import content_common as CC
 
-def plan_grid():
+def good_to_know(disclaimer_href):
+    note = ("PROmote Style provides setup and support services only. "
+            "Cursor and other third-party tools are owned and operated by their own companies. "
+            f'See our <a href="{disclaimer_href}">Service Disclaimer</a>.')
+    note_es = ("PROmote Style solo ofrece servicios de configuración y soporte. "
+               "Cursor y las otras herramientas de terceros pertenecen a sus propias empresas y ellas las operan. "
+               f'Consulta nuestro <a href="{disclaimer_href}">Descargo de servicio</a>.')
+    sites = ('Full packages include a new website built by mAIntAIn Style. '
+             'See what each website includes at <a href="https://maintain.style/pricing.html">maintain.style/pricing</a>.')
+    sites_es = ('Los paquetes completos incluyen un sitio nuevo hecho por mAIntAIn Style. '
+                'Mira qué incluye cada sitio en <a href="https://maintain.style/pricing.html">maintain.style/pricing</a>.')
+    return f"""<div class="plan-card">
+  <h3{CC.A("Good to know")}>Good to know</h3>
+  <div class="know">
+    <p{CC.A(C.BUNDLE_NOTE)}>{CC._esc(C.BUNDLE_NOTE)}</p>
+    <p{CC.A(C.PACKAGES_NOTE)}>{CC._esc(C.PACKAGES_NOTE)}</p>
+    <p{CC._es_html_attr(sites_es)}>{sites}</p>
+    <p class="fine"{CC._es_html_attr(note_es)}>{note}</p>
+  </div>
+</div>"""
+
+def plan_grid(disclaimer_href):
     cards = []
     for p in C.PLANS:
         cls = "plan-card featured" if p["featured"] else "plan-card"
@@ -20,30 +41,20 @@ def plan_grid():
   <ul class="plan-features">{feats}</ul>
   {note}
 </div>""")
+    cards.append(good_to_know(disclaimer_href))
     return f'<div class="plans-grid plans-4">{"".join(cards)}</div>'
 
-def package_notes(disclaimer_href):
-    note = ("PROmote Style provides setup and support services only. "
-            "Cursor and other third-party tools are owned and operated by their own companies. "
-            f'See our <a href="{disclaimer_href}">Service Disclaimer</a>.')
-    note_es = ("PROmote Style solo ofrece servicios de configuración y soporte. "
-               "Cursor y las otras herramientas de terceros pertenecen a sus propias empresas y ellas las operan. "
-               f'Consulta nuestro <a href="{disclaimer_href}">Descargo de servicio</a>.')
-    sites = ('Full packages include a new website built by mAIntAIn Style. '
-             'See what each website includes at <a href="https://maintain.style/pricing.html">maintain.style/pricing</a>.')
-    sites_es = ('Los paquetes completos incluyen un sitio nuevo hecho por mAIntAIn Style. '
-                'Mira qué incluye cada sitio en <a href="https://maintain.style/pricing.html">maintain.style/pricing</a>.')
-    return (f'<p class="plans-intro"{CC.A(C.BUNDLE_NOTE)}>{CC._esc(C.BUNDLE_NOTE)}</p>'
-            f'<p class="plans-intro"{CC.A(C.PACKAGES_NOTE)}>{CC._esc(C.PACKAGES_NOTE)}</p>'
-            f'<p class="plans-note"{CC._es_html_attr(note_es)}>{note}</p>'
-            f'<p class="plans-note"{CC._es_html_attr(sites_es)}>{sites}</p>')
-
 def packages_section(heading="h2", disclaimer_href="#disclaimer"):
-    return f"""<section class="sec" id="packages"><div class="wrap">
+    return f"""<style>
+.plan-card .know{{margin-top:16px}}
+.plan-card .know p{{color:var(--cream);font-size:15px;line-height:1.55;margin:0 0 14px}}
+.plan-card .know p.fine{{color:var(--cream-muted);font-size:12.5px;line-height:1.5}}
+.plan-card .know a{{color:var(--gold);text-decoration:underline}}
+</style>
+<section class="sec" id="packages"><div class="wrap">
   <div class="sec-head"><{heading}{CC.A(C.PACKAGES_H2)}>{CC._esc(C.PACKAGES_H2)}</{heading}>
   <p class="lead"{CC.A(C.PACKAGES_SUB)}>{CC._esc(C.PACKAGES_SUB)}</p></div>
-  {plan_grid()}
-  {package_notes(disclaimer_href)}
+  {plan_grid(disclaimer_href)}
 </div></section>"""
 
 def support_section():
@@ -64,7 +75,7 @@ def build():
     html = (
         S.head(C.PRICING_TITLE, C.PRICING_DESC, "pricing.html")
         + S.nav("pricing.html")
-        + packages_section("h1", "index.html#disclaimer")
+        + packages_section("h1", "https://promote.style/index.html#disclaimer")
         + support_section()
         + cta_band()
         + f'<p class="wrap" style="text-align:center;font-size:12px;color:var(--cream-muted);opacity:.7;margin:0 auto 28px"{CC.A(C.PRICES_UPDATED)}>{CC._esc(C.PRICES_UPDATED)}</p>'

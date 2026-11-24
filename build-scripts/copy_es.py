@@ -172,6 +172,7 @@ ES = {
         "Sitio personalizado de mAIntAIn Style, un paquete personalizado completo con extras como el diseño de logotipo",
     "Website Bot: update your site by chatting with your bots. If your site was built by mAIntAIn Style, it works with the Client Style editor that comes with it.":
         "Bot del Sitio: actualiza tu sitio conversando con tus bots. Si tu sitio fue hecho por mAIntAIn Style, funciona con el editor de Client Style que viene con él.",
+    "Good to know": "Bueno saber",
     "Already have a mAIntAIn Style website? Add a Bot Office within 90 days of your site's launch and you still get the bundle price.":
         "¿Ya tienes un sitio de mAIntAIn Style? Agrega una Oficina de Bots dentro de los 90 días del lanzamiento de tu sitio y aún obtienes el precio del paquete.",
     "90 days of fixes and tweaks with every package. In a bundle, your website and your Bot Office each get their own 90 days, starting when each one launches.":
