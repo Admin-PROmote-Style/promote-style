@@ -167,6 +167,21 @@ ES = {
     "Advanced Bot Office": "Oficina de Bots Avanzada",
     "Full Basic Package": "Paquete Basic Completo",
     "Full Advanced Package": "Paquete Avanzado Completo",
+    "Full Custom Package": "Paquete Personalizado Completo",
+    "Custom website by mAIntAIn Style, a full custom package with extras like logo design":
+        "Sitio personalizado de mAIntAIn Style, un paquete personalizado completo con extras como el diseño de logotipo",
+    "Website Bot: update your site by chatting with your bots. If your site was built by mAIntAIn Style, it works with the Client Style editor that comes with it.":
+        "Bot del Sitio: actualiza tu sitio conversando con tus bots. Si tu sitio fue hecho por mAIntAIn Style, funciona con el editor de Client Style que viene con él.",
+    "Already have a mAIntAIn Style website? Add a Bot Office within 90 days of your site's launch and you still get the bundle price.":
+        "¿Ya tienes un sitio de mAIntAIn Style? Agrega una Oficina de Bots dentro de los 90 días del lanzamiento de tu sitio y aún obtienes el precio del paquete.",
+    "90 days of fixes and tweaks with every package. In a bundle, your website and your Bot Office each get their own 90 days, starting when each one launches.":
+        "90 días de arreglos y ajustes con cada paquete. En un paquete combinado, tu sitio y tu Oficina de Bots tienen cada uno sus propios 90 días, que empiezan cuando cada uno se lanza.",
+    "After that, fixes start at $75.": "Después, los arreglos empiezan en $75.",
+    "Bot Office upgrade with the latest bots and features: $500. We rebuild your whole Bot Office with everything new.":
+        "Mejora de la Oficina de Bots con los bots y funciones más nuevos: $500. Reconstruimos toda tu Oficina de Bots con todo lo nuevo.",
+    "Fixes needed because of Client Style updates are always free.":
+        "Los arreglos necesarios por actualizaciones de Client Style siempre son gratis.",
+    "Prices updated November 2026.": "Precios actualizados en noviembre de 2026.",
     "Best value": "Mejor valor",
     "Social, Reviews, Inbox, and Website bots": "Bots de Redes, Reseñas, Bandeja y Sitio",
     "Guided account setup": "Configuración guiada de las cuentas",

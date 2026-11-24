@@ -193,7 +193,8 @@ PLANS = [
         "Social, Reviews, Inbox, and Website bots",
         "Guided account setup",
         "Walkthrough on running your bots",
-    ]),
+    ], note=("Website Bot: update your site by chatting with your bots. "
+             "If your site was built by mAIntAIn Style, it works with the Client Style editor that comes with it.")),
     dict(name="Advanced Bot Office", price="$1,000", tag="", featured=False, features=[
         "Everything in Basic",
         "Every specialist bot: Finance, Competition, Events & Promotions, Customer Care, Scheduling, and Reports",
@@ -210,7 +211,22 @@ PLANS = [
         "Advanced Bot Office with every specialist bot",
         "Monthly Bot Office updates",
     ]),
+    dict(name="Full Custom Package", price="$2,500", tag="", featured=False, features=[
+        "Custom website by mAIntAIn Style, a full custom package with extras like logo design",
+        "Advanced Bot Office with every specialist bot",
+        "Monthly Bot Office updates",
+    ]),
 ]
+
+PRICING_SUPPORT = [
+    "90 days of fixes and tweaks with every package. In a bundle, your website and your Bot Office each get their own 90 days, starting when each one launches.",
+    "After that, fixes start at $75.",
+    "Bot Office upgrade with the latest bots and features: $500. We rebuild your whole Bot Office with everything new.",
+    "Fixes needed because of Client Style updates are always free.",
+]
+BUNDLE_NOTE = ("Already have a mAIntAIn Style website? Add a Bot Office within 90 days of your site's launch "
+               "and you still get the bundle price.")
+PRICES_UPDATED = "Prices updated November 2026."
 
 SUPPORT_H2 = "Support that's included"
 SUPPORT = [
