@@ -190,7 +190,14 @@ a.port-card{cursor:pointer}
 .plan-features li{color:var(--cream-muted);font-size:14.5px;padding:9px 0;border-top:1px solid rgba(255,255,255,.06);display:flex;gap:10px}
 .plan-features li:first-child{border-top:0}
 .plan-features li::before{content:"\\2713";color:var(--gold);font-weight:700}
-.plans-intro{max-width:760px;margin:36px auto 50px;text-align:center;color:var(--cream-muted);font-size:16px}
+.plans-intro{max-width:760px;margin:36px auto 18px;text-align:center;color:var(--cream-muted);font-size:16px}
+.plans-note{max-width:720px;margin:14px auto 0;text-align:center;color:var(--cream-muted);font-size:13.5px;line-height:1.5}
+.plans-note a{color:var(--gold);text-decoration:underline}
+#disclaimer .disclaimer-body{max-width:760px;margin:0 auto}
+#disclaimer .disclaimer-body p{color:var(--cream-muted);font-size:15.5px;margin:0 0 16px}
+#disclaimer .disclaimer-body p:last-child{margin-bottom:0}
+.disclaimer-body h2{font-size:22px;margin:28px 0 8px;text-align:left}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 /* comparison (home) */
 .card.us{border-color:var(--gold);background:linear-gradient(180deg,var(--panel2),var(--panel));animation:cardGlowPulseGold 4s ease-in-out infinite}
 @keyframes cardGlowPulseGold{
@@ -294,19 +301,38 @@ a.port-card{cursor:pointer}
 @media(max-width:900px){.lang-toggle{right:16px}}
 """
 
-def head(title, description, path="index.html"):
-    icon = embed_img(C.LOGO_IMAGE)
+def head(title, description, path="index.html", extra=""):
+    import json
     live = C.LIVE_URL.rstrip("/")
     canonical = f"{live}/{path}" if path != "index.html" else f"{live}/"
-    # og:image needs a real fetchable URL, not the base64 data URI used for
-    # the inline favicon/logo -- points at the real file copied into
-    # site/assets/ by build_all.py's copy_assets() step.
-    og_image = f"{live}/{C.LOGO_IMAGE}"
-    org_schema = f"""<script type="application/ld+json">
-{{"@context":"https://schema.org","@type":"Organization","name":"{C.BUSINESS_NAME}",
-"description":"{C.META_DESC}","url":"{live}/","logo":"{og_image}",
-"areaServed":"{C.CITY_STATE}","email":"{C.EMAIL}"}}
-</script>"""
+    og_image = f"{live}/assets/og-promote-style.jpg"
+    logo = f"{live}/assets/promote-style-logo-mark.png"
+    offers = []
+    for plan in C.PLANS:
+        price = plan["price"].replace("$", "").replace(",", "")
+        offers.append({
+            "@type": "Offer",
+            "name": plan["name"],
+            "price": price,
+            "priceCurrency": "USD",
+        })
+    org = {
+        "@context": "https://schema.org",
+        "@type": ["Organization", "ProfessionalService"],
+        "name": C.BUSINESS_NAME,
+        "description": C.META_DESC,
+        "url": f"{live}/",
+        "logo": logo,
+        "email": C.EMAIL,
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Bend",
+            "addressRegion": "OR",
+            "addressCountry": "US",
+        },
+        "makesOffer": offers,
+    }
+    org_schema = '<script type="application/ld+json">\n' + json.dumps(org, ensure_ascii=False) + "\n</script>"
     return f"""<!doctype html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{title}</title>
@@ -322,12 +348,16 @@ def head(title, description, path="index.html"):
 <meta name="twitter:title" content="{title}">
 <meta name="twitter:description" content="{description}">
 <meta name="twitter:image" content="{og_image}">
-<link rel="icon" href="{icon}">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" href="https://fonts.gstatic.com/s/poppins/v24/pxiEyp8kv8JHgFVrJJfecg.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLCz7Z1xlFQ.woff2" as="font" type="font/woff2" crossorigin>
 <link href="{C.GOOGLE_FONTS_HREF}" rel="stylesheet">
 <style>{base_css()}</style>
 {org_schema}
+{extra}
 </head><body>"""
 
 def copy_assets():
@@ -341,8 +371,13 @@ def copy_assets():
         return
     os.makedirs(dst, exist_ok=True)
     for fname in os.listdir(src):
-        if fname.lower().endswith((".png", ".jpg", ".jpeg", ".svg", ".webp")):
+        if fname.lower().endswith((".png", ".jpg", ".jpeg", ".svg", ".webp", ".ico")):
             shutil.copy2(os.path.join(src, fname), os.path.join(dst, fname))
+    for fname in ("favicon.ico", "apple-touch-icon.png"):
+        icon = os.path.join(src, fname)
+        if os.path.isfile(icon):
+            shutil.copy2(icon, os.path.join(ROOT, "site", fname))
+            shutil.copy2(icon, os.path.join(ROOT, fname))
 
 NAV_LABELS_ES = {
     "Home": "Inicio",
@@ -366,33 +401,47 @@ def nav(active=""):
         return f'<a href="{href}"{cls}{_ext_attr(href)}{_es_attr(label)}>{label}</a>'
     links = "".join(_link(href, label) for href, label in C.NAV_LINKS)
     mob_links = "".join(f'<a href="{href}"{_ext_attr(href)}{_es_attr(label)}>{label}</a>' for href, label in C.NAV_LINKS)
+    import content_common as CC
+    started = f'<a class="btn btn-primary" href="contact.html"{CC.A("Get started")}>Get started</a>'
+    started_m = f'<a href="contact.html"{CC.A("Get started")}>Get started</a>'
     return f"""<nav class="nav"><div class="wrap">
-  <a class="brand" href="index.html"><img src="{embed_img(C.NAV_LOGO_IMAGE)}" alt="{C.BUSINESS_NAME} logo"></a>
+  <a class="brand" href="index.html"><picture>
+    <source srcset="assets/promote-style-logo-horizontal.webp" type="image/webp">
+    <img src="assets/promote-style-logo-horizontal.png" width="1080" height="250" alt="{C.BUSINESS_NAME}">
+  </picture></a>
   <div class="nav-links">
     {links}
   </div>
   <div class="nav-cta">
-    <a class="btn btn-primary" href="mailto:{C.EMAIL}">Get started</a>
+    {started}
   </div>
   <button class="hamb" onclick="document.getElementById('mm').classList.toggle('open')">&#9776;</button>
 </div>
 <div class="mobile-menu" id="mm">
   {mob_links}
-  <a href="mailto:{C.EMAIL}">Get started</a>
+  {started_m}
 </div>
-<button class="lang-toggle" id="langToggle" type="button" aria-label="Switch language">ESP</button>
+<button class="lang-toggle" id="langToggle" type="button" aria-label="ESP – Switch to Spanish">ESP</button>
 </nav>"""
 
 def footer():
-    return f"""<section class="logo-divider"><img src="{embed_img(C.LOGO_IMAGE)}" alt="{C.BUSINESS_NAME} logo"></section>
+    import content_common as CC
+    return f"""<section class="logo-divider"><picture>
+  <source srcset="assets/promote-style-logo-mark.webp" type="image/webp">
+  <img src="assets/promote-style-logo-mark.png" width="1080" height="600" alt="{C.BUSINESS_NAME} logo" loading="lazy">
+</picture></section>
 <footer class="foot"><div class="wrap">
-  <a class="email" href="mailto:{C.EMAIL}">{_SVG_MAIL}<span>{C.EMAIL}</span></a>
-  <p class="copyright">{C.FOOTER_LINE}</p>
+  <p class="foot-links"><a href="privacy.html"{CC.A("Privacy")}>Privacy</a>
+  <span aria-hidden="true"> · </span>
+  <a href="index.html#disclaimer"{CC.A("Service Disclaimer")}>Service Disclaimer</a>
+  <span aria-hidden="true"> · </span>
+  <a href="mailto:{C.EMAIL}">{C.EMAIL}</a></p>
+  <p class="copyright"{CC.A(C.FOOTER_LINE)}>{C.FOOTER_LINE}</p>
 </div></footer>"""
 
 def back_to_top():
     icon = getattr(C, "TOTOP_ICON", "")
-    inner = f'<img src="{embed_img(icon)}" alt="">' if icon else "&#8593;"
+    inner = f'<img src="{icon}" width="54" height="54" alt="">' if icon else "&#8593;"
     return (f'<button class="totop" id="totop" aria-label="Back to top"\n'
             " onclick=\"window.scrollTo({top:0,behavior:'smooth'})\">" + inner + "</button>\n"
             "<script>window.addEventListener('scroll',function(){\n"
@@ -416,9 +465,16 @@ def lang_script():
       if(el.dataset.enOrigPlaceholder===undefined) el.dataset.enOrigPlaceholder=el.getAttribute('placeholder')||'';
       el.setAttribute('placeholder', lang==='es' ? el.dataset.esPlaceholder : el.dataset.enOrigPlaceholder);
     });
+    document.querySelectorAll('[data-es-alt]').forEach(function(el){
+      if(el.dataset.enOrigAlt===undefined) el.dataset.enOrigAlt=el.getAttribute('alt')||'';
+      el.setAttribute('alt', lang==='es' ? el.dataset.esAlt : el.dataset.enOrigAlt);
+    });
     document.documentElement.setAttribute('lang', lang);
     var btn=document.getElementById('langToggle');
-    if(btn) btn.textContent = lang==='es' ? 'ENG' : 'ESP';
+    if(btn){
+      btn.textContent = lang==='es' ? 'ENG' : 'ESP';
+      btn.setAttribute('aria-label', lang==='es' ? 'ENG – Switch to English' : 'ESP – Switch to Spanish');
+    }
   }
   document.addEventListener('DOMContentLoaded', function(){
     apply(getLang());

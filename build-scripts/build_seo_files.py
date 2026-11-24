@@ -23,6 +23,8 @@ def build():
     pages = [href for href, _ in C.NAV_LINKS if not href.startswith(("http://", "https://"))]
     if "contact.html" not in pages:
         pages.append("contact.html")
+    if "privacy.html" not in pages:
+        pages.append("privacy.html")
 
     robots = f"""User-agent: *
 Allow: /

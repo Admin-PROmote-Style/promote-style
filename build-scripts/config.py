@@ -217,6 +217,7 @@ SUPPORT = [
     "90 days of fixes and tweaks included with every package",
     "After that, fixes start at $75",
     "Bot Office upgrades with the latest features: $500",
+    "Fixes needed because of Client Style updates are always free",
 ]
 
 STEPS_H2 = "How it works"
@@ -250,6 +251,8 @@ FAQ_H2 = "FAQ"
 FAQ = [
     ("Do I have to post anything myself?",
      "No. Your bots prepare posts and replies; you just approve them."),
+    ("Do you manage my social media or ads?",
+     "No. Your bots draft posts and replies, and the tools you choose publish them only after you approve. We set everything up and support our setup work."),
     ("How do I get new bots and features?",
      "Every month we email you updates, ideas, and ready-to-use prompts to switch on new bots. Copy, paste, and your Bot Office does the rest."),
     ("Are there monthly fees?",
@@ -258,6 +261,31 @@ FAQ = [
      "Every package includes 90 days of fixes. After that, fixes start at $75."),
     ("Do I need a new website?",
      "No, but your bots can do the most with a mAIntAIn Style website."),
+    ("Who is responsible for Cursor and the other tools?",
+     "Each tool is run by its own company, and you hold the account directly. We set everything up and support our setup work, but we don't control those services. See our Service Disclaimer for details."),
+]
+
+PRICING_TITLE = "Bot Office Pricing | One-Time Setup, No Monthly Fees | PROmote Style"
+PRICING_DESC = ("Basic Bot Office $500, Advanced Bot Office $1,000, or bundle a new website from $750. "
+                "One-time setup, no monthly fees from us.")
+CONTACT_TITLE = "Contact PROmote Style | Set Up Your Bot Office"
+CONTACT_DESC = "Tell us about your business and we'll recommend the right Bot Office package. Based in Bend, Oregon."
+PRIVACY_TITLE = "Privacy | PROmote Style"
+PRIVACY_DESC = "What PROmote Style collects when you contact us, and how it is used."
+
+DISCLAIMER = [
+    "PROmote Style, a mAIntAIn Style company, provides a one-time setup service. We help you create your own accounts and configure AI bots and related tools for your business. We also provide the support described on this site: 90 days of included fixes, paid fixes after that, optional upgrades, and monthly update emails.",
+    "Your accounts are yours. Cursor, X, Buffer, Metricool, and any other third-party services you use are owned and operated by their own companies. You sign up for them directly, agree to their terms, and pay them directly. PROmote Style is not affiliated with, endorsed by, or acting on behalf of any of them.",
+    "We are not responsible for third-party services. This includes their availability, outages, pricing, plan or feature changes, policies, data handling, security, or account decisions such as suspensions.",
+    "You review and approve your bots' work. AI tools can make mistakes. Your bots draft, suggest, and prepare content, but you are responsible for reviewing and approving anything before it is posted, sent, published, or acted on. Finance, scheduling, and other bot outputs are for your information and are not professional financial, legal, or tax advice.",
+    "Our responsibility is limited to our setup and support services. To the fullest extent allowed by law, PROmote Style is not liable for losses or damages arising from your use of AI tools or third-party services, or from content you approve.",
+]
+DISCLAIMER_ES = [
+    "PROmote Style, una empresa de mAIntAIn Style, ofrece un servicio de configuración de una sola vez. Te ayudamos a crear tus propias cuentas y a configurar bots de IA y herramientas relacionadas para tu negocio. También damos el soporte descrito en este sitio: 90 días de arreglos incluidos, arreglos de pago después, mejoras opcionales y correos mensuales de actualización.",
+    "Tus cuentas son tuyas. Cursor, X, Buffer, Metricool y cualquier otro servicio de terceros que uses pertenecen a sus propias empresas y ellas los operan. Te registras directamente, aceptas sus términos y les pagas directamente. PROmote Style no está afiliado a ellos, no cuenta con su respaldo y no actúa en su nombre.",
+    "No somos responsables de los servicios de terceros. Esto incluye su disponibilidad, interrupciones, precios, cambios de plan o de funciones, políticas, manejo de datos, seguridad o decisiones de cuenta como las suspensiones.",
+    "Tú revisas y apruebas el trabajo de tus bots. Las herramientas de IA pueden equivocarse. Tus bots redactan, sugieren y preparan contenido, pero tú eres responsable de revisar y aprobar cualquier cosa antes de que se publique, se envíe o se actúe sobre ella. Las salidas de finanzas, agenda y otros bots son para tu información y no son asesoría financiera, legal ni fiscal.",
+    "Nuestra responsabilidad se limita a nuestros servicios de configuración y soporte. Hasta donde la ley lo permite, PROmote Style no es responsable de pérdidas o daños que surjan de tu uso de herramientas de IA o de servicios de terceros, ni del contenido que tú apruebas.",
 ]
 
 CTA_TITLE = "Ready to meet your AI marketing team?"

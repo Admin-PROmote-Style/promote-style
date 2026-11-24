@@ -105,14 +105,28 @@ def tip_box(label, *paragraphs, label_es=None, es=None):
         parts.append(f'<p{_es_html_attr(p_es)}>{p}</p>')
     return f'<div class="tip-box"><span class="lbl"{_es_attr(label_es)}>{label}</span>{"".join(parts)}</div>'
 
+def A(text):
+    """data-es attribute for a plain English string, when a Spanish line exists."""
+    import copy_es
+    es = copy_es.ES.get(text)
+    return _es_attr(es) if es else ""
+
+def you_get(en):
+    import copy_es
+    es = copy_es.ES.get(en, en)
+    inner = f"<strong>You get:</strong> {_esc(en)}"
+    inner_es = f"<strong>Obtienes:</strong> {_esc(es)}"
+    return f'<p class="bot-get"{_es_html_attr(inner_es)}>{inner}</p>'
+
 def steps_list(steps, steps_es=None):
     """steps_es: optional list of (title_es, desc_es) tuples parallel to steps."""
     items = []
     for i, (t, d) in enumerate(steps):
         t_es, d_es = (steps_es[i] if steps_es and i < len(steps_es) else (None, None))
+        title_attr = _es_html_attr(t_es) if (t_es and "<" in t) else _es_attr(t_es)
         items.append(
             f'<div class="step"><div class="n"></div><div class="body">'
-            f'<h4{_es_attr(t_es)}>{t}</h4><p{_es_html_attr(d_es)}>{d}</p></div></div>')
+            f'<h4{title_attr}>{t}</h4><p{_es_html_attr(d_es)}>{d}</p></div></div>')
     return f'<div class="steps-list">{"".join(items)}</div>'
 
 def inline_cta(text, href, label, text_es=None, label_es=None):

@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 """
-build_seo101.py -- "SEO 101," the single consolidated resource page.
+build_seo101.py — "SEO 101," the single consolidated resource page.
 
-2026-08-17: replaces what used to be three separate pages -- SEO Basics
+2026-08-17: replaces what used to be three separate pages — SEO Basics
 (build_seo_basics.py), Built SEO-Ready (build_built_seo_ready.py), and
 Business Listings (build_listings.py). George's feedback: the header had
 too many links for an education-first site, and three separate pages read
 as three separate promo pages rather than one resource. All three pillars'
 content is preserved verbatim below (just regrouped into tab panels) and
-those three old build scripts have been removed -- this file is now the
+those three old build scripts have been removed — this file is now the
 single source for all of it.
 
 Tabs are plain vanilla JS (matches the hamburger/lang-toggle/back-to-top
@@ -25,9 +25,9 @@ import site_common as S
 import content_common as CC
 
 # ----------------------------------------------------------------------------
-# TAB 1 -- SEO Basics (verbatim from the former build_seo_basics.py; content
+# TAB 1 — SEO Basics (verbatim from the former build_seo_basics.py; content
 # grounded in what people actually search for beginner SEO/keyword-research
-# questions -- see chat history 2026-08-17 for sources).
+# questions — see chat history 2026-08-17 for sources).
 # ----------------------------------------------------------------------------
 BASICS_JUMP_ITEMS = [
     ("foundations", "Foundations", "Fundamentos"),
@@ -43,7 +43,7 @@ def basics_do_first():
          "means nothing else on this list matters yet."),
         ("Set up Google Search Console + GA4", "Both free, both covered in Free Tools below — step one after any "
          "launch, not a someday task."),
-        ("Pick 3-5 realistic long-tail keywords", "Specific phrases with real intent behind them, not the single "
+        ("Pick 3–5 realistic long-tail keywords", "Specific phrases with real intent behind them, not the single "
          "broadest term in your industry."),
         ("Make sure your main pages actually answer the search", "Homepage and service pages should say the "
          "real thing plainly, not hint at it."),
@@ -55,7 +55,7 @@ def basics_do_first():
          "nada, nada más en esta lista importa todavía."),
         ("Configura Google Search Console + GA4", "Ambos gratis, ambos cubiertos en Herramientas Gratuitas más "
          "abajo — el primer paso después de cualquier lanzamiento, no un \"algún día\"."),
-        ("Elige 3-5 palabras clave de cola larga realistas", "Frases específicas con intención real detrás, no "
+        ("Elige 3–5 palabras clave de cola larga realistas", "Frases específicas con intención real detrás, no "
          "el término más amplio de tu industria."),
         ("Asegúrate de que tus páginas principales respondan la búsqueda", "La página de inicio y las de "
          "servicios deben decir la respuesta real, sin dar rodeos."),
@@ -242,12 +242,11 @@ def basics_backlinks():
             "búsqueda. Ignorarlos por completo todavía perjudica."),
         CC.topic("How do I get my first ones?", "Start small, start real",
             "Local directories, industry associations, partner or supplier sites, guest posts, and simply "
-            "asking a happy customer or partner to link to you are realistic starting points — no need for a "
-            "link-building agency on day one.",
+            "asking a happy customer or partner to link to you are realistic starting points.",
             q_es="¿Cómo consigo los primeros?", h3_es="Empieza pequeño, empieza real",
             body_es="Directorios locales, asociaciones de la industria, sitios de socios o proveedores, "
             "publicaciones como invitado, y simplemente pedirle a un cliente o socio contento que te enlace "
-            "son puntos de partida realistas — no hace falta una agencia de link-building desde el primer día."),
+            "son puntos de partida realistas."),
         CC.topic("What makes a backlink valuable?", "Relevance and trust over raw count",
             "One link from a site closely related to your industry is worth more than ten from random, "
             "unrelated directories. Quality and relevance beat quantity every time.",
@@ -287,11 +286,10 @@ def basics_tools():
             "tarea para \"algún día\"."),
         CC.topic("Google Analytics (GA4)", "What happens after someone lands on your page",
             "Free traffic and behavior data — where visitors come from, what they do, and where they drop off. "
-            "Pairs directly with Search Console's \"who's searching\" with GA4's \"what do they do next.\"",
+            "Pair Search Console's \"who's searching\" with GA4's \"what do they do next.\"",
             q_es="Google Analytics (GA4)", h3_es="Qué pasa después de que alguien llega a tu página",
             body_es="Datos gratis de tráfico y comportamiento — de dónde vienen los visitantes, qué hacen, y "
-            "dónde se van. Combina directamente el \"quién está buscando\" de Search Console con el \"qué "
-            "hacen después\" de GA4."),
+            "dónde se van. Combina el \"quién busca\" de Search Console con el \"qué hacen después\" de GA4."),
         CC.topic("Google Trends", "Is interest in a topic rising or falling?",
             "Free, and useful for timing content — spotting seasonal patterns or a topic on its way up before "
             "it peaks.",
@@ -385,14 +383,14 @@ def panel_basics():
 
 
 # ----------------------------------------------------------------------------
-# TAB 2 -- Built SEO-Ready (verbatim from the former build_built_seo_ready.py;
+# TAB 2 — Built SEO-Ready (verbatim from the former build_built_seo_ready.py;
 # every claim verified against mAIntAIn Style's real build script as of
 # 2026-08-17, not generic SEO advice).
 # ----------------------------------------------------------------------------
 BUILT_TECH_ITEMS = [
-    ("Real, crawlable HTML", "Every page is generated as plain static HTML -- not a JavaScript app a crawler "
+    ("Real, crawlable HTML", "Every page is generated as plain static HTML — not a JavaScript app a crawler "
      "has to render first. Search engines can read the whole page immediately, every time.",
-     "HTML real y rastreable", "Cada página se genera como HTML estático simple -- no una aplicación de "
+     "HTML real y rastreable", "Cada página se genera como HTML estático simple — no una aplicación de "
      "JavaScript que un rastreador tiene que procesar primero. Los motores de búsqueda pueden leer la página "
      "completa de inmediato, siempre."),
     ("Unique title + description, every page", "No page ships with a default \"Home\" title or a copy-pasted "
@@ -404,25 +402,25 @@ BUILT_TECH_ITEMS = [
      "penalized for accidental duplicate-content issues.",
      "Etiquetas canónicas en cada página", "Le dice a los motores de búsqueda cuál es la única URL verdadera "
      "de cada página, para que nunca te penalicen por problemas accidentales de contenido duplicado."),
-    ("Schema markup (JSON-LD), automatically", "Every page includes structured Organization schema -- the "
+    ("Schema markup (JSON-LD), automatically", "Every page includes structured Organization schema — the "
      "machine-readable data search engines use for rich results. Generated from the same build script, not "
      "bolted on after the fact.",
-     "Schema markup (JSON-LD), automático", "Cada página incluye schema de Organización estructurado -- los "
+     "Schema markup (JSON-LD), automático", "Cada página incluye schema de Organización estructurado — los "
      "datos legibles por máquina que los motores de búsqueda usan para resultados enriquecidos. Generado "
      "desde el mismo script de construcción, no agregado después."),
     ("Open Graph + Twitter Card tags", "When someone shares your site on social media or in a text message, "
-     "the preview card shows the right title, description, and image -- not a broken gray box.",
+     "the preview card shows the right title, description, and image — not a broken gray box.",
      "Etiquetas Open Graph + Twitter Card", "Cuando alguien comparte tu sitio en redes sociales o en un "
-     "mensaje de texto, la tarjeta de vista previa muestra el título, la descripción y la imagen correctos -- "
+     "mensaje de texto, la tarjeta de vista previa muestra el título, la descripción y la imagen correctos — "
      "no una caja gris rota."),
     ("Sitemap.xml + robots.txt, every build", "Generated fresh from the actual page list every time the site "
-     "builds -- never manually maintained, never goes stale, never points at a page that no longer exists.",
+     "builds — never manually maintained, never goes stale, never points at a page that no longer exists.",
      "Sitemap.xml + robots.txt, en cada construcción", "Generado desde cero a partir de la lista real de "
-     "páginas cada vez que el sitio se construye -- nunca se mantiene a mano, nunca se queda desactualizado, "
+     "páginas cada vez que el sitio se construye — nunca se mantiene a mano, nunca se queda desactualizado, "
      "nunca apunta a una página que ya no existe."),
-    ("Fast hosting on the edge", "Hosted on Cloudflare's global network -- pages load quickly wherever the "
+    ("Fast hosting on the edge", "Hosted on Cloudflare's global network — pages load quickly wherever the "
      "visitor is, and speed is a real, measurable ranking factor.",
-     "Hospedaje rápido en el borde (edge)", "Hospedado en la red global de Cloudflare -- las páginas cargan "
+     "Hospedaje rápido en el borde (edge)", "Hospedado en la red global de Cloudflare — las páginas cargan "
      "rápido sin importar dónde esté el visitante, y la velocidad es un factor de posicionamiento real y "
      "medible."),
     ("Mobile-responsive by default", "Search engines rank the mobile version of your site first. Every layout "
@@ -430,14 +428,14 @@ BUILT_TECH_ITEMS = [
      "Adaptable a celular por defecto", "Los motores de búsqueda posicionan primero la versión para celular de "
      "tu sitio. Cada diseño se construye pensando primero en el celular, no como un \"sitio de escritorio que "
      "más o menos funciona en un teléfono\"."),
-    ("Clean, descriptive URLs", "Pages are named for what they are (pricing.html, contact.html) -- not "
+    ("Clean, descriptive URLs", "Pages are named for what they are (pricing.html, contact.html) — not "
      "auto-generated ID strings a search engine (or a person) can't read.",
-     "URLs limpias y descriptivas", "Las páginas se nombran según lo que son (pricing.html, contact.html) -- "
+     "URLs limpias y descriptivas", "Las páginas se nombran según lo que son (pricing.html, contact.html) — "
      "no cadenas de ID autogeneradas que ni un motor de búsqueda (ni una persona) pueden leer."),
-    ("Proper heading structure", "One real H1 per page, then a logical H2/H3 hierarchy underneath -- not "
+    ("Proper heading structure", "One real H1 per page, then a logical H2/H3 hierarchy underneath — not "
      "styled text pretending to be a heading, which search engines see straight through.",
      "Estructura de encabezados correcta", "Un H1 real por página, y luego una jerarquía lógica de H2/H3 "
-     "debajo -- no texto con estilo que finge ser un encabezado, algo que los motores de búsqueda detectan de "
+     "debajo — no texto con estilo que finge ser un encabezado, algo que los motores de búsqueda detectan de "
      "inmediato."),
     ("Free SSL / HTTPS", "The padlock, on by default. Not a paid add-on, not a manual setup step.",
      "SSL / HTTPS gratis", "El candado, activado por defecto. No es un complemento de pago, no es un paso de "
@@ -450,12 +448,11 @@ def built_tech_grid():
         for t, d, t_es, d_es in BUILT_TECH_ITEMS)
     tag_attr = CC._es_attr("QUÉ INCLUYE CADA PÁGINA")
     h2_attr = CC._es_attr("No es un consejo. Es una descripción de lo que realmente se construye.")
-    lead_attr = CC._es_attr("Cada punto abajo está verificado contra el script de construcción real de "
-        "mAIntAIn Style, no una lista genérica de buenas prácticas -- si está aquí, está en el código.")
+    lead_attr = CC._es_attr("Cada punto de abajo es parte de cómo se construye cada sitio de mAIntAIn Style. Si está en esta lista, sale en cada página.")
     return f"""<section class="sec cluster" id="whats-included"><div class="wrap">
   <div class="cluster-head"><span class="sec-tag"{tag_attr}>WHAT SHIPS ON EVERY PAGE</span>
   <h2{h2_attr}>Not advice. A description of what actually gets built.</h2>
-  <p class="lead"{lead_attr}>Every item below is verified against mAIntAIn Style's real build script, not a generic best-practices list -- if it's here, it's in the code.</p></div>
+  <p class="lead"{lead_attr}>Every item below is part of how every mAIntAIn Style site is built. If it's listed here, it ships on every page.</p></div>
   <div class="topic-grid">{cards}</div>
 </div></section>"""
 
@@ -465,14 +462,10 @@ def built_comparison():
          "page on, and drifts out of date as the site grows.",
          "Constructor DIY (Wix, Squarespace, etc.)", "Parte de esto es posible, pero es manual, fácil de "
          "saltarse en una página, y se desactualiza a medida que el sitio crece."),
-        ("Typical agency build", "Depends entirely on whether that agency happens to care about SEO -- it's "
-         "rarely a checklist, it's whoever built the site remembering to do it.",
-         "Construcción típica de agencia", "Depende por completo de si a esa agencia le importa el SEO -- casi "
-         "nunca es una lista de verificación, es que quien construyó el sitio se acuerde de hacerlo."),
         ("A mAIntAIn Style build", "Comes from the build script, not a person's memory. Every page gets it, "
-         "every time, because skipping it would mean changing the code -- not just forgetting a step.",
+         "every time, because skipping it would mean changing the code — not just forgetting a step.",
          "Una construcción de mAIntAIn Style", "Viene del script de construcción, no de la memoria de una "
-         "persona. Cada página lo recibe, siempre, porque saltárselo significaría cambiar el código -- no solo "
+         "persona. Cada página lo recibe, siempre, porque saltárselo significaría cambiar el código — no solo "
          "olvidar un paso."),
     ]
     cards = "".join(
@@ -499,9 +492,9 @@ UPGRADE_SIGNS = [
      "No convierte visitantes",
      "El tráfico que nunca se convierte en una llamada, una reserva o una venta es una fuga, no una ganancia."),
     ("Isn't mobile-friendly",
-     "Google ranks the mobile version of a site first -- if that experience is broken, everything else on this list matters less.",
+     "Google ranks the mobile version of a site first — if that experience is broken, everything else on this list matters less.",
      "No es amigable con el celular",
-     "Google posiciona primero la versión para celular de un sitio -- si esa experiencia está rota, todo lo demás en esta lista importa menos."),
+     "Google posiciona primero la versión para celular de un sitio — si esa experiencia está rota, todo lo demás en esta lista importa menos."),
     ("Missing basic pages",
      "No clear services page, no easy way to contact you, or pages built for a business that no longer exists.",
      "Faltan páginas básicas",
@@ -518,11 +511,11 @@ def built_upgrade_signs():
         for t, d, t_es, d_es in UPGRADE_SIGNS)
     tag_attr = CC._es_attr("VALE LA PENA PREGUNTAR")
     h2_attr = CC._es_html_attr("Señales de que podría ser hora de actualizar")
-    lead_attr = CC._es_attr("Ninguna de estas significa empezar de cero -- solo vale la pena mirarlas con honestidad.")
+    lead_attr = CC._es_attr("Ninguna de estas significa empezar de cero — solo vale la pena mirarlas con honestidad.")
     return f"""<section class="sec cluster" style="padding-top:64px"><div class="wrap">
   <div class="cluster-head"><span class="sec-tag"{tag_attr}>WORTH ASKING</span>
   <h2{h2_attr}>Signs it might be time to upgrade</h2>
-  <p class="lead"{lead_attr}>None of these mean start over from scratch -- they're just worth an honest look.</p></div>
+  <p class="lead"{lead_attr}>None of these mean start over from scratch — they're just worth an honest look.</p></div>
   <div class="topic-grid">{cards}</div>
 </div></section>"""
 
@@ -534,12 +527,12 @@ def panel_built():
         + f'<section class="sec"><div class="wrap"><div class="prose">'
           + CC.tip_box("WORTH KNOWING",
                 "None of this replaces content and keyword work covered in the "
-                "<a href=\"#basics\" style=\"color:var(--gold);font-weight:700\">SEO Basics</a> tab -- it's "
+                "<a href=\"#basics\" style=\"color:var(--gold);font-weight:700\">SEO Basics</a> tab — it's "
                 "the technical floor every page should stand on before that work even starts. A perfectly-"
                 "written page on a technically broken foundation still struggles to rank.",
                 label_es="VALE LA PENA SABERLO",
                 es=["Nada de esto reemplaza el trabajo de contenido y palabras clave cubierto en la pestaña de "
-                    "<a href=\"#basics\" style=\"color:var(--gold);font-weight:700\">SEO Basics</a> -- es el "
+                    "<a href=\"#basics\" style=\"color:var(--gold);font-weight:700\">SEO Basics</a> — es el "
                     "piso técnico sobre el que toda página debería pararse antes de que ese trabajo siquiera "
                     "empiece. Una página perfectamente escrita sobre una base técnicamente rota igual tiene "
                     "problemas para posicionarse."])
@@ -548,67 +541,67 @@ def panel_built():
     return f'<div class="tab-panel" id="tab-built" data-panel="built" hidden>{body}</div>'
 
 # ----------------------------------------------------------------------------
-# TAB 3 -- Business Listings (verbatim from the former build_listings.py).
+# TAB 3 — Business Listings (verbatim from the former build_listings.py).
 # ----------------------------------------------------------------------------
 def listings_google():
     steps = CC.steps_list([
-        ("Go to google.com/business and sign in", "Use the Google account your business already uses, or "
-         "create one dedicated to the business -- not a personal one an employee might lose access to."),
+        ('<a href="https://www.google.com/business/" target="_blank" rel="noopener">Go to google.com/business and sign in</a>', "Use the Google account your business already uses, or "
+         "create one dedicated to the business — not a personal one an employee might lose access to."),
         ("Search for your business name first", "If a listing already exists (sometimes created automatically "
          "from reviews or map data), claim it instead of creating a duplicate."),
-        ("Enter your business details", "Exact legal name, address, phone number, category, and hours -- this "
+        ("Enter your business details", "Exact legal name, address, phone number, category, and hours — this "
          "becomes the reference version other directories often pull from."),
         ("Choose a verification method", "Usually a postcard mailed to the business address, sometimes phone "
-         "or email for eligible businesses -- follow whichever Google offers."),
+         "or email for eligible businesses — follow whichever Google offers."),
         ("Complete the profile after verifying", "Add photos, a description, services/products, and keep "
-         "hours current -- an unverified or empty profile ranks worse than a complete one."),
+         "hours current — an unverified or empty profile ranks worse than a complete one."),
     ], steps_es=[
-        ("Ve a google.com/business e inicia sesión", "Usa la cuenta de Google que tu negocio ya usa, o crea "
-         "una dedicada al negocio -- no una personal a la que un empleado podría perder acceso."),
+        ('<a href="https://www.google.com/business/" target="_blank" rel="noopener">Ve a google.com/business e inicia sesión</a>', "Usa la cuenta de Google que tu negocio ya usa, o crea "
+         "una dedicada al negocio — no una personal a la que un empleado podría perder acceso."),
         ("Busca el nombre de tu negocio primero", "Si ya existe un listado (a veces se crea automáticamente a "
          "partir de reseñas o datos de mapas), reclámalo en vez de crear un duplicado."),
-        ("Ingresa los datos de tu negocio", "Nombre legal exacto, dirección, teléfono, categoría y horario -- "
+        ("Ingresa los datos de tu negocio", "Nombre legal exacto, dirección, teléfono, categoría y horario — "
          "esto se vuelve la versión de referencia que otros directorios suelen tomar."),
         ("Elige un método de verificación", "Usualmente una postal enviada a la dirección del negocio, a veces "
-         "teléfono o correo para negocios elegibles -- sigue el que Google te ofrezca."),
+         "teléfono o correo para negocios elegibles — sigue el que Google te ofrezca."),
         ("Completa el perfil después de verificar", "Agrega fotos, una descripción, servicios/productos, y "
-         "mantén el horario al día -- un perfil sin verificar o vacío se posiciona peor que uno completo."),
+         "mantén el horario al día — un perfil sin verificar o vacío se posiciona peor que uno completo."),
     ])
     tip = CC.tip_box("AFTER YOU'RE SET UP",
-        "Reviews matter more when they arrive steadily over time than in one sudden burst -- a pile of reviews "
+        "Reviews matter more when they arrive steadily over time than in one sudden burst — a pile of reviews "
         "all posted the same week can actually look suspicious to both customers and Google. Asking happy "
         "customers as you go beats a one-time push.",
         label_es="DESPUÉS DE CONFIGURARLO",
         es=["Las reseñas importan más cuando llegan de forma constante a lo largo del tiempo que en una sola "
-            "ráfaga -- un montón de reseñas publicadas la misma semana puede parecer sospechoso tanto para "
+            "ráfaga — un montón de reseñas publicadas la misma semana puede parecer sospechoso tanto para "
             "los clientes como para Google. Pedirlas sobre la marcha a clientes contentos funciona mejor que "
             "un solo empujón puntual."])
     tag_attr = CC._es_attr("LO MÁS IMPORTANTE")
     h2_attr = CC._es_attr("Google Business Profile")
-    lead_attr = CC._es_attr("El listado de mayor impacto para búsquedas locales y Google Maps -- haz este "
+    lead_attr = CC._es_attr("El listado de mayor impacto para búsquedas locales y Google Maps — haz este "
         "primero si no haces nada más.")
     return f"""<section class="sec cluster" id="google"><div class="wrap">
   <div class="cluster-head"><span class="sec-tag"{tag_attr}>MOST IMPORTANT</span><h2{h2_attr}>Google Business Profile</h2>
-  <p class="lead"{lead_attr}>The single highest-impact listing for local search and Google Maps -- do this one first if you do nothing else.</p></div>
+  <p class="lead"{lead_attr}>The single highest-impact listing for local search and Google Maps — do this one first if you do nothing else.</p></div>
   <div class="prose">{steps}{tip}</div>
 </div></section>"""
 
 def listings_bing():
     steps = CC.steps_list([
-        ("Go to Bing Places for Business", "Sign in with a Microsoft account."),
+        ('<a href="https://www.bingplaces.com/" target="_blank" rel="noopener">Go to Bing Places for Business</a>', "Sign in with a Microsoft account."),
         ("Import from Google, or add manually", "Bing offers a straightforward import from an existing Google "
          "Business Profile, which is usually faster than starting from scratch."),
-        ("Verify your listing", "Similar options to Google -- phone, postcard, or email depending on eligibility."),
-        ("Keep it in sync with Google", "Bing still powers a meaningful share of search and voice assistants -- "
+        ("Verify your listing", "Similar options to Google — phone, postcard, or email depending on eligibility."),
+        ("Keep it in sync with Google", "Bing still powers a meaningful share of search and voice assistants — "
          "don't let it go stale just because Google gets the attention."),
     ], steps_es=[
-        ("Ve a Bing Places for Business", "Inicia sesión con una cuenta de Microsoft."),
+        ('<a href="https://www.bingplaces.com/" target="_blank" rel="noopener">Ve a Bing Places for Business</a>', "Inicia sesión con una cuenta de Microsoft."),
         ("Importa desde Google, o agrégalo a mano", "Bing ofrece una importación directa desde un Google "
          "Business Profile existente, que suele ser más rápido que empezar de cero."),
-        ("Verifica tu listado", "Opciones similares a Google -- teléfono, postal o correo según la "
+        ("Verifica tu listado", "Opciones similares a Google — teléfono, postal o correo según la "
          "elegibilidad."),
         ("Mantenlo sincronizado con Google", "Bing sigue impulsando una parte importante de las búsquedas y "
-         "los asistentes de voz -- no dejes que se desactualice solo porque Google se lleva la atención."),
+         "los asistentes de voz — no dejes que se desactualice solo porque Google se lleva la atención."),
     ])
     tag_attr = CC._es_attr("NO TE SALTES ESTE")
     h2_attr = CC._es_attr("Bing Places for Business")
@@ -622,15 +615,15 @@ def listings_bing():
 
 def listings_apple():
     steps = CC.steps_list([
-        ("Go to Apple Business Connect", "Sign in with an Apple ID."),
+        ('<a href="https://businessconnect.apple.com/" target="_blank" rel="noopener">Go to Apple Business Connect</a>', "Sign in with an Apple ID."),
         ("Claim or add your location", "Apple will try to match an existing listing from Apple Maps data first."),
-        ("Verify ownership", "Options vary by business type -- phone verification is common."),
+        ("Verify ownership", "Options vary by business type — phone verification is common."),
         ("Fill out the profile", "Hours, photos, and a short description show up directly in Apple Maps and Siri results."),
     ], steps_es=[
-        ("Ve a Apple Business Connect", "Inicia sesión con un Apple ID."),
+        ('<a href="https://businessconnect.apple.com/" target="_blank" rel="noopener">Ve a Apple Business Connect</a>', "Inicia sesión con un Apple ID."),
         ("Reclama o agrega tu ubicación", "Apple intentará primero encontrar un listado existente a partir de "
          "datos de Apple Maps."),
-        ("Verifica la propiedad", "Las opciones varían según el tipo de negocio -- la verificación por "
+        ("Verifica la propiedad", "Las opciones varían según el tipo de negocio — la verificación por "
          "teléfono es común."),
         ("Completa el perfil", "El horario, las fotos y una breve descripción aparecen directamente en Apple "
          "Maps y en los resultados de Siri."),
@@ -648,19 +641,19 @@ def listings_apple():
 def listings_nap():
     body = CC.tip_box("NAP = NAME, ADDRESS, PHONE",
         "Every listing above should show the <strong>exact same</strong> business name, address, and phone "
-        "number -- down to how the street type is abbreviated (\"St\" vs \"Street\"). Inconsistent NAP data "
+        "number — down to how the street type is abbreviated (\"St\" vs \"Street\"). Inconsistent NAP data "
         "across listings is one of the most common, most avoidable reasons a business underperforms in local "
-        "search -- it actively confuses search engines about which listing is authoritative.",
+        "search — it actively confuses search engines about which listing is authoritative.",
         "Keep a single reference doc with the exact, final wording of your name/address/phone, and copy from "
-        "it every time -- never retype it from memory into a new directory.",
+        "it every time — never retype it from memory into a new directory.",
         label_es="NAP = NOMBRE, DIRECCIÓN, TELÉFONO",
         es=["Cada listado de arriba debería mostrar exactamente el mismo nombre de negocio, dirección y "
-            "teléfono -- <strong>exactamente igual</strong>, hasta cómo se abrevia el tipo de calle (\"Av.\" "
+            "teléfono — <strong>exactamente igual</strong>, hasta cómo se abrevia el tipo de calle (\"Av.\" "
             "vs \"Avenida\"). Los datos NAP inconsistentes entre listados son una de las razones más comunes "
-            "y más evitables de que un negocio tenga bajo rendimiento en búsquedas locales -- confunde "
+            "y más evitables de que un negocio tenga bajo rendimiento en búsquedas locales — confunde "
             "activamente a los motores de búsqueda sobre qué listado es el autoritativo.",
             "Mantén un solo documento de referencia con la redacción exacta y final de tu nombre/dirección/"
-            "teléfono, y cópialo de ahí cada vez -- nunca lo vuelvas a escribir de memoria en un nuevo "
+            "teléfono, y cópialo de ahí cada vez — nunca lo vuelvas a escribir de memoria en un nuevo "
             "directorio."])
     tag_attr = CC._es_attr("EL ERROR MÁS COMÚN")
     h2_attr = CC._es_attr("Mantén cada listado consistente")
@@ -758,12 +751,13 @@ def build():
         + panel_basics()
         + panel_built()
         + panel_listings()
-        + f'<section class="sec" style="padding-top:0"><div class="wrap">'
-          + CC.inline_cta("Want a site built with all of this already done for you?",
-                           "https://maintain.style/portfolio.html", "View SEO-Ready Sites",
-                           text_es="¿Quieres un sitio construido con todo esto ya hecho por ti?",
-                           label_es="Ver Sitios Listos para SEO")
-          + "</div></section>"
+        + '''<section class="sec" style="padding-top:0"><div class="wrap"><div class="inline-cta">
+  <p data-es="¿Quieres un sitio construido con todo esto ya hecho por ti?">Want a site built with all of this already done for you?</p>
+  <div class="hero-btns" style="margin:0">
+    <a class="btn btn-primary" href="https://maintain.style/portfolio.html" data-es="Ver Sitios Listos para SEO">View SEO-Ready Sites</a>
+    <a class="btn btn-ghost" href="index.html#bots" data-es="Conoce la Oficina de Bots">Meet the Bot Office</a>
+  </div>
+</div></div></section>'''
         + S.footer()
         + S.back_to_top()
         + tabs_script()

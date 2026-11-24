@@ -33,6 +33,24 @@ HOME_CSS = """
 #advanced .adv-updates > p{font-size:16px;margin-bottom:4px}
 #advanced .adv-updates .bot-does{display:grid;grid-template-columns:1fr 1fr;column-gap:28px}
 #advanced .hero-btns{margin-top:18px}
+.hero .hero-grid{display:grid;grid-template-columns:minmax(0,1fr) 55%;gap:36px;align-items:center}
+.hero .hero-copy{text-align:left}
+.hero .hero-copy h1,.hero .hero-copy .lead{margin-left:0;margin-right:0;text-align:left}
+.hero .hero-copy .hero-btns{justify-content:flex-start}
+.hero,.hero-grid{overflow-x:clip}
+.hero-art,.hero-art img{display:block;width:100%;max-width:100%;height:auto;margin-left:auto;margin-right:auto}
+.hero-art img{-webkit-mask-image:radial-gradient(ellipse 74% 70% at 62% 50%, #000 46%, transparent 78%);mask-image:radial-gradient(ellipse 74% 70% at 62% 50%, #000 46%, transparent 78%)}
+@media(max-width:900px){
+ .hero .hero-grid{display:block}
+ .hero .hero-copy,.hero .hero-copy h1,.hero .hero-copy .lead{text-align:center}
+ .hero .hero-copy h1,.hero .hero-copy .lead{margin-left:auto;margin-right:auto}
+ .hero .hero-copy .hero-btns{justify-content:center}
+ .hero-art{margin-top:32px}
+ .hero-art img{border-radius:16px;-webkit-mask-image:none;mask-image:none}
+}
+@media(max-width:767px){
+ .hero-art img{aspect-ratio:4/3}
+}
 @media(max-width:980px){#advanced .cards.six{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:700px){
  #advanced .cards.six{grid-template-columns:1fr}
@@ -42,78 +60,90 @@ HOME_CSS = """
 """
 
 def hero():
-    primary = f'<a class="btn btn-primary" href="#packages">{CC._esc(C.HERO_PRIMARY)}</a>'
-    secondary = f'<a class="btn btn-ghost" href="#guides">{CC._esc(C.HERO_SECONDARY)}</a>'
-    return f"""<section class="hero"><div class="wrap">
-  <h1>{CC._esc(C.HERO_H1)}</h1>
-  <p class="lead">{CC._esc(C.HERO_SUB)}</p>
+    primary = f'<a class="btn btn-primary" href="#packages"{CC.A(C.HERO_PRIMARY)}>{CC._esc(C.HERO_PRIMARY)}</a>'
+    secondary = f'<a class="btn btn-ghost" href="#guides"{CC.A(C.HERO_SECONDARY)}>{CC._esc(C.HERO_SECONDARY)}</a>'
+    alt = "A team of AI bots at their desks handling social posts, reviews, email, and website updates."
+    alt_es = "Un equipo de bots de IA en sus escritorios, encargados de publicaciones, reseñas, correo y actualizaciones del sitio."
+    art = (f'<picture class="hero-art">'
+           f'<source media="(max-width: 767px)" srcset="assets/bot-office-hero-mobile.webp" type="image/webp">'
+           f'<source media="(max-width: 767px)" srcset="assets/bot-office-hero-mobile.jpg" type="image/jpeg">'
+           f'<source srcset="assets/bot-office-hero.webp" type="image/webp">'
+           f'<img src="assets/bot-office-hero.jpg" width="1280" height="720" alt="{CC._esc(alt)}" '
+           f'data-es-alt="{CC._esc(alt_es)}" fetchpriority="high"></picture>')
+    return f"""<section class="hero"><div class="wrap hero-grid">
+  <div class="hero-copy">
+  <h1{CC.A(C.HERO_H1)}>{CC._esc(C.HERO_H1)}</h1>
+  <p class="lead"{CC.A(C.HERO_SUB)}>{CC._esc(C.HERO_SUB)}</p>
   <div class="hero-btns">{primary}{secondary}</div>
+  </div>
+  {art}
 </div></section>"""
 
 def benefits():
     cards = "".join(
-        f'<div class="card"><h3>{CC._esc(title)}</h3><p>{CC._esc(body)}</p></div>'
+        f'<div class="card"><h3{CC.A(title)}>{CC._esc(title)}</h3><p{CC.A(body)}>{CC._esc(body)}</p></div>'
         for title, body in C.BENEFITS)
     return f"""<section class="sec" id="benefits"><div class="wrap">
+  <h2 class="sr-only"{CC.A("Why a Bot Office")}>Why a Bot Office</h2>
   <div class="cards">{cards}</div>
 </div></section>"""
 
 def _bot_cards(bots):
     cards = []
     for b in bots:
-        items = "".join(f"<li>{CC._esc(line)}</li>" for line in b["does"])
-        intro = f'<p class="bot-intro">{CC._esc(b["intro"])}</p>' if b.get("intro") else ""
+        items = "".join(f"<li{CC.A(line)}>{CC._esc(line)}</li>" for line in b["does"])
+        intro = f'<p class="bot-intro"{CC.A(b["intro"])}>{CC._esc(b["intro"])}</p>' if b.get("intro") else ""
         cards.append(
-            f'<article class="card bot-card"><h3>{CC._esc(b["name"])}</h3>'
-            f'<p class="bot-promise">{CC._esc(b["promise"])}</p>'
+            f'<article class="card bot-card"><h3{CC.A(b["name"])}>{CC._esc(b["name"])}</h3>'
+            f'<p class="bot-promise"{CC.A(b["promise"])}>{CC._esc(b["promise"])}</p>'
             f'{intro}'
             f'<ul class="bot-does">{items}</ul>'
-            f'<p class="bot-get"><strong>You get:</strong> {CC._esc(b["you_get"])}</p></article>')
+            f'{CC.you_get(b["you_get"])}</article>')
     return "".join(cards)
 
 def bots():
     return f"""<section class="sec" id="bots"><div class="wrap">
-  <div class="sec-head"><h2>{CC._esc(C.BOTS_H2)}</h2>
-  <p class="lead">{CC._esc(C.BOTS_SUB)}</p></div>
+  <div class="sec-head"><h2{CC.A(C.BOTS_H2)}>{CC._esc(C.BOTS_H2)}</h2>
+  <p class="lead"{CC.A(C.BOTS_SUB)}>{CC._esc(C.BOTS_SUB)}</p></div>
   <div class="cards quad">{_bot_cards(C.BOTS)}</div>
-  <p class="bot-close">{CC._esc(C.BOTS_CLOSE)}</p>
+  <p class="bot-close"{CC.A(C.BOTS_CLOSE)}>{CC._esc(C.BOTS_CLOSE)}</p>
 </div></section>"""
 
 def advanced():
-    updates = "".join(f"<li>{CC._esc(line)}</li>" for line in C.ADV_UPDATES)
+    updates = "".join(f"<li{CC.A(line)}>{CC._esc(line)}</li>" for line in C.ADV_UPDATES)
     return f"""<section class="sec" id="advanced"><div class="wrap">
-  <div class="sec-head"><h2>{CC._esc(C.ADV_H2)}</h2>
-  <p class="lead">{CC._esc(C.ADV_SUB)}</p>
-  <p class="lead">{CC._esc(C.ADV_INTRO)}</p></div>
+  <div class="sec-head"><h2{CC.A(C.ADV_H2)}>{CC._esc(C.ADV_H2)}</h2>
+  <p class="lead"{CC.A(C.ADV_SUB)}>{CC._esc(C.ADV_SUB)}</p>
+  <p class="lead"{CC.A(C.ADV_INTRO)}>{CC._esc(C.ADV_INTRO)}</p></div>
   <div class="cards six">{_bot_cards(C.ADV_BOTS)}</div>
-  <div class="card adv-updates"><h3>{CC._esc(C.ADV_UPDATES_H)}</h3>
-  <p>{CC._esc(C.ADV_UPDATES_P)}</p>
+  <div class="card adv-updates"><h3{CC.A(C.ADV_UPDATES_H)}>{CC._esc(C.ADV_UPDATES_H)}</h3>
+  <p{CC.A(C.ADV_UPDATES_P)}>{CC._esc(C.ADV_UPDATES_P)}</p>
   <ul class="bot-does">{updates}</ul></div>
-  <p class="bot-close">{CC._esc(C.ADV_CLOSE)}</p>
-  <div class="hero-btns"><a class="btn btn-primary" href="mailto:{C.EMAIL}">{CC._esc(C.ADV_BUTTON)}</a></div>
+  <p class="bot-close"{CC.A(C.ADV_CLOSE)}>{CC._esc(C.ADV_CLOSE)}</p>
+  <div class="hero-btns"><a class="btn btn-primary" href="mailto:{C.EMAIL}"{CC.A(C.ADV_BUTTON)}>{CC._esc(C.ADV_BUTTON)}</a></div>
 </div></section>"""
 
 def support():
-    items = "".join(f"<li><span>{CC._esc(line)}</span></li>" for line in C.SUPPORT)
+    items = "".join(f"<li{CC.A(line)}><span>{CC._esc(line)}</span></li>" for line in C.SUPPORT)
     return f"""<section class="sec" id="support"><div class="wrap">
-  <div class="sec-head"><h2>{CC._esc(C.SUPPORT_H2)}</h2></div>
+  <div class="sec-head"><h2{CC.A(C.SUPPORT_H2)}>{CC._esc(C.SUPPORT_H2)}</h2></div>
   <div class="split-col includes support-list"><ul class="check-list">{items}</ul></div>
 </div></section>"""
 
 def steps():
     blocks = "".join(
         f'<div class="process-step"><div class="step-num">{n}</div>'
-        f'<h3>{CC._esc(title)}</h3><p>{CC._esc(body)}</p></div>'
+        f'<h3{CC.A(title)}>{CC._esc(title)}</h3><p{CC.A(body)}>{CC._esc(body)}</p></div>'
         for n, title, body in C.STEPS)
     return f"""<section class="sec" id="how"><div class="wrap">
-  <div class="sec-head"><h2>{CC._esc(C.STEPS_H2)}</h2></div>
+  <div class="sec-head"><h2{CC.A(C.STEPS_H2)}>{CC._esc(C.STEPS_H2)}</h2></div>
   <div class="process">{blocks}</div>
 </div></section>"""
 
 def tools():
     return f"""<section class="sec" id="tools"><div class="wrap">
-  <div class="sec-head" style="max-width:760px"><h2>{CC._esc(C.TOOLS_H2)}</h2>
-  <p class="lead">{CC._esc(C.TOOLS_LEAD)}</p></div>
+  <div class="sec-head" style="max-width:760px"><h2{CC.A(C.TOOLS_H2)}>{CC._esc(C.TOOLS_H2)}</h2>
+  <p class="lead"{CC.A(C.TOOLS_LEAD)}>{CC._esc(C.TOOLS_LEAD)}</p></div>
 </div></section>"""
 
 def guides():
@@ -123,22 +153,56 @@ def guides():
         f'<p{CC._es_attr(p.get("desc_es"))}>{p["desc"]}</p></a>'
         for p in C.PILLARS)
     return f"""<section class="sec" id="guides"><div class="wrap">
-  <div class="sec-head"><h2>{CC._esc(C.GUIDES_H2)}</h2></div>
+  <div class="sec-head"><h2{CC.A(C.GUIDES_H2)}>{CC._esc(C.GUIDES_H2)}</h2></div>
   <div class="cards">{cards}</div>
 </div></section>"""
 
+def _faq_answer(a):
+    import copy_es
+    if a.endswith("See our Service Disclaimer for details."):
+        html = a.replace(
+            "Service Disclaimer",
+            '<a href="#disclaimer">Service Disclaimer</a>')
+        es = copy_es.ES[a].replace(
+            "Descargo de servicio",
+            '<a href="#disclaimer">Descargo de servicio</a>')
+        return f'<p{CC._es_html_attr(es)}>{html}</p>'
+    return f'<p{CC.A(a)}>{CC._esc(a)}</p>'
+
 def faq():
     items = "".join(
-        f"<details><summary>{CC._esc(q)}</summary><p>{CC._esc(a)}</p></details>"
+        f"<details><summary{CC.A(q)}>{CC._esc(q)}</summary>{_faq_answer(a)}</details>"
         for q, a in C.FAQ)
     return f"""<section class="sec" id="faq"><div class="wrap">
-  <div class="sec-head"><h2>{CC._esc(C.FAQ_H2)}</h2></div>
+  <div class="sec-head"><h2{CC.A(C.FAQ_H2)}>{CC._esc(C.FAQ_H2)}</h2></div>
   <div class="faq">{items}</div>
 </div></section>"""
 
+def disclaimer():
+    body = "".join(
+        f"<p{CC._es_attr(es)}>{CC._esc(en)}</p>"
+        for en, es in zip(C.DISCLAIMER, C.DISCLAIMER_ES))
+    return f"""<section class="sec" id="disclaimer"><div class="wrap">
+  <div class="sec-head"><h2{CC.A("Service Disclaimer")}>Service Disclaimer</h2></div>
+  <div class="disclaimer-body">{body}</div>
+</div></section>"""
+
+def faq_jsonld():
+    import json
+    data = {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {"@type": "Question", "name": q,
+             "acceptedAnswer": {"@type": "Answer", "text": a}}
+            for q, a in C.FAQ
+        ],
+    }
+    return '<script type="application/ld+json">\n' + json.dumps(data, ensure_ascii=False) + "\n</script>"
+
 def build():
     html = (
-        S.head(C.PAGE_TITLE, C.META_DESC, "index.html")
+        S.head(C.PAGE_TITLE, C.META_DESC, "index.html", extra=faq_jsonld())
         + f"<style>{HOME_CSS}</style>"
         + S.nav("index.html")
         + hero()
@@ -151,6 +215,7 @@ def build():
         + tools()
         + guides()
         + faq()
+        + disclaimer()
         + P.cta_band()
         + S.footer()
         + S.back_to_top()
