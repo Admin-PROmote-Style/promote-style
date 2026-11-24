@@ -168,18 +168,18 @@ ES = {
     "Full Basic Package": "Paquete Basic Completo",
     "Full Advanced Package": "Paquete Avanzado Completo",
     "Full Custom Package": "Paquete Personalizado Completo",
-    "Custom website by mAIntAIn Style, a full custom package with extras like logo design":
-        "Sitio personalizado de mAIntAIn Style, un paquete personalizado completo con extras como el diseño de logotipo",
-    "Website Bot: update your site by chatting with your bots. If your site was built by mAIntAIn Style, it works with the Client Style editor that comes with it.":
-        "Bot del Sitio: actualiza tu sitio conversando con tus bots. Si tu sitio fue hecho por mAIntAIn Style, funciona con el editor de Client Style que viene con él.",
+    "Custom website by mAIntAIn Style, with custom logo design and everything in the Custom Website plan":
+        "Sitio personalizado de mAIntAIn Style, con diseño de logotipo personalizado y todo lo del plan Sitio Personalizado",
+    "Website Bot: update your site by chatting with your bots. It works on any website you own. Sites built by mAIntAIn Style also come with the Client Style editor.":
+        "Bot del Sitio: actualiza tu sitio conversando con tus bots. Funciona con cualquier sitio web que tengas. Los sitios hechos por mAIntAIn Style también vienen con el editor de Client Style.",
     "Good to know": "Bueno saber",
     "Already have a mAIntAIn Style website? Add a Bot Office within 90 days of your site's launch and you still get the bundle price.":
         "¿Ya tienes un sitio de mAIntAIn Style? Agrega una Oficina de Bots dentro de los 90 días del lanzamiento de tu sitio y aún obtienes el precio del paquete.",
     "90 days of fixes and tweaks with every package. In a bundle, your website and your Bot Office each get their own 90 days, starting when each one launches.":
         "90 días de arreglos y ajustes con cada paquete. En un paquete combinado, tu sitio y tu Oficina de Bots tienen cada uno sus propios 90 días, que empiezan cuando cada uno se lanza.",
     "After that, fixes start at $75.": "Después, los arreglos empiezan en $75.",
-    "Bot Office upgrade with the latest bots and features: $500. We rebuild your whole Bot Office with everything new.":
-        "Mejora de la Oficina de Bots con los bots y funciones más nuevos: $500. Reconstruimos toda tu Oficina de Bots con todo lo nuevo.",
+    "Bot Office upgrade with the latest bots and features: $500. We rebuild your whole Bot Office with everything new. This also moves a Basic Bot Office up to Advanced.":
+        "Mejora de la Oficina de Bots con los bots y funciones más recientes: $500. Reconstruimos toda tu Oficina de Bots con todo lo nuevo. También sube una Oficina de Bots Basic a Advanced.",
     "Fixes needed because of Client Style updates are always free.":
         "Los arreglos necesarios por actualizaciones de Client Style siempre son gratis.",
     "Prices updated November 2026.": "Precios actualizados en noviembre de 2026.",
@@ -237,8 +237,8 @@ ES = {
     "Not from us. You only pay for your own Cursor plan.":
         "No de nuestra parte. Solo pagas tu propio plan de Cursor.",
     "What if I need help later?": "¿Y si necesito ayuda después?",
-    "Every package includes 90 days of fixes. After that, fixes start at $75.":
-        "Cada paquete incluye 90 días de arreglos. Después, los arreglos empiezan en $75.",
+    "Every package includes 90 days of fixes, and bundles get a separate 90 days for the website and the Bot Office. After that, fixes start at $75.":
+        "Cada paquete incluye 90 días de arreglos, y los paquetes combinados tienen 90 días aparte para el sitio y la Oficina de Bots. Después, los arreglos empiezan en $75.",
     "Do I need a new website?": "¿Necesito un sitio nuevo?",
     "No, but your bots can do the most with a mAIntAIn Style website.":
         "No, pero tus bots rinden más con un sitio de mAIntAIn Style.",

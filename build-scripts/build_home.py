@@ -124,7 +124,14 @@ def advanced():
 </div></section>"""
 
 def support():
-    items = "".join(f"<li{CC.A(line)}><span>{CC._esc(line)}</span></li>" for line in C.SUPPORT)
+    # Homepage Spanish for the shared 90-day line. Pricing keeps its own translation.
+    home_es = {
+        "90 days of fixes and tweaks with every package. In a bundle, your website and your Bot Office each get their own 90 days, starting when each one launches.":
+            "90 días de arreglos y ajustes con cada paquete. En un paquete combinado, tu sitio y tu Oficina de Bots tienen cada uno sus propios 90 días, desde que cada uno se lanza.",
+    }
+    items = "".join(
+        f"<li{CC._es_attr(home_es[line]) if line in home_es else CC.A(line)}><span>{CC._esc(line)}</span></li>"
+        for line in C.SUPPORT)
     return f"""<section class="sec" id="support"><div class="wrap">
   <div class="sec-head"><h2{CC.A(C.SUPPORT_H2)}>{CC._esc(C.SUPPORT_H2)}</h2></div>
   <div class="split-col includes support-list"><ul class="check-list">{items}</ul></div>
