@@ -6,6 +6,8 @@ ES = {
     "PROmote Style sets up a team of AI bots that keep your business visible: posting to social media, replying to reviews, handling your inbox, and keeping your website up to date. You stay in control.":
         "PROmote Style configura un equipo de bots de IA que mantienen tu negocio visible: publican en redes, responden reseñas, atienden tu bandeja y mantienen tu sitio al día. Tú sigues al mando.",
     "See the packages": "Ver los paquetes",
+    "Simple, one-time pricing": "Precios simples, de un solo pago",
+    "Bot Offices start at $500. You own everything. No monthly fees from us.": "Las Oficinas de Bots empiezan en $500. Todo es tuyo. Sin cuotas mensuales de nuestra parte.",
     "Free marketing guides": "Guías de marketing gratis",
     "Why a Bot Office": "Por qué una Oficina de Bots",
     "Always on.": "Siempre activos.",

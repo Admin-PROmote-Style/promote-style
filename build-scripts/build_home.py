@@ -60,7 +60,7 @@ HOME_CSS = """
 """
 
 def hero():
-    primary = f'<a class="btn btn-primary" href="#packages"{CC.A(C.HERO_PRIMARY)}>{CC._esc(C.HERO_PRIMARY)}</a>'
+    primary = f'<a class="btn btn-primary" href="pricing.html"{CC.A(C.HERO_PRIMARY)}>{CC._esc(C.HERO_PRIMARY)}</a>'
     secondary = f'<a class="btn btn-ghost" href="#guides"{CC.A(C.HERO_SECONDARY)}>{CC._esc(C.HERO_SECONDARY)}</a>'
     alt = "A team of AI bots at their desks handling social posts, reviews, email, and website updates."
     alt_es = "Un equipo de bots de IA en sus escritorios, encargados de publicaciones, reseñas, correo y actualizaciones del sitio."
@@ -178,6 +178,15 @@ def faq():
   <div class="faq">{items}</div>
 </div></section>"""
 
+def pricing_teaser():
+    heading = "Simple, one-time pricing"
+    text = "Bot Offices start at $500. You own everything. No monthly fees from us."
+    return f"""<section class="sec" id="pricing"><div class="wrap">
+  <div class="sec-head"><h2{CC.A(heading)}>{CC._esc(heading)}</h2>
+  <p class="lead"{CC.A(text)}>{CC._esc(text)}</p></div>
+  <div class="hero-btns"><a class="btn btn-primary" href="pricing.html"{CC.A(C.HERO_PRIMARY)}>{CC._esc(C.HERO_PRIMARY)}</a></div>
+</div></section>"""
+
 def disclaimer():
     body = "".join(
         f"<p{CC._es_attr(es)}>{CC._esc(en)}</p>"
@@ -209,7 +218,7 @@ def build():
         + benefits()
         + bots()
         + advanced()
-        + P.packages_section("h2")
+        + pricing_teaser()
         + support()
         + steps()
         + tools()
