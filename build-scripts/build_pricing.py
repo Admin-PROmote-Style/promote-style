@@ -50,11 +50,14 @@ def packages_section(heading="h2", disclaimer_href="#disclaimer"):
 .plan-card .know p{{color:var(--cream);font-size:15px;line-height:1.55;margin:0 0 14px}}
 .plan-card .know p.fine{{color:var(--cream-muted);font-size:12.5px;line-height:1.5}}
 .plan-card .know a{{color:var(--gold);text-decoration:underline}}
+#packages{{padding-bottom:0}}
+#support{{padding-top:0}}
 </style>
 <section class="sec" id="packages"><div class="wrap">
   <div class="sec-head"><{heading}{CC.A(C.PACKAGES_H2)}>{CC._esc(C.PACKAGES_H2)}</{heading}>
   <p class="lead"{CC.A(C.PACKAGES_SUB)}>{CC._esc(C.PACKAGES_SUB)}</p></div>
   {plan_grid(disclaimer_href)}
+  <p style="text-align:center;font-size:12px;color:var(--cream-muted);opacity:.7;margin:20px auto"{CC.A(C.PRICES_UPDATED)}>{CC._esc(C.PRICES_UPDATED)}</p>
 </div></section>"""
 
 def support_section():
@@ -78,7 +81,6 @@ def build():
         + packages_section("h1", "https://promote.style/index.html#disclaimer")
         + support_section()
         + cta_band()
-        + f'<p class="wrap" style="text-align:center;font-size:12px;color:var(--cream-muted);opacity:.7;margin:0 auto 28px"{CC.A(C.PRICES_UPDATED)}>{CC._esc(C.PRICES_UPDATED)}</p>'
         + S.footer()
         + S.back_to_top()
         + S.close_html()
