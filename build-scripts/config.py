@@ -281,7 +281,7 @@ FAQ = [
      "Each tool is run by its own company, and you hold the account directly. We set everything up and support our setup work, but we don't control those services. See our Service Disclaimer for details."),
 ]
 
-PRICING_TITLE = "Bot Office Pricing | One-Time Setup, No Monthly Fees | PROmote Style"
+PRICING_TITLE = "Bot Office Pricing | One-Time Setup, No Monthly Fees From Us | PROmote Style"
 PRICING_DESC = ("Basic Bot Office $500, Advanced Bot Office $1,000, or bundle a new website from $750. "
                 "One-time setup, no monthly fees from us.")
 CONTACT_TITLE = "Contact PROmote Style | Set Up Your Bot Office"
